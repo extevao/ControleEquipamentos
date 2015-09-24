@@ -1,0 +1,39 @@
+<meta charset="utf-8" />
+<div class="page-header text-center">
+	<h1>Cadastro de Usuários</h1>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+		</div>
+	</div>
+</div>
+
+<form novalidate name="formulario" class="row" ng-submit="submeter()">
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					<label>Nome</label> <input ng-model="usuario.nome" name="nome" class="form-control" required ng-maxlength="20"> 
+					<span ng-show="formulario.$submitted && formulario.nome.$error.required"class="form-control alert-danger"> Nome obrigatório </span> 
+					<span ng-show="formulario.$submitted && formulario.nome.$error.maxlength" class="form-control alert-danger"> Deve ter no máximo 20 caracteres </span>
+				</div>
+				<div class="form-group">
+					<label>Sobre Nome</label> <input ng-model="usuario.sobreNome" name="sobreNome" class="form-control" required>
+					<span ng-show="formulario.$submitted && formulario.sobreNome.$error.required" class="form-control alert-danger"> Sobre Nome obrigatório </span>
+				</div>
+				<div class="form-group">
+					<label>Email</label> <input ng-model="usuario.email" name="email" class="form-control" required>
+					 <span ng-show="formulario.$submitted && formulario.email.$error.required" class="form-control alert-danger"> Email obrigatório </span>
+				</div>
+				<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
+				<a href="#/" class="btn btn-primary">Voltar</a>
+				<hr />
+			</div>
+		</div>
+	</div>
+
+</form>
