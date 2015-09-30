@@ -10,7 +10,7 @@ public class Funcionario implements Serializable {
 	private static final long serialVersionUID = 2709836540260025787L;
 	private int id;
 	private String nome;
-	private String sobreNome;
+	private String sobrenome;
 	private String email;
 	private String cargo;
 	private int idSetor;
@@ -23,7 +23,7 @@ public class Funcionario implements Serializable {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.sobreNome = sobreNome;
+		this.sobrenome = sobreNome;
 		this.email = email;
 		this.cargo = cargo;
 		this.idSetor = idSetor;
@@ -31,7 +31,7 @@ public class Funcionario implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Funcionario [id=" + id + ", nome=" + nome + ", sobreNome=" + sobreNome + ", email=" + email + ", cargo="
+		return "Funcionario [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", email=" + email + ", cargo="
 				+ cargo + ", idSetor=" + idSetor + "]";
 	}
 	public int getId() {
@@ -47,10 +47,10 @@ public class Funcionario implements Serializable {
 		this.nome = nome;
 	}
 	public String getSobreNome() {
-		return sobreNome;
+		return sobrenome;
 	}
 	public void setSobreNome(String sobreNome) {
-		this.sobreNome = sobreNome;
+		this.sobrenome = sobreNome;
 	}
 	public String getEmail() {
 		return email;

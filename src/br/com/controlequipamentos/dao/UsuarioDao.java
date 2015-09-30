@@ -25,7 +25,7 @@ public class UsuarioDao {
 				Usuario usuario = new Usuario();
 				usuario.setId(rs.getInt("id"));
 				usuario.setNome(rs.getString("nome"));
-				usuario.setSobreNome(rs.getString("sobrenome"));
+				usuario.setSobrenome(rs.getString("sobrenome"));
 				usuario.setEmail(rs.getString("email"));
 				listaUsuarios.add(usuario);
 			}
@@ -47,7 +47,7 @@ public class UsuarioDao {
 				Usuario usuario = new Usuario();
 				usuario.setId(rs.getInt("id"));
 				usuario.setNome(rs.getString("nome"));
-				usuario.setSobreNome(rs.getString("sobrenome"));
+				usuario.setSobrenome(rs.getString("sobrenome"));
 				usuario.setEmail(rs.getString("email"));
 				listaUsuario.add(usuario);
 			}
@@ -63,7 +63,7 @@ public class UsuarioDao {
 		try {
 			this.stmt = this.connection.prepareStatement(sbInsert.toString());
 			this.stmt.setString(1, usuario.getNome());
-			this.stmt.setString(2, usuario.getSobreNome());
+			this.stmt.setString(2, usuario.getSobrenome());
 			this.stmt.setString(3, usuario.getEmail());
 			this.stmt.executeUpdate();
 			System.out.println("Usuário inserido com sucesso!");			
@@ -78,7 +78,7 @@ public class UsuarioDao {
 		try {
 			this.stmt = this.connection.prepareStatement(sbUpdate.toString());
 			this.stmt.setString(1, usuario.getNome());
-			this.stmt.setString(2, usuario.getSobreNome());
+			this.stmt.setString(2, usuario.getSobrenome());
 			this.stmt.setString(3, usuario.getEmail());
 			this.stmt.setInt(4, usuario.getId());
 			this.stmt.executeUpdate();

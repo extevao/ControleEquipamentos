@@ -7,7 +7,7 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = 913854533111421693L;
 	private int id;
 	private String nome;
-	private String sobreNome;
+	private String sobrenome;
 	private String email;
 
 	public Usuario() {
@@ -17,13 +17,13 @@ public class Usuario implements Serializable {
 	public Usuario(int id, String nome, String sobreNome, String email) {
 		this.id = id;
 		this.nome = nome;
-		this.sobreNome = sobreNome;
+		this.sobrenome = sobreNome;
 		this.email = email;
 	}
 	
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nome=" + nome + ", sobreNome=" + sobreNome + ", email=" + email + "]";
+		return "Usuario [id=" + id + ", nome=" + nome + ", sobreNome=" + sobrenome + ", email=" + email + "]";
 	}
 
 	public int getId() {
@@ -43,12 +43,12 @@ public class Usuario implements Serializable {
 	}
 
 
-	public String getSobreNome() {
-		return sobreNome;
+	public String getSobrenome() {
+		return sobrenome;
 	}
 
-	public void setSobreNome(String sobreNome) {
-		this.sobreNome = sobreNome;
+	public void setSobrenome(String sobreNome) {
+		this.sobrenome = sobreNome;
 	}
 
 	public String getEmail() {

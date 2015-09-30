@@ -1,18 +1,19 @@
 angular.module('controleEquipamentos', ['ngRoute'])
 .config(function($routeProvider) {
 
-	$routeProvider.when('/index', {
-		templateUrl: 'partials/principal-usuarios.html',
+	$routeProvider.when('/usuario', {
+		templateUrl: 'partials/usuario/principal-usuarios.html',
 		controller: 'usuariosController'
 	});	
 	$routeProvider.when('/usuario/new', {
-		templateUrl: 'partials/cadastro-usuario.html',
-		controller: 'usuarioController'
+		templateUrl: 'partials/usuario/formulario-usuario.html',
+		controller: 'UsuarioController'
 	});	
-	$routeProvider.when('/usuario/editar', {
-		templateUrl: 'partials/em-construcao.html'
+	$routeProvider.when('/usuario/edit/:usuarioId', {
+		templateUrl: 'partials/usuario/formulario-usuario.html',
+		controller: 'UsuarioController'
 	});	
 	
-	$routeProvider.otherwise({ redirectTo: '/index'});
+	$routeProvider.otherwise({ redirectTo: '/usuario'});
 
 });

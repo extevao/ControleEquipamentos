@@ -1,34 +1,49 @@
 <!-- public/index.html -->
 <!DOCTYPE html>
-<html lang="pt-br" ng-app=moduloPrincipalParaTestes>
+<html lang="pt-br" ng-app="moduloPrincipal">
 <head>
 <meta charset="utf-8">
-<title>Teste popular formulário</title>
+<title>Exemplo do angular</title>
 <!-- import folhas de estilo -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-<!-- import minha folha de estilo -->
-<link rel="stylesheet" href="css/ui.css">
 <!-- import scripts Angular-->
-<script src="js/lib/angular.js"></script>
-<script src="js/lib/angular-resource.min.js"></script>
-<!-- import modulo principal angular  -->
-<script src="js/principal-testes.js"></script>
-<!-- import scripts da minhas Diretivas Angular-->
-<script src="js/directives/uiAlertDirective.js"></script>
+<script src="js/lib/angular.min.js"></script>
+<script type="text/javascript">
+	angular.module('moduloPrincipal', []);
+	angular.module('moduloPrincipal').controller('moduloPrincipalControle', function($scope, $http){
+		$scope.lista =[];
+		$scope.usuario = null;
+		
+		$http.get('api/v1/usuario').success(function(data){
+			$scope.lista = data;
+			console.log('Sucesso !!!');
+		}).error(function(erro){
+			console.log(erro);
+		});
+		$scope.remover = function(usuario){
+			$scope.usuario = usuario;
+		};
+		$scope.editar = function(usuario){
+			$scope.usuario = usuario;
+		};		
+		$scope.salvar = function(){
+			$scope.lista.push($scope.usuario);
+			$scope.usuario = null;
+		};
+	
+	});
+</script>
 </head>
 <body ng-controller="moduloPrincipalControle">
-
+	
 	<div class="container">
-		<div class="jumbotron">
-			<h3>Tela para testesx </h3>
-			<div ui-alert></div>
+		<div class="well">
+			<div class="form-group">
+				<label for="nome" class="control-label">Nome</label>
+				<input type="text" class="form-control" ng-model="termoBusca" placeholder="Filtrar lista de pessoas" />
+			</div>
 		</div>
-		
-		
-		<hr />
-		<div class="row">
-		<div class="col-md-6">
 			<table class="table table-striped table-bordered">
 				<tr>
 					<th>Id</th>
@@ -43,17 +58,13 @@
 					<td>{{usuario.sobrenome}}</td>
 					<td>{{usuario.email}}</td>
 					<td>
+						<button ng-click="remover(usuario)" class="btn btn-danger">Remover</button>
 						<button ng-click="editar(usuario)" class="btn btn-success">Editar</button>
 					</td>
 				</tr>
 			</table>
-		</div>
-		<div class="col-md-6">					
+			
 			<form ng-submit="salvar()">
-				<div class="form-group">
-					<label for="id" class="control-label">Id</label>
-					<input ng-model="usuario.id" type="text" class="form-control" name="id" placeholder="Id" />
-				</div>
 				<div class="form-group">
 					<label for="nome" class="control-label">Nome</label>
 					<input ng-model="usuario.nome" type="text" class="form-control" name="nome" placeholder="Nome" />
@@ -68,11 +79,7 @@
 				</div>
 				<button class="btn btn-primary">Salvar</button>
 			</form>
-		</div>
-		<hr />
-		</div>
 	</div>
 	
-
 </body>
 </html>

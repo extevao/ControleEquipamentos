@@ -17,7 +17,7 @@ public class ConexaoBanco {
 	public static void main(String[] args) {
 		
 		
-		
+		listarUsuariosCadastrados();
 	}
 	public  static void listarUsuariosCadastrados(){
 		UsuarioDao usuarioDao = new UsuarioDao();
@@ -32,7 +32,7 @@ public class ConexaoBanco {
 	public static void inserirUsuario(){
 		Usuario novoUsuario = new Usuario();
 		novoUsuario.setNome("Major");
-		novoUsuario.setSobreNome("guimarães");
+		novoUsuario.setSobrenome("guimarães");
 		novoUsuario.setEmail("guimarães@aod.com.br");
 		UsuarioDao usuarioDao = new UsuarioDao ();
 		usuarioDao.insert(novoUsuario);
@@ -44,7 +44,7 @@ public class ConexaoBanco {
 		for(Usuario usuariof : usuarioDao.selectId(id)){
 			System.out.println(usuariof.getId());
 			System.out.println(usuariof.getNome());
-			System.out.println(usuariof.getSobreNome());
+			System.out.println(usuariof.getSobrenome());
 			System.out.println(usuariof.getEmail());
 		}
 	}
@@ -75,7 +75,7 @@ public class ConexaoBanco {
 		
 		usuario.setId(3);
 		usuario.setNome("Fabio");
-		usuario.setSobreNome("Machado da Rosa");
+		usuario.setSobrenome("Machado da Rosa");
 		usuario.setEmail("suit@novoemail.com");
 		usuarioDao.update(usuario);
 	}
