@@ -59,21 +59,7 @@ public class CategoriaDao {
 	
 	//Método para inserir uma nova categoria
 	
-
-	public String salvar (Categoria categoria){
-		try{
-			if(categoria.getId() == 0){
-				insert(categoria);
-			}else{
-				update(categoria);
-			}
-			 return "ok";
-		}catch(Exception e){
-			e.printStackTrace();
-			return "não";
-		}
-		  
-	}	
+		 
 	public void insert(Categoria categoria) {
 		StringBuilder sbInsert = new StringBuilder();
 		sbInsert.append("INSERT INTO categoria SET nome= ?");

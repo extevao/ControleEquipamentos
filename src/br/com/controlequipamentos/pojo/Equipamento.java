@@ -18,7 +18,7 @@ public class Equipamento implements Serializable {
 	private String marca;
 	private int idCategoria;
 	private int idSetor;
-	private int idFuncioario;
+	private int idFuncionario;
 	private int idRequisito;
 	
 	public Equipamento(){
@@ -26,7 +26,7 @@ public class Equipamento implements Serializable {
 	}
 	
 	public Equipamento(int id, String nome, Date dataCompra, Date dataCadastro, Date dataInicioOperacao, String marca,
-			int idCategoria, int idSetor, int idFuncioario, int idRequisito) {
+			int idCategoria, int idSetor, int idFuncionario, int idRequisito) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -36,7 +36,7 @@ public class Equipamento implements Serializable {
 		this.marca = marca;
 		this.idCategoria = idCategoria;
 		this.idSetor = idSetor;
-		this.idFuncioario = idFuncioario;
+		this.idFuncionario = idFuncionario;
 		this.idRequisito = idRequisito;
 	}
 	
@@ -44,7 +44,7 @@ public class Equipamento implements Serializable {
 	public String toString() {
 		return "Equipamento [id=" + id + ", nome=" + nome + ", dataCompra=" + dataCompra + ", dataCadastro="
 				+ dataCadastro + ", dataInicioOperacao=" + dataInicioOperacao + ", marca=" + marca + ", idCategoria="
-				+ idCategoria + ", idSetor=" + idSetor + ", idFuncioario=" + idFuncioario + ", idRequisito="
+				+ idCategoria + ", idSetor=" + idSetor + ", idFuncionario=" + idFuncionario + ", idRequisito="
 				+ idRequisito + "]";
 	}
 	
@@ -90,11 +90,11 @@ public class Equipamento implements Serializable {
 	public void setIdSetor(int idSetor) {
 		this.idSetor = idSetor;
 	}
-	public int getIdFuncioario() {
-		return idFuncioario;
+	public int getIdFuncionario() {
+		return idFuncionario;
 	}
-	public void setIdFuncioario(int idFuncioario) {
-		this.idFuncioario = idFuncioario;
+	public void setIdFuncionario(int idFuncionario) {
+		this.idFuncionario = idFuncionario;
 	}
 	public int getIdRequisito() {
 		return idRequisito;
