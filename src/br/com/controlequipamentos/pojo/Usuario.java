@@ -6,25 +6,27 @@ public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 913854533111421693L;
 	private int id;
-	private String nome;
-	private String sobrenome;
-	private String email;
+	private String login;
+	private String senha;
+	private int idFuncionario;
 
-	public Usuario() {
-
+	public Usuario(){
+		
 	}
-
-	public Usuario(int id, String nome, String sobreNome, String email) {
+	public Usuario(int id, String login, String senha, int idFuncionario) {
+		super();
 		this.id = id;
-		this.nome = nome;
-		this.sobrenome = sobreNome;
-		this.email = email;
+		this.login = login;
+		this.senha = senha;
+		this.idFuncionario = idFuncionario;
 	}
+	
 	
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nome=" + nome + ", sobreNome=" + sobrenome + ", email=" + email + "]";
+		return "Usuario [id=" + id + ", login=" + login + ", senha=" + senha + ", idFuncionario=" + idFuncionario + "]";
 	}
+
 
 	public int getId() {
 		return id;
@@ -34,30 +36,35 @@ public class Usuario implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getLogin() {
+		return login;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
-
-	public String getSobrenome() {
-		return sobrenome;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setSobrenome(String sobreNome) {
-		this.sobrenome = sobreNome;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
-	public String getEmail() {
-		return email;
+	public int getIdFuncionario() {
+		return idFuncionario;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setIdFuncionario(int idFuncionario) {
+		this.idFuncionario = idFuncionario;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	
 
 
 

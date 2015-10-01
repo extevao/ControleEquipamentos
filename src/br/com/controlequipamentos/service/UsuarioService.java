@@ -37,9 +37,9 @@ public class UsuarioService {
 			usuarioDao = new UsuarioDao();
 			return usuarioDao.selectId(id);
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e);
+			return null;
 		}
-		return null;
 	}
 	
 	@PUT
@@ -50,7 +50,7 @@ public class UsuarioService {
 			usuarioDao.update(usuario);
 			System.out.println("Usuário alterado com sucesso apartir do serviço");
 		} catch (Exception e) {
-			System.out.println("Ocorreu um erro u ao alterar o usuário apartir do serviço" + e);
+			System.out.println(e);
 		}
 	}
 	@POST
@@ -59,10 +59,9 @@ public class UsuarioService {
 		try {
 			usuarioDao = new UsuarioDao();
 			usuarioDao.insert(usuario);
-			System.out.println("Usuário salvo apartir do serviço");
 			
 		} catch (Exception e) {
-			System.out.println("Ocorreu um erro ao salvar um novo usuário apartir do serviço " + e );
+			System.out.println(e);
 		}	
 	}
 	

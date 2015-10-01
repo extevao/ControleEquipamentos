@@ -9,39 +9,45 @@ import java.util.ArrayList;
 
 
 
-import br.com.controlequipamentos.dao.UsuarioDao;
-import br.com.controlequipamentos.pojo.Usuario;
+import br.com.controlequipamentos.dao.FuncionarioDao;
+import br.com.controlequipamentos.pojo.Funcionario;
 
 public class ConexaoBanco {
 
 	public static void main(String[] args) {
-		
+	
+		/*no inicio eu estava usando a classe 
+		 * de usuário para testar, mas depois alteramos as suas informações, 
+		 * e agora eu passei a usuar o funcionario como modelo, pois ela é muito
+		 * similar ao antiga classe usuário por esse motivo está bem loko esta 
+		 * classe 
+		 */
 		
 		listarUsuariosCadastrados();
 	}
 	public  static void listarUsuariosCadastrados(){
-		UsuarioDao usuarioDao = new UsuarioDao();
-		for(Usuario usuariof : usuarioDao.select()){
-			System.out.println(usuariof.getId());
-			System.out.println(usuariof.getNome());
-			System.out.println(usuariof.getEmail());
+		FuncionarioDao funcionarioDao = new FuncionarioDao();
+		for(Funcionario funcionario : funcionarioDao.select()){
+			System.out.println(funcionario.getId());
+			System.out.println(funcionario.getNome());
+			System.out.println(funcionario.getEmail());
 		}
 		System.out.println("teste");
 	}
 	
 	public static void inserirUsuario(){
-		Usuario novoUsuario = new Usuario();
+		Funcionario novoUsuario = new Funcionario();
 		novoUsuario.setNome("Major");
 		novoUsuario.setSobrenome("guimarães");
 		novoUsuario.setEmail("guimarães@aod.com.br");
-		UsuarioDao usuarioDao = new UsuarioDao ();
+		FuncionarioDao usuarioDao = new FuncionarioDao ();
 		usuarioDao.insert(novoUsuario);
 	}
 	
 	public static void listarPorId(int id){
-		UsuarioDao usuarioDao = new UsuarioDao ();
+		FuncionarioDao usuarioDao = new FuncionarioDao ();
 		
-		for(Usuario usuariof : usuarioDao.selectId(id)){
+		for(Funcionario usuariof : usuarioDao.selectId(id)){
 			System.out.println(usuariof.getId());
 			System.out.println(usuariof.getNome());
 			System.out.println(usuariof.getSobrenome());
@@ -70,8 +76,8 @@ public class ConexaoBanco {
 		}
 	}
 	public static void alterar(){
-		Usuario usuario = new Usuario();
-		UsuarioDao usuarioDao = new UsuarioDao();
+		Funcionario usuario = new Funcionario();
+		FuncionarioDao usuarioDao = new FuncionarioDao();
 		
 		usuario.setId(3);
 		usuario.setNome("Fabio");
