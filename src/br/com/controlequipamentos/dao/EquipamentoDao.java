@@ -17,7 +17,7 @@ public class EquipamentoDao {
 	public ArrayList<Equipamento> select (){
 		ArrayList<Equipamento>listaEquipamento = new ArrayList<>();
 		StringBuilder sbSelect = new StringBuilder();
-		sbSelect.append("SELECT * FROM categoria");
+		sbSelect.append("SELECT * FROM Equipamento");
 		try {
 			this.stmt = this.connection.prepareStatement(sbSelect.toString());
 			this.rs = stmt.executeQuery();
@@ -46,7 +46,7 @@ public class EquipamentoDao {
 	public ArrayList<Equipamento> selectId(int id) {
 		ArrayList<Equipamento> listaEquipamento = new ArrayList<>();
 		StringBuilder sbSelec = new StringBuilder();
-		sbSelec.append("SELECT * FROM equipamento WHERE id  = ?");
+		sbSelec.append("SELECT * FROM Equipamento WHERE id  = ?");
 		try {
 			this.stmt = this.connection.prepareStatement(sbSelec.toString());
 			this.stmt.setInt(1, id);
@@ -74,7 +74,7 @@ public class EquipamentoDao {
 	
 	public void insert(Equipamento equipamento) {
 		StringBuilder sbInsert = new StringBuilder();
-		sbInsert.append("INSERT INTO equipamento SET nome=?, data=?, datacadastro=?, datainiciooperacao=?, marca=?, idCategoria=?, idSetor=?, idFuncionario=?, idRequisito=? ");
+		sbInsert.append("INSERT INTO Equipamento SET nome=?, data=?, datacadastro=?, datainiciooperacao=?, marca=?, idCategoria=?, idSetor=?, idFuncionario=?, idRequisito=? ");
 		try {
 			
 			this.stmt = this.connection.prepareStatement(sbInsert.toString());
@@ -98,7 +98,7 @@ public class EquipamentoDao {
 	}
 	public void update(Equipamento equipamento) {
 		StringBuilder sbUpdate = new StringBuilder();
-		sbUpdate.append("UPDATE equipamento SET nome=?, data=?, datacadastro=?, datainiciooperacao=?, marca=?, idCategoria=?, idSetor=?, idFuncionario=?, idRequisito=?  WHERE id = ? ");
+		sbUpdate.append("UPDATE Equipamento SET nome=?, data=?, datacadastro=?, datainiciooperacao=?, marca=?, idCategoria=?, idSetor=?, idFuncionario=?, idRequisito=?  WHERE id = ? ");
 		try {
 			
 			this.stmt = this.connection.prepareStatement(sbUpdate.toString());

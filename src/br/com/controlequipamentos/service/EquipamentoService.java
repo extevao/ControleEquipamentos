@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import br.com.controlequipamentos.dao.EquipamentoDao;
 import br.com.controlequipamentos.pojo.Equipamento;
 
+@Path("/v1/equipamento")
 public class EquipamentoService {
 
 	@GET

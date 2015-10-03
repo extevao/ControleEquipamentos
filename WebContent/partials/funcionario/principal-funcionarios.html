@@ -1,0 +1,39 @@
+<meta charset="utf-8" />
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<form>
+				<div class="input-group">
+					<span class="input-group-btn"> <a href="#/funcionario/new" 	class="btn btn-primary">Novo funcionário</a>
+					</span> <input ng-model="filtro" type="text" class="form-control" placeholder="Está procurando alguém ?" />
+				</div>
+			</form>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-striped">
+				<tr>
+					<th>Id</th>
+					<th>Nome</th>
+					<th>Sobrenome</th>
+					<th>E-mail</th>
+					<th>Cargo</th>
+					<th>Setor</th>
+					<th>Ação</th>
+				</tr>
+				<tr ng-repeat="funcionario in funcionarios| filter:filtro">
+					<td>{{funcionario.id}}</td>
+					<td>{{funcionario.nome}}</td>
+					<td>{{funcionario.sobrenome}}</td>
+					<td>{{funcionario.email}}</td>
+					<td>{{funcionario.cargo}}</td>
+					<td>{{funcionario.setor}}</td>
+					<td><a href="#/funcionario/edit/{{funcionario.id}}" class="btn btn-primary btn-block">Editar</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

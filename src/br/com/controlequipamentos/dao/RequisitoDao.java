@@ -17,7 +17,7 @@ public class RequisitoDao {
 	private ResultSet rs;
 	
 	public ArrayList<Requisito> select (){
-		ArrayList<Requisito> listaRequisito = new ArrayList<>();
+		ArrayList<Requisito> listaRequisitos = new ArrayList<>();
 		StringBuilder sbSelect = new StringBuilder();
 		sbSelect.append("SELECT * FROM Requisito");
 		try {
@@ -27,13 +27,13 @@ public class RequisitoDao {
 				Requisito requisito = new Requisito();
 				requisito.setId(rs.getInt("id"));
 				requisito.setProcessador(rs.getString("processador"));
-				requisito.setMemoriaram(rs.getString("sobrenome"));
+				requisito.setMemoriaram(rs.getString("memoriaram"));
 				requisito.setHd(rs.getString("hd"));
 				requisito.setVideo(rs.getString("video"));
 				
-				listaRequisito.add(requisito);
+				listaRequisitos.add(requisito);
 			}
-			return listaRequisito;
+			return listaRequisitos;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -51,7 +51,7 @@ public class RequisitoDao {
 				Requisito requisito = new Requisito();
 				requisito.setId(rs.getInt("id"));
 				requisito.setProcessador(rs.getString("processador"));
-				requisito.setMemoriaram(rs.getString("sobrenome"));
+				requisito.setMemoriaram(rs.getString("memoriaram"));
 				requisito.setHd(rs.getString("hd"));
 				requisito.setVideo(rs.getString("video"));
 				
@@ -66,7 +66,7 @@ public class RequisitoDao {
 	
 	public void insert(Requisito requisito) {
 		StringBuilder sbInsert = new StringBuilder();
-		sbInsert.append("INSERT INTO Requisito (nome, sobrenome, email, cargo, idSetor) VALUES (?, ?, ?, ?, ?)");
+		sbInsert.append("INSERT INTO Requisito (processador, memoriaram, hd, video) VALUES (?, ?, ?, ?)");
 		try {
 			this.stmt = this.connection.prepareStatement(sbInsert.toString());
 			this.stmt.setString(1, requisito.getProcessador());
@@ -82,7 +82,7 @@ public class RequisitoDao {
 
 	public void update(Requisito requisito) {
 		StringBuilder sbUpdate = new StringBuilder();
-		sbUpdate.append("UPDATE Requisito SET nome = ?, sobrenome = ?, email = ?, cargo=?  WHERE id = ?");
+		sbUpdate.append("UPDATE Requisito SET processador = ?, memoriaram = ?, hd= ?, video=?  WHERE id = ?");
 		try {
 			this.stmt = this.connection.prepareStatement(sbUpdate.toString());
 			this.stmt.setString(1, requisito.getProcessador());
