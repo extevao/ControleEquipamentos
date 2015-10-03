@@ -18,7 +18,7 @@ public class RequisitoService {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Requisito> listaUsuarios(){
+	public ArrayList<Requisito> listarRequisitos(){
 		
 		RequisitoDao manutencaoDao;
 		try {
@@ -33,7 +33,7 @@ public class RequisitoService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
-	public ArrayList<Requisito> listaCategoria(@PathParam("id") int id){
+	public ArrayList<Requisito> listarRequisito(@PathParam("id") int id){
 		RequisitoDao requisitoDao;
 		try {
 			requisitoDao = new RequisitoDao();
@@ -57,7 +57,7 @@ public class RequisitoService {
 		}
 	}
 	@POST
-	public void salvar (Requisito requisito){
+	public void inserir (Requisito requisito){
 		RequisitoDao requisitoDao;
 		try {
 			requisitoDao = new RequisitoDao();

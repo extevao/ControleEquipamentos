@@ -19,7 +19,7 @@ public class FuncionarioService {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Funcionario> listaUsuarios(){
+	public ArrayList<Funcionario> listarFuncionarios(){
 		
 		FuncionarioDao funcionarioDao;
 		try {
@@ -32,7 +32,7 @@ public class FuncionarioService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
-	public ArrayList<Funcionario> listaUsuarioId(@PathParam("id") int id){
+	public ArrayList<Funcionario> listarFuncionario(@PathParam("id") int id){
 		FuncionarioDao funcionarioDao;
 		try {
 			funcionarioDao = new FuncionarioDao();
@@ -54,7 +54,7 @@ public class FuncionarioService {
 		}
 	}
 	@POST
-	public void salvar (Funcionario funcionairo){
+	public void inserir (Funcionario funcionairo){
 		FuncionarioDao funcionarioDao;
 		try {
 			funcionarioDao = new FuncionarioDao();

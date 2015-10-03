@@ -20,7 +20,7 @@ public class CategoriaService {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Categoria> listaUsuarios(){
+	public ArrayList<Categoria> listarCategorias(){
 		
 		CategoriaDao categoriaDao;
 		try {
@@ -35,7 +35,7 @@ public class CategoriaService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
-	public ArrayList<Categoria> listaCategoria(@PathParam("id") int id){
+	public ArrayList<Categoria> listarCategoria(@PathParam("id") int id){
 		CategoriaDao categoriaDao;
 		try {
 			categoriaDao = new CategoriaDao();
@@ -59,7 +59,7 @@ public class CategoriaService {
 		}
 	}
 	@POST
-	public void salvar (Categoria categoria){
+	public void inserir (Categoria categoria){
 		CategoriaDao categoriaDao;
 		try {
 			categoriaDao = new CategoriaDao();

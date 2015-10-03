@@ -17,7 +17,7 @@ public class EquipamentoService {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Equipamento> listaUsuarios(){
+	public ArrayList<Equipamento> listarEquipamentos(){
 		
 		EquipamentoDao categoriaDao;
 		try {
@@ -32,7 +32,7 @@ public class EquipamentoService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
-	public ArrayList<Equipamento> listaCategoria(@PathParam("id") int id){
+	public ArrayList<Equipamento> listarEquipamento(@PathParam("id") int id){
 		EquipamentoDao categoriaDao;
 		try {
 			categoriaDao = new EquipamentoDao();
@@ -56,7 +56,7 @@ public class EquipamentoService {
 		}
 	}
 	@POST
-	public void salvar (Equipamento equipamento){
+	public void inserir (Equipamento equipamento){
 		EquipamentoDao categoriaDao;
 		try {
 			categoriaDao = new EquipamentoDao();

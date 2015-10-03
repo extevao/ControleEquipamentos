@@ -19,7 +19,7 @@ public class SetorService {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Setor> listaUsuarios(){
+	public ArrayList<Setor> listarSetores(){
 		
 		SetorDao setorDao;
 		try {
@@ -34,7 +34,7 @@ public class SetorService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
-	public ArrayList<Setor> listaCategoria(@PathParam("id") int id){
+	public ArrayList<Setor> listarSetor(@PathParam("id") int id){
 		SetorDao setorDao;
 		try {
 			setorDao = new SetorDao();
@@ -58,7 +58,7 @@ public class SetorService {
 		}
 	}
 	@POST
-	public void salvar (Setor setor){
+	public void inserir (Setor setor){
 		SetorDao setorDao;
 		try {
 			setorDao = new SetorDao();

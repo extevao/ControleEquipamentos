@@ -31,7 +31,7 @@ public class UsuarioService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
-	public ArrayList<Usuario> listaUsuarioId(@PathParam("id") int id){
+	public ArrayList<Usuario> listarUsuario(@PathParam("id") int id){
 		UsuarioDao usuarioDao;
 		try {
 			usuarioDao = new UsuarioDao();
@@ -54,7 +54,7 @@ public class UsuarioService {
 		}
 	}
 	@POST
-	public void salvar (Usuario usuario){
+	public void inserir (Usuario usuario){
 		UsuarioDao usuarioDao;
 		try {
 			usuarioDao = new UsuarioDao();

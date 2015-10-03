@@ -19,7 +19,7 @@ public class ManutencaoService {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Manutencao> listaUsuarios(){
+	public ArrayList<Manutencao> listarManutencoes(){
 		
 		ManutencaoDao manutencaoDao;
 		try {
@@ -34,7 +34,7 @@ public class ManutencaoService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
-	public ArrayList<Manutencao> listaCategoria(@PathParam("id") int id){
+	public ArrayList<Manutencao> listarManutencao(@PathParam("id") int id){
 		ManutencaoDao manutencaoDao;
 		try {
 			manutencaoDao = new ManutencaoDao();
@@ -58,7 +58,7 @@ public class ManutencaoService {
 		}
 	}
 	@POST
-	public void salvar (Manutencao manutencao){
+	public void inserir (Manutencao manutencao){
 		ManutencaoDao manutencaoDao;
 		try {
 			manutencaoDao = new ManutencaoDao();
