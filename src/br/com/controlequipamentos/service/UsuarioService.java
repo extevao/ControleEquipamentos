@@ -10,20 +10,23 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import br.com.controlequipamentos.dao.UsuarioDao;
-import br.com.controlequipamentos.pojo.Usuario;
+import br.com.controlequipamentos.dao.FuncionarioDao;
+import br.com.controlequipamentos.dao.UsuarioTesteDao;
+import br.com.controlequipamentos.pojo.Funcionario;
+import br.com.controlequipamentos.pojo.UsuarioTeste;
 
 
 @Path("/v1/usuario")
 public class UsuarioService {
+	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Usuario> listaUsuarios(){
+	public ArrayList<UsuarioTeste> listarFuncionarios(){
 		
-		UsuarioDao usuarioDao;
+		UsuarioTesteDao funcionarioDao;
 		try {
-			usuarioDao = new UsuarioDao();
-			return usuarioDao.select();
+			funcionarioDao = new UsuarioTesteDao();
+			return funcionarioDao.select();
 		} catch (Exception e) {
 			return null;
 		}	
@@ -31,11 +34,11 @@ public class UsuarioService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
-	public ArrayList<Usuario> listarUsuario(@PathParam("id") int id){
-		UsuarioDao usuarioDao;
+	public ArrayList<Funcionario> listarFuncionario(@PathParam("id") int id){
+		FuncionarioDao funcionarioDao;
 		try {
-			usuarioDao = new UsuarioDao();
-			return usuarioDao.selectId(id);
+			funcionarioDao = new FuncionarioDao();
+			return funcionarioDao.selectId(id);
 		} catch (Exception e) {
 			System.out.println(e);
 			return null;
@@ -43,22 +46,21 @@ public class UsuarioService {
 	}
 	
 	@PUT
-	public void alterar(Usuario usuario){
-		UsuarioDao usuarioDao;
+	public void alterar(Funcionario funcionario){
+		FuncionarioDao funcionarioDao;
 		try {
-			usuarioDao = new UsuarioDao();
-			usuarioDao.update(usuario);
-			System.out.println("Usuário alterado com sucesso apartir do serviço");
+			funcionarioDao = new FuncionarioDao();
+			funcionarioDao.update(funcionario);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
 	@POST
-	public void inserir (Usuario usuario){
-		UsuarioDao usuarioDao;
+	public void inserir (Funcionario funcionairo){
+		FuncionarioDao funcionarioDao;
 		try {
-			usuarioDao = new UsuarioDao();
-			usuarioDao.insert(usuario);
+			funcionarioDao = new FuncionarioDao();
+			funcionarioDao.insert(funcionairo);
 			
 		} catch (Exception e) {
 			System.out.println(e);

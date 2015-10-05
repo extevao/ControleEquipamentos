@@ -28,6 +28,13 @@ public class Funcionario implements Serializable {
 		this.cargo = cargo;
 		this.idSetor = idSetor;
 	}
+	public Funcionario(String nome, String sobrenome, String email, String cargo, int idSetor) {
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.email = email;
+		this.cargo = cargo;
+		this.idSetor = idSetor;
+	}
 	
 	@Override
 	public String toString() {

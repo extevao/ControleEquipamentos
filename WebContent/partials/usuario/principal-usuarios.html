@@ -5,20 +5,20 @@
 			  <li role="presentation"><a href="#/index">Principal</a></li>
 			  <li role="presentation"><a href="#">Categoria</a></li>
 			  <li role="presentation"><a href="#">Equipamento</a></li>
-			  <li role="presentation"  class="active"><a href="#/funcionario">Funcionario</a></li>
+			  <li role="presentation"><a href="#/funcionario">Funcionario</a></li>
 			  <li role="presentation"><a href="#">Manutenção</a></li>
 			  <li role="presentation"><a href="#">Setor</a></li>
-			  <li role="presentation"><a href="#/usuario">Usuário</a></li>
+			  <li role="presentation" class="active"><a href="#/usuario">Usuário</a></li>
 			</ul>
 		</div>
 </header>
-<h3 class="jumbotron"> Funcionário </h3>
+<h3 class="jumbotron"> Usuário </h3>
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<form>
 				<div class="input-group">
-					<span class="input-group-btn"> <a href="#/funcionario/new" 	class="btn btn-primary">Novo funcionário</a>
+					<span class="input-group-btn"> <a href="#/usuario/new" 	class="btn btn-primary">Novo usuário</a>
 					</span> <input ng-model="filtro" type="text" class="form-control" placeholder="Está procurando alguém ?" />
 				</div>
 			</form>
@@ -33,18 +33,14 @@
 					<th>Nome</th>
 					<th>Sobrenome</th>
 					<th>E-mail</th>
-					<th>Cargo</th>
-					<th>Setor</th>
 					<th>Ação</th>
 				</tr>
-				<tr ng-repeat="funcionario in funcionarios| filter:filtro">
-					<td>{{funcionario.id}}</td>
-					<td>{{funcionario.nome}}</td>
-					<td>{{funcionario.sobrenome}}</td>
-					<td>{{funcionario.email}}</td>
-					<td>{{funcionario.cargo}}</td>
-					<td>{{funcionario.setor}}</td>
-					<td><a href="#/funcionario/edit/{{funcionario.id}}" class="btn btn-primary btn-block">Editar</a></td>
+				<tr ng-repeat="usuario in usuarios| filter:filtro">
+					<td>{{usuario.id}}</td>
+					<td>{{usuario.nome}}</td>
+					<td>{{usuario.sobrenome}}</td>
+					<td>{{usuario.email}}</td>
+					<td><a href="#/usuario/edit/{{usuario.id}}" class="btn btn-primary btn-block">Editar</a></td>
 				</tr>
 			</table>
 		</div>

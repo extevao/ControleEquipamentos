@@ -2,20 +2,19 @@
 <header class="jumbotron subhead" id="overview">
 		<div class="container">
 			<ul class="nav nav-pills">
-			  <li role="presentation"><a href="#/index">Principal</a></li>
+			  <li role="presentation" ><a href="#/index">Principal</a></li>
 			  <li role="presentation"><a href="#">Categoria</a></li>
 			  <li role="presentation"><a href="#">Equipamento</a></li>
-			  <li role="presentation"  class="active"><a href="#/funcionario">Funcionario</a></li>
+			  <li role="presentation"><a href="#/funcionario">Funcionario</a></li>
 			  <li role="presentation"><a href="#">Manutenção</a></li>
 			  <li role="presentation"><a href="#">Setor</a></li>
-			  <li role="presentation"><a href="#/usuario">Usuário</a></li>
+			  <li role="presentation" class="active"><a href="#/usuario">Usuário</a></li>
 			</ul>
 		</div>
 </header>
-<h3 class="jumbotron"> Funcionário </h3>
-
+<h3 class="jumbotron"> Cadastro Usuário </h3>
 <div class="page-header text-center">	
-	<h1>{{funcionario.nome}}</h1>
+	<h1>{{usuario.nome}}</h1>
 </div>
 
 <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
@@ -24,8 +23,8 @@
 	
 	<div class="col-md-6">
 		<div class="form-group">
-			<label>Nomex</label>
-			<input ng-model="funcionario.nome" ng-maxlength="50" name="nome" class="form-control" required />
+			<label>Nome</label>
+			<input ng-model="usuario.nome" ng-maxlength="50" name="nome" class="form-control" required />
 			<span ng-show="formulario.$submited && formulario.nome.$error.required" class="form-control alert-danger">
 				Nome obrigatório !!!
 			</span>
@@ -35,7 +34,7 @@
 		</div>
 		<div class="form-group">
 			<label>Sobrenome</label>
-			<input ng-model="funcionario.sobrenome" ng-maxlength="50" name="sobrenome" class="form-control" required />
+			<input ng-model="usuario.sobrenome" ng-maxlength="50" name="sobrenome" class="form-control" required />
 			<span ng-show="formulario.$submited && formulario.sobrenome.$error.required" class="form-control alert-danger">
 				Sobrenome obrigatório !!!
 			</span>
@@ -45,7 +44,7 @@
 		</div>
 		<div class="form-group">
 			<label>E-mail</label>
-			<input ng-model="funcionario.email" ng-maxlength="50" name="email" class="form-control" required />
+			<input ng-model="usuario.email" ng-maxlength="50" name="email" class="form-control" required />
 			<span ng-show="formulario.$submited && formulario.email.$error.required" class="form-control alert-danger">
 				E-mail obrigatório !!!
 			</span>
@@ -53,41 +52,14 @@
 				O e-mail deve ter no máximo 50 caracteres !!!
 			</span>
 		</div>
-		<div class="form-group">
-			<label>Cargo</label>
-			<input ng-model="funcionario.cargo" ng-maxlength="50" name="cargo" class="form-control" required />
-			<span ng-show="formulario.$submited && formulario.cargo.$error.required" class="form-control alert-danger">
-				Cargo obrigatório !!!
-			</span>
-		</div>
-		<div class="form-group">
-			<label>Setor</label>
-			<select  name="setor" class="form-control" ng-controller="SetoresController" ng-model="funcionario.setor" ng-options="setor.id as setor.nome for setor in setores" required>
-				<option value="">Selecione Setor</option>
-			</select>
-			<span ng-show="formulario.$submited && formulario.setor.$error.required" class="form-control alert-danger">
-				Setor obrigatório !!!
-			</span>
-		</div>
+		
 		<hr />
-		{{funcionario}}
+		{{usuario}}
 		<hr />
 		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
-		<a href="#/funcionario" class="btn btn-primary">Voltar</a>
+		<a href="#/usuario" class="btn btn-primary">Voltar</a>
 		<hr/>
 	</div>
-	<div class="col-md-6" ng-controller="SetoresController">
-		<table class="table table-striped">
-				<tr>
-					<th>Id</th>
-					<th>Nome</th>
-				</tr>
-				<tr ng-repeat="setor in setores">
-					<td>{{setor.id}}</td>
-					<td>{{setor.nome}}</td>
-				</tr>
-			</table>
 	
-	</div>
 
 </form>	

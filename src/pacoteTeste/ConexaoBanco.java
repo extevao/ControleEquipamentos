@@ -15,17 +15,12 @@ import br.com.controlequipamentos.pojo.Funcionario;
 public class ConexaoBanco {
 
 	public static void main(String[] args) {
-	
-		/*no inicio eu estava usando a classe 
-		 * de usuário para testar, mas depois alteramos as suas informações, 
-		 * e agora eu passei a usuar o funcionario como modelo, pois ela é muito
-		 * similar ao antiga classe usuário por esse motivo está bem loko esta 
-		 * classe 
-		 */
+
+		inserirFuncionario();
+		listarFuncionarios();
 		
-		listarUsuariosCadastrados();
 	}
-	public  static void listarUsuariosCadastrados(){
+	public  static void listarFuncionarios(){
 		FuncionarioDao funcionarioDao = new FuncionarioDao();
 		for(Funcionario funcionario : funcionarioDao.select()){
 			System.out.println(funcionario.getId());
@@ -35,13 +30,10 @@ public class ConexaoBanco {
 		System.out.println("teste");
 	}
 	
-	public static void inserirUsuario(){
-		Funcionario novoUsuario = new Funcionario();
-		novoUsuario.setNome("Major");
-		novoUsuario.setSobrenome("guimarães");
-		novoUsuario.setEmail("guimarães@aod.com.br");
-		FuncionarioDao usuarioDao = new FuncionarioDao ();
-		usuarioDao.insert(novoUsuario);
+	public static void inserirFuncionario(){
+		Funcionario novoFuncionario = new Funcionario("Fabio","Rosa","fabio@novo.com","Entregador",1);
+		FuncionarioDao funcionario = new FuncionarioDao();
+		funcionario.insert(novoFuncionario);
 	}
 	
 	public static void listarPorId(int id){

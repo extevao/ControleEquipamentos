@@ -8,7 +8,7 @@ public class ConnectionFactory {
 	public static Connection getConnection(){
 		try {
 			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-			return DriverManager.getConnection("jdbc:mysql://localhost/controle", "root", "");
+			return DriverManager.getConnection("jdbc:mysql://localhost/base", "root", "");
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
