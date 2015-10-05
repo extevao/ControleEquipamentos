@@ -1,15 +1,31 @@
 package br.com.controlequipamentos.pojo;
 
-public class UsuarioTeste {
+import java.io.Serializable;
 
-	private static final long serialVersionUID = 2709836540260025787L;
+public class UsuarioTeste implements Serializable{
+
+	private static final long serialVersionUID = -5787245029936399488L;
 	private int id;
 	private String nome;
 	private String sobrenome;
 	private String email;
-
-
 	
+	public UsuarioTeste(){
+		
+	}
+	public UsuarioTeste(int id, String nome, String sobrenome, String email) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.email = email;
+	}
+	
+	public UsuarioTeste(String nome, String sobrenome, String email) {
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.email = email;
+	}
 	public int getId() {
 		return id;
 	}
@@ -34,6 +50,11 @@ public class UsuarioTeste {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
 
 	
 }

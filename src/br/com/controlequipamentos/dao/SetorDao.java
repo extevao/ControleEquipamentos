@@ -1,27 +1,19 @@
 package br.com.controlequipamentos.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import br.com.controlequipamentos.pojo.Setor;
 
-public class SetorDao {
-	
-
-	private Connection connection = ConnectionFactory.getConnection();
-	private PreparedStatement stmt;
-	private ResultSet rs;
+public class SetorDao extends ConnectionFactory {
 	
 	public ArrayList<Setor> select (){
 		ArrayList<Setor> listaSetores = new ArrayList<>();
 		StringBuilder sbSelect = new StringBuilder();
 		sbSelect.append("SELECT * FROM Setor");
 		try {
-			this.stmt = this.connection.prepareStatement(sbSelect.toString());
-			this.rs = stmt.executeQuery();
+			this.stmtp = this.getConnection().prepareStatement(sbSelect.toString());
+			this.rs = stmtp.executeQuery();
 			while (rs.next()) {	
 				Setor setor = new Setor();
 				setor.setId(rs.getInt("id"));
@@ -41,9 +33,9 @@ public class SetorDao {
 		StringBuilder sbSelec = new StringBuilder();
 		sbSelec.append("SELECT * FROM Setor WHERE id  = ?");
 		try {
-			this.stmt = this.connection.prepareStatement(sbSelec.toString());
-			this.stmt.setInt(1, id);
-			this.rs = stmt.executeQuery();
+			this.stmtp = this.getConnection().prepareStatement(sbSelec.toString());
+			this.stmtp.setInt(1, id);
+			this.rs = stmtp.executeQuery();
 			while (rs.next()) {
 				Setor setor = new Setor();
 				setor.setId(rs.getInt("id"));
@@ -63,11 +55,10 @@ public class SetorDao {
 		StringBuilder sbInsert = new StringBuilder();
 		sbInsert.append("INSERT INTO Setor (nome, idRequisito) VALUES (?, ?)");
 		try {
-			this.stmt = this.connection.prepareStatement(sbInsert.toString());
-			this.stmt.setString(1, setor.getNome());
-			this.stmt.setInt(2, setor.getIdRequisito());
-		
-			this.stmt.executeUpdate();
+			this.stmtp = this.getConnection().prepareStatement(sbInsert.toString());
+			this.stmtp.setString(1, setor.getNome());
+			this.stmtp.setInt(2, setor.getIdRequisito());
+			this.stmtp.executeUpdate();
 		
 		} catch (SQLException e) {
 			System.out.println("Erro ao inserir o novo setor !!! " + e);
@@ -78,11 +69,11 @@ public class SetorDao {
 		StringBuilder sbUpdate = new StringBuilder();
 		sbUpdate.append("UPDATE Setor SET nome = ?, idRequisito=?  WHERE id = ?");
 		try {
-			this.stmt = this.connection.prepareStatement(sbUpdate.toString());
-			this.stmt.setString(1, setor.getNome());
-			this.stmt.setInt(2, setor.getIdRequisito());
+			this.stmtp = this.getConnection().prepareStatement(sbUpdate.toString());
+			this.stmtp.setString(1, setor.getNome());
+			this.stmtp.setInt(2, setor.getIdRequisito());
 		
-			this.stmt.executeUpdate();
+			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Erro ao alterar os dados do setor !!! " + e);
 		}

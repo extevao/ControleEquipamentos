@@ -25,8 +25,7 @@ public class Equipamento implements Serializable {
 		
 	}
 	
-	public Equipamento(int id, String nome, Date dataCompra, Date dataCadastro, Date dataInicioOperacao, String marca,
-			int idCategoria, int idSetor, int idFuncionario, int idRequisito) {
+	public Equipamento(int id, String nome, Date dataCompra, Date dataCadastro, Date dataInicioOperacao, String marca, int idCategoria, int idSetor, int idFuncionario, int idRequisito) {
 		super();
 		this.id = id;
 		this.nome = nome;

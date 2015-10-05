@@ -3,7 +3,6 @@ angular.module('moduloPrincipal').controller('SetoresController', function($scop
 
 	$http.get('api/v1/setor').success(function(data){
 		$scope.setores = data;
-		console.log(data);
 	}).error(function(erro){
 		console.log(erro);
 	});

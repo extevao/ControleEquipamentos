@@ -4,9 +4,6 @@ import java.io.Serializable;
 
 public class Funcionario implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2709836540260025787L;
 	private int id;
 	private String nome;

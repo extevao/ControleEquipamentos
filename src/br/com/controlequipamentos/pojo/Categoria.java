@@ -3,11 +3,6 @@ package br.com.controlequipamentos.pojo;
 import java.io.Serializable;
 
 public class Categoria implements Serializable{
-
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1517556809245587L;
 	private int id;
 	private String nome;
@@ -21,10 +16,8 @@ public class Categoria implements Serializable{
 		this.id = id;
 		this.nome = nome;
 	}
-	@Override
-	public String toString() {
-		return "Categoria [id=" + id + ", nome=" + nome + "]";
-	}
+	
+	
 	public int getId() {
 		return id;
 	}

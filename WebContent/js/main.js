@@ -27,7 +27,7 @@ angular.module('moduloPrincipal', ['ngRoute'])
 		
 	});	
 	$routeProvider.when('/usuario/edit/:usuarioId', {
-		templateUrl: 'partials/funcionario/formulario-usuario.html',
+		templateUrl: 'partials/usuario/formulario-usuario.html',
 		controller: 'UsuarioController'
 	});	
 	

@@ -34,10 +34,10 @@ public class UsuarioService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
-	public ArrayList<Funcionario> listarFuncionario(@PathParam("id") int id){
-		FuncionarioDao funcionarioDao;
+	public ArrayList<UsuarioTeste> listarFuncionario(@PathParam("id") int id){
+		UsuarioTesteDao funcionarioDao;
 		try {
-			funcionarioDao = new FuncionarioDao();
+			funcionarioDao = new UsuarioTesteDao();
 			return funcionarioDao.selectId(id);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -46,25 +46,25 @@ public class UsuarioService {
 	}
 	
 	@PUT
-	public void alterar(Funcionario funcionario){
-		FuncionarioDao funcionarioDao;
+	public void alterar(UsuarioTeste funcionario){
+		UsuarioTesteDao funcionarioDao;
 		try {
-			funcionarioDao = new FuncionarioDao();
+			funcionarioDao = new UsuarioTesteDao();
 			funcionarioDao.update(funcionario);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
 	@POST
-	public void inserir (Funcionario funcionairo){
-		FuncionarioDao funcionarioDao;
+	public void inserir (UsuarioTeste funcionario){
+		UsuarioTesteDao funcionarioDao;
 		try {
-			funcionarioDao = new FuncionarioDao();
-			funcionarioDao.insert(funcionairo);
-			
+			funcionarioDao = new UsuarioTesteDao();
+			funcionarioDao.insert(funcionario);
 		} catch (Exception e) {
 			System.out.println(e);
-		}	
+		}
+		
 	}
 	
 	

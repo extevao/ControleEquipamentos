@@ -1,8 +1,5 @@
 package br.com.controlequipamentos.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -10,20 +7,15 @@ import br.com.controlequipamentos.pojo.Funcionario;
 
 
 
-public class FuncionarioDao {
+public class FuncionarioDao extends ConnectionFactory {
 
-	
-	private Connection connection = ConnectionFactory.getConnection();
-	private PreparedStatement stmt;
-	private ResultSet rs;
-	
 	public ArrayList<Funcionario> select (){
 		ArrayList<Funcionario> listaFuncionarios = new ArrayList<>();
 		StringBuilder sbSelect = new StringBuilder();
 		sbSelect.append("SELECT * FROM Funcionario");
 		try {
-			this.stmt = this.connection.prepareStatement(sbSelect.toString());
-			this.rs = stmt.executeQuery();
+			this.stmtp = this.getConnection().prepareStatement(sbSelect.toString());
+			this.rs = stmtp.executeQuery();
 			while (rs.next()) {	
 				Funcionario funcionario = new Funcionario();
 				funcionario.setId(rs.getInt("id"));
@@ -46,9 +38,9 @@ public class FuncionarioDao {
 		StringBuilder sbSelec = new StringBuilder();
 		sbSelec.append("SELECT * FROM Funcionario WHERE id  = ?");
 		try {
-			this.stmt = this.connection.prepareStatement(sbSelec.toString());
-			this.stmt.setInt(1, id);
-			this.rs = stmt.executeQuery();
+			this.stmtp = this.getConnection().prepareStatement(sbSelec.toString());
+			this.stmtp.setInt(1, id);
+			this.rs = stmtp.executeQuery();
 			while (rs.next()) {
 				Funcionario funcionario = new Funcionario();
 				funcionario.setId(rs.getInt("id"));
@@ -70,13 +62,13 @@ public class FuncionarioDao {
 		StringBuilder sbInsert = new StringBuilder();
 		sbInsert.append("INSERT INTO Funcionario (nome, sobrenome, email, cargo, idSetor) VALUES (?, ?, ?, ?, ?)");
 		try {
-			this.stmt = this.connection.prepareStatement(sbInsert.toString());
-			this.stmt.setString(1, funcionario.getNome());
-			this.stmt.setString(2, funcionario.getSobrenome());
-			this.stmt.setString(3, funcionario.getEmail());
-			this.stmt.setString(4, funcionario.getCargo());
-			this.stmt.setInt(5, funcionario.getIdSetor());
-			this.stmt.executeUpdate();		
+			this.stmtp = this.getConnection().prepareStatement(sbInsert.toString());
+			this.stmtp.setString(1, funcionario.getNome());
+			this.stmtp.setString(2, funcionario.getSobrenome());
+			this.stmtp.setString(3, funcionario.getEmail());
+			this.stmtp.setString(4, funcionario.getCargo());
+			this.stmtp.setInt(5, funcionario.getIdSetor());
+			this.stmtp.executeUpdate();		
 		} catch (SQLException e) {
 			System.out.println("Erro ao inserir novo funcionário: " + e);
 		}
@@ -86,14 +78,14 @@ public class FuncionarioDao {
 		StringBuilder sbUpdate = new StringBuilder();
 		sbUpdate.append("UPDATE Funcionario SET nome = ?, sobrenome = ?, email = ?, cargo=?, idSetor=?  WHERE id = ?");
 		try {
-			this.stmt = this.connection.prepareStatement(sbUpdate.toString());
-			this.stmt.setString(1, funcionario.getNome());
-			this.stmt.setString(2, funcionario.getSobrenome());
-			this.stmt.setString(3, funcionario.getEmail());
-			this.stmt.setString(4, funcionario.getCargo());
-			this.stmt.setInt(5, funcionario.getIdSetor());
-			this.stmt.setInt(6, funcionario.getId());
-			this.stmt.executeUpdate();
+			this.stmtp = this.getConnection().prepareStatement(sbUpdate.toString());
+			this.stmtp.setString(1, funcionario.getNome());
+			this.stmtp.setString(2, funcionario.getSobrenome());
+			this.stmtp.setString(3, funcionario.getEmail());
+			this.stmtp.setString(4, funcionario.getCargo());
+			this.stmtp.setInt(5, funcionario.getIdSetor());
+			this.stmtp.setInt(6, funcionario.getId());
+			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Erro ao alterar os dados do funcionário. " + e);
 		}
