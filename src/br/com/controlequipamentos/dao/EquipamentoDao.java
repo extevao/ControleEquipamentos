@@ -87,10 +87,8 @@ public class EquipamentoDao {
 			this.stmt.setInt(7, equipamento.getIdSetor());
 			this.stmt.setInt(8, equipamento.getIdFuncionario());
 			this.stmt.setInt(9, equipamento.getIdRequisito());
-		
 			
 			this.stmt.executeUpdate();
-			System.out.println("Equipamento cadastrado com sucesso!");
 		} catch (SQLException e) {
 			System.out.println("Erro ao cadastrar o novo Equipamento: " + e);
 			
@@ -114,7 +112,6 @@ public class EquipamentoDao {
 			this.stmt.setInt(10, equipamento.getId());
 			
 			this.stmt.executeUpdate();
-			System.out.println("Equipamento alterado com sucesso!");
 		} catch (SQLException e) {
 			System.out.println("Erro ao alterar os dados do Equipamento: " + e);
 			

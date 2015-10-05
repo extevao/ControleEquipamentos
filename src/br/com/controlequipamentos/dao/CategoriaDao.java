@@ -67,10 +67,7 @@ public class CategoriaDao {
 			
 			this.stmt = this.connection.prepareStatement(sbInsert.toString());
 			this.stmt.setString(1, categoria.getNome());
-			this.stmt.executeUpdate();
-			System.out.println("Categoria inserida com sucesso!");
-
-			
+			this.stmt.executeUpdate();		
 		} catch (SQLException e) {
 			System.out.println("Erro ao inserir Categoria: " + e);
 			
@@ -84,7 +81,6 @@ public class CategoriaDao {
 			this.stmt = this.connection.prepareStatement(sbUpdate.toString());
 			this.stmt.setString(1, categoria.getNome());			
 			this.stmt.executeUpdate();
-			System.out.println("Categoria alterada com sucesso.");
 		} catch (SQLException e) {
 			System.out.println("Erro ao alterar a categoria. "+ e);
 		}

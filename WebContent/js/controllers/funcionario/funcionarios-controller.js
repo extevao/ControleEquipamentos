@@ -1,4 +1,4 @@
-angular.module('moduloPrincipal').controller('funcionariosController', function($scope, $http){
+angular.module('moduloPrincipal').controller('FuncionariosController', function($scope, $http){
 
     $scope.funcionarios = [];
     $scope.filtro = '';

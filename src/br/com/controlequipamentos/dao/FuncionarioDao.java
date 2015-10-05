@@ -20,7 +20,7 @@ public class FuncionarioDao {
 	public ArrayList<Funcionario> select (){
 		ArrayList<Funcionario> listaFuncionarios = new ArrayList<>();
 		StringBuilder sbSelect = new StringBuilder();
-		sbSelect.append("SELECT * FROM funcionario");
+		sbSelect.append("SELECT * FROM Funcionario");
 		try {
 			this.stmt = this.connection.prepareStatement(sbSelect.toString());
 			this.rs = stmt.executeQuery();
@@ -44,7 +44,7 @@ public class FuncionarioDao {
 	public ArrayList<Funcionario> selectId(int id) {
 		ArrayList<Funcionario> listaFuncionario = new ArrayList<>();
 		StringBuilder sbSelec = new StringBuilder();
-		sbSelec.append("SELECT * FROM funcionario WHERE id  = ?");
+		sbSelec.append("SELECT * FROM Funcionario WHERE id  = ?");
 		try {
 			this.stmt = this.connection.prepareStatement(sbSelec.toString());
 			this.stmt.setInt(1, id);
@@ -68,7 +68,7 @@ public class FuncionarioDao {
 	
 	public void insert(Funcionario funcionario) {
 		StringBuilder sbInsert = new StringBuilder();
-		sbInsert.append("INSERT INTO funcionario (nome, sobrenome, email, cargo, idSetor) VALUES (?, ?, ?, ?, ?)");
+		sbInsert.append("INSERT INTO Funcionario (nome, sobrenome, email, cargo, idSetor) VALUES (?, ?, ?, ?, ?)");
 		try {
 			this.stmt = this.connection.prepareStatement(sbInsert.toString());
 			this.stmt.setString(1, funcionario.getNome());
@@ -76,8 +76,7 @@ public class FuncionarioDao {
 			this.stmt.setString(3, funcionario.getEmail());
 			this.stmt.setString(4, funcionario.getCargo());
 			this.stmt.setInt(5, funcionario.getIdSetor());
-			this.stmt.executeUpdate();
-			System.out.println("Funcionário inserido com sucesso!");			
+			this.stmt.executeUpdate();		
 		} catch (SQLException e) {
 			System.out.println("Erro ao inserir novo funcionário: " + e);
 		}
@@ -85,18 +84,18 @@ public class FuncionarioDao {
 
 	public void update(Funcionario funcionario) {
 		StringBuilder sbUpdate = new StringBuilder();
-		sbUpdate.append("UPDATE usuario SET nome = ?, sobrenome = ?, email = ?, cargo=?  WHERE id = ?");
+		sbUpdate.append("UPDATE Funcionario SET nome = ?, sobrenome = ?, email = ?, cargo=?, idSetor=?  WHERE id = ?");
 		try {
 			this.stmt = this.connection.prepareStatement(sbUpdate.toString());
 			this.stmt.setString(1, funcionario.getNome());
 			this.stmt.setString(2, funcionario.getSobrenome());
 			this.stmt.setString(3, funcionario.getEmail());
 			this.stmt.setString(4, funcionario.getCargo());
-			this.stmt.setInt(5, funcionario.getId());
+			this.stmt.setInt(5, funcionario.getIdSetor());
+			this.stmt.setInt(6, funcionario.getId());
 			this.stmt.executeUpdate();
-			System.out.println("Funcionário alterado com sucesso.");
 		} catch (SQLException e) {
-			System.out.println("Erro ao alterar os dados do func ionário. " + e);
+			System.out.println("Erro ao alterar os dados do funcionário. " + e);
 		}
 	}
 
