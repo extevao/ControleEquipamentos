@@ -30,7 +30,7 @@ angular.module('moduloPrincipal').controller('UsuarioController', function($scop
                     .error(function(erro) {
                         console.log(erro);
                         $scope.mensagem = 'Não foi possível alterar os dados do usuário.';
-                    })
+                    });
 
                 } else {                
                     $http.post('api/v1/usuario', $scope.usuario)
@@ -41,7 +41,7 @@ angular.module('moduloPrincipal').controller('UsuarioController', function($scop
                     .error(function(erro) {
                         console.log(erro);
                         $scope.mensagem = 'Não foi possível cadastrar o usuário';
-                    })
+                    });
                 }
             }
         };
