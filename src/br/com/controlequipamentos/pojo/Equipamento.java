@@ -4,11 +4,6 @@ import java.io.Serializable;
 import java.sql.Date;
 
 public class Equipamento implements Serializable {
-
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -9163826571643132969L;
 	private int id;
 	private String nome;
@@ -23,6 +18,18 @@ public class Equipamento implements Serializable {
 	
 	public Equipamento(){
 		
+	}
+	public Equipamento(String nome, Date dataCompra, Date dataCadastro, Date dataInicioOperacao, String marca, int idCategoria, int idSetor, int idFuncionario, int idRequisito) {
+		super();
+		this.nome = nome;
+		this.dataCompra = dataCompra;
+		this.dataCadastro = dataCadastro;
+		this.dataInicioOperacao = dataInicioOperacao;
+		this.marca = marca;
+		this.idCategoria = idCategoria;
+		this.idSetor = idSetor;
+		this.idFuncionario = idFuncionario;
+		this.idRequisito = idRequisito;
 	}
 	
 	public Equipamento(int id, String nome, Date dataCompra, Date dataCadastro, Date dataInicioOperacao, String marca, int idCategoria, int idSetor, int idFuncionario, int idRequisito) {

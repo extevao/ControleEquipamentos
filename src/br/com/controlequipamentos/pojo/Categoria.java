@@ -4,9 +4,15 @@ import java.io.Serializable;
 
 public class Categoria implements Serializable{
 	private static final long serialVersionUID = 1517556809245587L;
+	
 	private int id;
 	private String nome;
 	
+	@Override
+	public String toString() {
+		return "Categoria [id=" + id + ", nome=" + nome + "]";
+	}
+
 	public Categoria(){
 		
 	}

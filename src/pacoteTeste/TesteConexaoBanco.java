@@ -5,9 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.naming.NamingException;
-import br.com.controlequipamentos.dao.UsuarioTesteDao;
 
+import javax.naming.NamingException;
+
+import br.com.controlequipamentos.dao.EquipamentoDao;
+import br.com.controlequipamentos.dao.UsuarioTesteDao;
+import br.com.controlequipamentos.pojo.Equipamento;
 import br.com.controlequipamentos.pojo.UsuarioTeste;
 
 public class TesteConexaoBanco {
@@ -16,7 +19,7 @@ public class TesteConexaoBanco {
 
 
 		try {
-			update();
+		
 			listar();
 		} catch (NamingException e) {
 			e.printStackTrace();
@@ -24,19 +27,16 @@ public class TesteConexaoBanco {
 		
 	}
 	public  static void listar() throws NamingException{
-		UsuarioTesteDao funcionarioDao = new UsuarioTesteDao();
-		for(UsuarioTeste funcionario : funcionarioDao.select()){
-			System.out.println(funcionario.getId());
-			System.out.println(funcionario.getNome());
-			System.out.println(funcionario.getEmail());
+		EquipamentoDao dao = new EquipamentoDao();
+		for(Equipamento obj : dao.select()){
+			System.out.println(obj.toString());
 		}
-		System.out.println("teste");
 	}
 	
 	public static void inserir() throws NamingException{
-		UsuarioTeste novoFuncionario = new UsuarioTeste("Teste","teste","teste@hotmail.com");
-		UsuarioTesteDao funcionario = new UsuarioTesteDao();
-		funcionario.insert(novoFuncionario);
+		//Equipamento novo = new Equipamento("OptiPlex 3020 Micro", "2015-07-24", "2015-08-15", "2015-09-10", "Dell", 3, 2, 4, 4);
+		EquipamentoDao dao = new EquipamentoDao();
+		//dao.insert(novo);
 	}
 	public static void update() throws NamingException{
 		UsuarioTeste novoFuncionario = new UsuarioTeste(14,"Major","Sei La","capitao@aod.com");

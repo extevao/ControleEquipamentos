@@ -65,10 +65,11 @@ public class CategoriaDao extends ConnectionFactory{
 
 	public void update(Categoria categoria) {
 		StringBuilder sbUpdate = new StringBuilder();
-		sbUpdate.append("UPDATE categoria SET nome = ?  WHERE id = ?");
+		sbUpdate.append("UPDATE Categoria SET nome = ?  WHERE id = ?");
 		try {
 			this.stmtp = this.getConnection().prepareStatement(sbUpdate.toString());
-			this.stmtp.setString(1, categoria.getNome());			
+			this.stmtp.setString(1, categoria.getNome());
+			this.stmtp.setInt(2, categoria.getId());	
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Erro ao alterar a categoria. "+ e);
