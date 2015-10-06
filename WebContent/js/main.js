@@ -3,6 +3,31 @@ angular.module('moduloPrincipal', ['ngRoute'])
 	$routeProvider.when('/index', {
 		templateUrl: 'partials/principal/principal.html',
 	});
+	$routeProvider.when('/categoria', {
+		templateUrl: 'partials/categoria/principal-categorias.html',
+		controller: 'CategoriasController'
+	});	
+	$routeProvider.when('/categoria/new', {
+		templateUrl: 'partials/categoria/formulario-categoria.html',
+		controller: 'CategoriaController'
+	});	
+	$routeProvider.when('/categoria/edit/:categoriaId', {
+		templateUrl: 'partials/categoria/formulario-categoria.html',
+		controller: 'CategoriaController'
+	});	
+	
+	$routeProvider.when('/equipamento', {
+		templateUrl: 'partials/equipamento/principal-equipamento.html',
+		controller: 'EquipamentosController'
+	});	
+	$routeProvider.when('/equipamento/new', {
+		templateUrl: 'partials/equipamento/formulario-equipamento.html',
+		controller: 'EquipamentoController'
+	});	
+	$routeProvider.when('/equipamento/edit/:equipamentoId', {
+		templateUrl: 'partials/equipamento/formulario-equipamento.html',
+		controller: 'EquipamentoController'
+	});	
 	
 	$routeProvider.when('/funcionario', {
 		templateUrl: 'partials/funcionario/principal-funcionarios.html',
@@ -31,6 +56,29 @@ angular.module('moduloPrincipal', ['ngRoute'])
 		controller: 'UsuarioController'
 	});	
 	
+
+	$routeProvider.when('/manutencao', {
+		templateUrl: 'partials/manutencao/principal-manutencoes.html'
+	});	
+	$routeProvider.when('/manutencao/new', {
+		templateUrl: 'partials/manutencao/formulario-manutencao.html'
+		
+	});	
+	$routeProvider.when('/manutencao/edit/:manutencaoId', {
+		templateUrl: 'partials/usuario/formulario-manutencao.html'
+	});	
+	
+	
+	$routeProvider.when('/setor', {
+		templateUrl: 'partials/setor/principal-setores.html'
+	});	
+	$routeProvider.when('/setor/new', {
+		templateUrl: 'partials/setor/formulario-setor.html'
+		
+	});	
+	$routeProvider.when('/setor/edit/:setorId', {
+		templateUrl: 'partials/setor/formulario-setor.html'
+	});	
 	
 	$routeProvider.otherwise({ redirectTo: '/index'});
 

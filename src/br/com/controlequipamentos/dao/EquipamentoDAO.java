@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import br.com.controlequipamentos.pojo.Equipamento;
 
-public class EquipamentoDao extends ConnectionFactory {
+public class EquipamentoDAO extends ConnectionFactory {
 	
 	public ArrayList<Equipamento> select (){
 		ArrayList<Equipamento>listaEquipamento = new ArrayList<>();

@@ -1,20 +1,23 @@
 <meta charset="utf-8" />
-<header class="jumbotron subhead" id="overview">
+<header class="subhead" id="overview">
+		<div class="page-header">
+  			<h1>Usuário <small>Dados do Usuário</small></h1>
+		</div>
 		<div class="container">
 			<ul class="nav nav-pills">
-			  <li role="presentation" ><a href="#/index">Principal</a></li>
-			  <li role="presentation"><a href="#">Categoria</a></li>
-			  <li role="presentation"><a href="#">Equipamento</a></li>
-			  <li role="presentation"><a href="#/funcionario">Funcionario</a></li>
-			  <li role="presentation"><a href="#">Manutenção</a></li>
-			  <li role="presentation"><a href="#">Setor</a></li>
+			  <li role="presentation"><a href="#/index">Principal</a></li>
+			  <li role="presentation"><a href="#/categoria">Categoria</a></li>
+			  <li role="presentation"><a href="#/equipamento">Equipamento</a></li>
+			  <li role="presentation"><a href="#/funcionario">Funcionário</a></li>
+			  <li role="presentation"><a href="#/manutencao">Manutenção</a></li>
+			  <li role="presentation"><a href="#/setor">Setor</a></li>
 			  <li role="presentation" class="active"><a href="#/usuario">Usuário</a></li>
 			</ul>
 		</div>
 </header>
-<h3 class="jumbotron"> Cadastro Usuário </h3>
+<hr />
 <div class="page-header text-center">	
-	<h1>{{usuario.nome}}</h1>
+	<h1>{{usuario.login}}</h1>
 </div>
 
 <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
@@ -23,35 +26,26 @@
 	
 	<div class="col-md-6">
 		<div class="form-group">
-			<label>Nome</label>
-			<input ng-model="usuario.nome" ng-maxlength="50" name="nome" class="form-control" required />
-			<span ng-show="formulario.$submited && formulario.nome.$error.required" class="form-control alert-danger">
-				Nome obrigatório !!!
+			<label>Login</label>
+			<input ng-model="usuario.login" ng-maxlength="100" name="login" class="form-control" required />
+			<span ng-show="formulario.$submited && formulario.login.$error.required" class="form-control alert-danger">
+				Login obrigatório !!!
 			</span>
 			<span ng-show="formulario.nome.$error.maxlength" class="form-control alert-danger">
-				O nome deve ter no máximo 50 caracteres !!!
+				O login deve ter no máximo 100 caracteres !!!
 			</span>
 		</div>
 		<div class="form-group">
-			<label>Sobrenome</label>
-			<input ng-model="usuario.sobrenome" ng-maxlength="50" name="sobrenome" class="form-control" required />
-			<span ng-show="formulario.$submited && formulario.sobrenome.$error.required" class="form-control alert-danger">
-				Sobrenome obrigatório !!!
+			<label>Senha</label>
+			<input ng-model="usuario.senha" ng-maxlength="100" name="senha" class="form-control" required />
+			<span ng-show="formulario.$submited && formulario.senha.$error.required" class="form-control alert-danger">
+				Senha obrigatória !!!
 			</span>
 			<span ng-show="formulario.sobrenome.$error.maxlength" class="form-control alert-danger">
-				O sobrenome deve ter no máximo 50 caracteres !!!
+				A senha deve ter no máximo 100 caracteres !!!
 			</span>
 		</div>
-		<div class="form-group">
-			<label>E-mail</label>
-			<input ng-model="usuario.email" ng-maxlength="50" name="email" class="form-control" required />
-			<span ng-show="formulario.$submited && formulario.email.$error.required" class="form-control alert-danger">
-				E-mail obrigatório !!!
-			</span>
-			<span ng-show="formulario.email.$error.maxlength" class="form-control alert-danger">
-				O e-mail deve ter no máximo 50 caracteres !!!
-			</span>
-		</div>
+
 		
 		<hr />
 		{{usuario}}

@@ -10,7 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import br.com.controlequipamentos.dao.EquipamentoDao;
+import br.com.controlequipamentos.dao.EquipamentoDAO;
 import br.com.controlequipamentos.pojo.Equipamento;
 
 @Path("/v1/equipamento")
@@ -20,10 +20,10 @@ public class EquipamentoService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Equipamento> listarEquipamentos(){
 		
-		EquipamentoDao categoriaDao;
+		EquipamentoDAO equipamentoDAO;
 		try {
-			categoriaDao = new EquipamentoDao();
-			return categoriaDao.select();
+			equipamentoDAO = new EquipamentoDAO();
+			return equipamentoDAO.select();
 		} catch (Exception e) {
 			System.out.println(e);
 			return null;
@@ -34,10 +34,10 @@ public class EquipamentoService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
 	public ArrayList<Equipamento> listarEquipamento(@PathParam("id") int id){
-		EquipamentoDao categoriaDao;
+		EquipamentoDAO equipamentoDAO;
 		try {
-			categoriaDao = new EquipamentoDao();
-			return categoriaDao.selectId(id);
+			equipamentoDAO = new EquipamentoDAO();
+			return equipamentoDAO.selectId(id);
 		} catch (Exception e) {
 			System.out.println(e);
 			return null;
@@ -47,9 +47,9 @@ public class EquipamentoService {
 	
 	@PUT
 	public void alterar(Equipamento equipamento){
-		EquipamentoDao categoriaDao;
+		EquipamentoDAO categoriaDao;
 		try {
-			categoriaDao = new EquipamentoDao();
+			categoriaDao = new EquipamentoDAO();
 			categoriaDao.update(equipamento);
 
 		} catch (Exception e) {
@@ -58,9 +58,9 @@ public class EquipamentoService {
 	}
 	@POST
 	public void inserir (Equipamento equipamento){
-		EquipamentoDao categoriaDao;
+		EquipamentoDAO categoriaDao;
 		try {
-			categoriaDao = new EquipamentoDao();
+			categoriaDao = new EquipamentoDAO();
 			categoriaDao.insert(equipamento);
 			
 		} catch (Exception e) {

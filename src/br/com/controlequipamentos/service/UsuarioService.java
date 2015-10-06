@@ -10,10 +10,10 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import br.com.controlequipamentos.dao.FuncionarioDao;
-import br.com.controlequipamentos.dao.UsuarioTesteDao;
-import br.com.controlequipamentos.pojo.Funcionario;
-import br.com.controlequipamentos.pojo.UsuarioTeste;
+import br.com.controlequipamentos.dao.UsuarioDAO;
+import br.com.controlequipamentos.pojo.Usuario;
+
+
 
 
 @Path("/v1/usuario")
@@ -21,12 +21,12 @@ public class UsuarioService {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<UsuarioTeste> listarFuncionarios(){
+	public ArrayList<Usuario> listarFuncionarios(){
 		
-		UsuarioTesteDao funcionarioDao;
+		UsuarioDAO usuarioDAO;
 		try {
-			funcionarioDao = new UsuarioTesteDao();
-			return funcionarioDao.select();
+			usuarioDAO = new UsuarioDAO();
+			return usuarioDAO.select();
 		} catch (Exception e) {
 			return null;
 		}	
@@ -34,10 +34,10 @@ public class UsuarioService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
-	public ArrayList<UsuarioTeste> listarFuncionario(@PathParam("id") int id){
-		UsuarioTesteDao funcionarioDao;
+	public ArrayList<Usuario> listarFuncionario(@PathParam("id") int id){
+		UsuarioDAO funcionarioDao;
 		try {
-			funcionarioDao = new UsuarioTesteDao();
+			funcionarioDao = new UsuarioDAO();
 			return funcionarioDao.selectId(id);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -46,21 +46,21 @@ public class UsuarioService {
 	}
 	
 	@PUT
-	public void alterar(UsuarioTeste funcionario){
-		UsuarioTesteDao funcionarioDao;
+	public void alterar(Usuario usuario){
+		UsuarioDAO funcionarioDao;
 		try {
-			funcionarioDao = new UsuarioTesteDao();
-			funcionarioDao.update(funcionario);
+			funcionarioDao = new UsuarioDAO();
+			funcionarioDao.update(usuario);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
 	@POST
-	public void inserir (UsuarioTeste funcionario){
-		UsuarioTesteDao funcionarioDao;
+	public void inserir (Usuario usuario){
+		UsuarioDAO funcionarioDao;
 		try {
-			funcionarioDao = new UsuarioTesteDao();
-			funcionarioDao.insert(funcionario);
+			funcionarioDao = new UsuarioDAO();
+			funcionarioDao.insert(usuario);
 		} catch (Exception e) {
 			System.out.println(e);
 		}

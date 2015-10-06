@@ -1,18 +1,21 @@
 <meta charset="utf-8" />
-<header class="jumbotron subhead" id="overview">
+<header class="subhead" id="overview">
+		<div class="page-header">
+  			<h1>Usuário <small>Lista de Usuários</small></h1>
+		</div>
 		<div class="container">
 			<ul class="nav nav-pills">
 			  <li role="presentation"><a href="#/index">Principal</a></li>
-			  <li role="presentation"><a href="#">Categoria</a></li>
-			  <li role="presentation"><a href="#">Equipamento</a></li>
-			  <li role="presentation"><a href="#/funcionario">Funcionario</a></li>
-			  <li role="presentation"><a href="#">Manutenção</a></li>
-			  <li role="presentation"><a href="#">Setor</a></li>
+			  <li role="presentation"><a href="#/categoria">Categoria</a></li>
+			  <li role="presentation"><a href="#/equipamento">Equipamento</a></li>
+			  <li role="presentation"><a href="#/funcionario">Funcionário</a></li>
+			  <li role="presentation"><a href="#/manutencao">Manutenção</a></li>
+			  <li role="presentation"><a href="#/setor">Setor</a></li>
 			  <li role="presentation" class="active"><a href="#/usuario">Usuário</a></li>
 			</ul>
 		</div>
 </header>
-<h3 class="jumbotron"> Usuário </h3>
+<hr />
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
@@ -30,15 +33,16 @@
 			<table class="table table-striped">
 				<tr>
 					<th>Id</th>
-					<th>Nome</th>
-					<th>Sobrenome</th>
-					<th>E-mail</th>
+					<th>Login</th>
+					<th>Senha</th>
+					<th>Funcionario</th>
 					<th>Ação</th>
 				</tr>
 				<tr ng-repeat="usuario in usuarios| filter:filtro">
 					<td>{{usuario.id}}</td>
-					<td>{{usuario.nome}}</td>
-					<td>{{usuario.sobrenome}}</td>
+					<td>{{usuario.login}}</td>
+					<td>{{usuario.senha}}</td>
+					<td>{{usuario.idFuncionario}}</td>
 					<td>{{usuario.email}}</td>
 					<td><a href="#/usuario/edit/{{usuario.id}}" class="btn btn-primary btn-block">Editar</a></td>
 				</tr>

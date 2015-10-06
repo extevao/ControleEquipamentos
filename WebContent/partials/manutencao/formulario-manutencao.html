@@ -1,0 +1,102 @@
+<meta charset="utf-8" />
+<header class="subhead" id="overview">
+		<div class="page-header">
+  			<h1>Manutenção <small>Dados das Manutenções</small></h1>
+		</div>
+		<div class="container">
+			<ul class="nav nav-pills">
+			  <li role="presentation"><a href="#/index">Principal</a></li>
+			  <li role="presentation"><a href="#/categoria">Categoria</a></li>
+			  <li role="presentation"><a href="#/equipamento">Equipamento</a></li>
+			  <li role="presentation"><a href="#/funcionario">Funcionario</a></li>
+			  <li role="presentation" class="active"><a href="#/manutencao">Manutenção</a></li>
+			  <li role="presentation"><a href="#/setor">Setor</a></li>
+			  <li role="presentation"><a href="#/usuario">Usuário</a></li>
+			</ul>
+		</div>
+</header>
+
+
+<div class="page-header text-center">	
+	<h1>{{manutencao.nome}}</h1>
+</div>
+
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
+<form novalidate name="formulario" class="row" ng-submit="submeter()">
+	
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Descrição</label>
+			<input ng-model="manutencao.descricao" ng-maxlength="50" name="descricao" class="form-control" required />
+			<span ng-show="formulario.$submited && formulario.descricao.$error.required" class="form-control alert-danger">
+				Descrição obrigatório !!!
+			</span>
+			<span ng-show="formulario.descricao.$error.maxlength" class="form-control alert-danger">
+				A descrição deve ter no máximo 100 caracteres !!!
+			</span>
+		</div>
+		<div class="form-group">
+			<label>Motivo</label>
+			<input ng-model="manutencao.motivo" ng-maxlength="50" name="motivo" class="form-control" required />
+			<span ng-show="formulario.$submited && formulario.motivo.$error.required" class="form-control alert-danger">
+				Motivo obrigatório !!!
+			</span>
+			<span ng-show="formulario.motivo.$error.maxlength" class="form-control alert-danger">
+				O motivo deve ter no máximo 100 caracteres !!!
+			</span>
+		</div>
+		<div class="form-group">
+			<label>Data Início Manutencão</label>
+			<input ng-model="manutencao.datainicio" ng-maxlength="50" name="datainicio" class="form-control" />
+		</div>
+		<div class="form-group">
+			<label>Data Fim Manutenção</label>
+			<input ng-model="manutencao.datafim" ng-maxlength="50" name="datafim" class="form-control" />
+		</div>
+		<div class="form-group">
+			<label>Equipamento</label>
+			<input ng-model="manutencao.idEquipamento" ng-maxlength="50" name="datafim" class="form-control" />
+		</div>
+		<div class="form-group">
+			<label>Data Fim Manutenção</label>
+			<input ng-model="manutencao.datafim" ng-maxlength="50" name="datafim" class="form-control" />
+		</div>
+		<div class="form-group">
+			<label>Equipamento</label>
+			<input ng-model="manutencao.idEquipamento" ng-maxlength="50" name="idEquipamento" class="form-control" />
+		</div>
+		<div class="form-group">
+			<label>Setor</label>
+			<input ng-model="manutencao.idSetor" ng-maxlength="50" name="idSetor" class="form-control" />
+		</div>
+		<div class="form-group">
+			<label>Funcionário</label>
+			<input ng-model="manutencao.idFuncionario" ng-maxlength="50" name="idFuncionario" class="form-control" />
+		</div>
+		<div class="form-group">
+			<label>Usuário</label>
+			<input ng-model="manutencao.idUsuario" ng-maxlength="50" name="idUsuario" class="form-control" />
+		</div>
+
+		<hr />
+		
+		<hr />
+		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
+		<a href="#/manutencao" class="btn btn-primary">Voltar</a>
+		<hr/>
+	</div>
+	<div class="col-md-6" ng-controller="SetoresController">
+		<table class="table table-striped">
+				<tr>
+					<th>Id</th>
+					<th>Nome</th>
+				</tr>
+				<tr ng-repeat="setor in setores">
+					<td>{{setor.id}}</td>
+					<td>{{setor.nome}}</td>
+				</tr>
+			</table>
+	</div>
+
+</form>	

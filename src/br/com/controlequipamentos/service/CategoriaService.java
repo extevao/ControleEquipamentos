@@ -10,7 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import br.com.controlequipamentos.dao.CategoriaDao;
+import br.com.controlequipamentos.dao.CategoriaDAO;
 import br.com.controlequipamentos.pojo.Categoria;
 
 
@@ -22,9 +22,9 @@ public class CategoriaService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Categoria> listarCategorias(){
 		
-		CategoriaDao categoriaDao;
+		CategoriaDAO categoriaDao;
 		try {
-			categoriaDao = new CategoriaDao();
+			categoriaDao = new CategoriaDAO();
 			return categoriaDao.select();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -36,9 +36,9 @@ public class CategoriaService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
 	public ArrayList<Categoria> listarCategoria(@PathParam("id") int id){
-		CategoriaDao categoriaDao;
+		CategoriaDAO categoriaDao;
 		try {
-			categoriaDao = new CategoriaDao();
+			categoriaDao = new CategoriaDAO();
 			return categoriaDao.selectId(id);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -49,9 +49,9 @@ public class CategoriaService {
 	
 	@PUT
 	public void alterar(Categoria categoria){
-		CategoriaDao categoriaDao;
+		CategoriaDAO categoriaDao;
 		try {
-			categoriaDao = new CategoriaDao();
+			categoriaDao = new CategoriaDAO();
 			categoriaDao.update(categoria);
 
 		} catch (Exception e) {
@@ -60,9 +60,9 @@ public class CategoriaService {
 	}
 	@POST
 	public void inserir (Categoria categoria){
-		CategoriaDao categoriaDao;
+		CategoriaDAO categoriaDao;
 		try {
-			categoriaDao = new CategoriaDao();
+			categoriaDao = new CategoriaDAO();
 			categoriaDao.insert(categoria);
 			
 		} catch (Exception e) {

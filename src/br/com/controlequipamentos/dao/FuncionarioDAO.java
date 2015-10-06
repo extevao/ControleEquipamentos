@@ -7,7 +7,7 @@ import br.com.controlequipamentos.pojo.Funcionario;
 
 
 
-public class FuncionarioDao extends ConnectionFactory {
+public class FuncionarioDAO extends ConnectionFactory {
 
 	public ArrayList<Funcionario> select (){
 		ArrayList<Funcionario> listaFuncionarios = new ArrayList<>();

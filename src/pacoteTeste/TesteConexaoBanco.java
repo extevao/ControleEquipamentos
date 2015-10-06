@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import javax.naming.NamingException;
 
-import br.com.controlequipamentos.dao.EquipamentoDao;
+import br.com.controlequipamentos.dao.EquipamentoDAO;
 import br.com.controlequipamentos.dao.UsuarioTesteDao;
 import br.com.controlequipamentos.pojo.Equipamento;
 import br.com.controlequipamentos.pojo.UsuarioTeste;
@@ -27,7 +27,7 @@ public class TesteConexaoBanco {
 		
 	}
 	public  static void listar() throws NamingException{
-		EquipamentoDao dao = new EquipamentoDao();
+		EquipamentoDAO dao = new EquipamentoDAO();
 		for(Equipamento obj : dao.select()){
 			System.out.println(obj.toString());
 		}
@@ -35,7 +35,7 @@ public class TesteConexaoBanco {
 	
 	public static void inserir() throws NamingException{
 		//Equipamento novo = new Equipamento("OptiPlex 3020 Micro", "2015-07-24", "2015-08-15", "2015-09-10", "Dell", 3, 2, 4, 4);
-		EquipamentoDao dao = new EquipamentoDao();
+		EquipamentoDAO dao = new EquipamentoDAO();
 		//dao.insert(novo);
 	}
 	public static void update() throws NamingException{

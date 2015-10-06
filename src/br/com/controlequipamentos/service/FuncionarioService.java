@@ -10,7 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import br.com.controlequipamentos.dao.FuncionarioDao;
+import br.com.controlequipamentos.dao.FuncionarioDAO;
 import br.com.controlequipamentos.pojo.Funcionario;
 
 
@@ -21,9 +21,9 @@ public class FuncionarioService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Funcionario> listarFuncionarios(){
 		
-		FuncionarioDao funcionarioDao;
+		FuncionarioDAO funcionarioDao;
 		try {
-			funcionarioDao = new FuncionarioDao();
+			funcionarioDao = new FuncionarioDAO();
 			return funcionarioDao.select();
 		} catch (Exception e) {
 			return null;
@@ -33,9 +33,9 @@ public class FuncionarioService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
 	public ArrayList<Funcionario> listarFuncionario(@PathParam("id") int id){
-		FuncionarioDao funcionarioDao;
+		FuncionarioDAO funcionarioDao;
 		try {
-			funcionarioDao = new FuncionarioDao();
+			funcionarioDao = new FuncionarioDAO();
 			return funcionarioDao.selectId(id);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -45,9 +45,9 @@ public class FuncionarioService {
 	
 	@PUT
 	public void alterar(Funcionario funcionario){
-		FuncionarioDao funcionarioDao;
+		FuncionarioDAO funcionarioDao;
 		try {
-			funcionarioDao = new FuncionarioDao();
+			funcionarioDao = new FuncionarioDAO();
 			funcionarioDao.update(funcionario);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -55,9 +55,9 @@ public class FuncionarioService {
 	}
 	@POST
 	public void inserir (Funcionario funcionairo){
-		FuncionarioDao funcionarioDao;
+		FuncionarioDAO funcionarioDao;
 		try {
-			funcionarioDao = new FuncionarioDao();
+			funcionarioDao = new FuncionarioDAO();
 			funcionarioDao.insert(funcionairo);
 			
 		} catch (Exception e) {

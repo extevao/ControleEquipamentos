@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import br.com.controlequipamentos.pojo.Requisito;
 
-public class RequisitoDao extends ConnectionFactory {
+public class RequisitoDAO extends ConnectionFactory {
 
 	
 	public ArrayList<Requisito> select (){

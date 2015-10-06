@@ -1,16 +1,16 @@
 <meta charset="utf-8" />
 <header class="subhead" id="overview">
 		<div class="page-header">
-  			<h1>Funcionário <small>Lista de Funcionários</small></h1>
+  			<h1>Setor <small>Lista de Setores</small></h1>
 		</div>
 		<div class="container">
 			<ul class="nav nav-pills">
 			  <li role="presentation" ><a href="#/index">Principal</a></li>
 			  <li role="presentation"><a href="#/categoria">Categoria</a></li>
 			  <li role="presentation"><a href="#/equipamento">Equipamento</a></li>
-			  <li role="presentation" class="active"><a href="#/funcionario">Funcionário</a></li>
+			  <li role="presentation"><a href="#/funcionario">Funcionário</a></li>
 			  <li role="presentation"><a href="#/manutencao">Manutenção</a></li>
-			  <li role="presentation"><a href="#/setor">Setor</a></li>
+			  <li role="presentation"  class="active"><a href="#/setor">Setor</a></li>
 			  <li role="presentation"><a href="#/usuario">Usuário</a></li>
 			</ul>
 		</div>
@@ -21,8 +21,8 @@
 		<div class="col-md-12">
 			<form>
 				<div class="input-group">
-					<span class="input-group-btn"> <a href="#/funcionario/new" 	class="btn btn-primary">Novo funcionário</a>
-					</span> <input ng-model="filtro" type="text" class="form-control" placeholder="Está procurando alguém ?" />
+					<span class="input-group-btn"> <a href="#/setor/new" 	class="btn btn-primary">Novo setor</a>
+					</span> <input ng-model="filtro" type="text" class="form-control" placeholder="Está procurando algum setor?" />
 				</div>
 			</form>
 		</div>
@@ -34,19 +34,13 @@
 				<tr>
 					<th>Id</th>
 					<th>Nome</th>
-					<th>Sobrenome</th>
-					<th>E-mail</th>
-					<th>Cargo</th>
-					<th>Setor</th>
+					<th>Requisito</th>
 					<th>Ação</th>
 				</tr>
 				<tr ng-repeat="funcionario in funcionarios| filter:filtro">
-					<td>{{funcionario.id}}</td>
-					<td>{{funcionario.nome}}</td>
-					<td>{{funcionario.sobrenome}}</td>
-					<td>{{funcionario.email}}</td>
-					<td>{{funcionario.cargo}}</td>
-					<td>{{funcionario.setor}}</td>
+					<td>{{setor.id}}</td>
+					<td>{{setor.nome}}</td>
+					<td>{{setor.idRequisito}}</td>					
 					<td><a href="#/funcionario/edit/{{funcionario.id}}" class="btn btn-primary btn-block">Editar</a></td>
 				</tr>
 			</table>

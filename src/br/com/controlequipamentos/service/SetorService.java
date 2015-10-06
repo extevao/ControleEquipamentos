@@ -10,7 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import br.com.controlequipamentos.dao.SetorDao;
+import br.com.controlequipamentos.dao.SetorDAO;
 import br.com.controlequipamentos.pojo.Setor;
 
 @Path("/v1/setor")
@@ -21,9 +21,9 @@ public class SetorService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Setor> listarSetores(){
 		
-		SetorDao setorDao;
+		SetorDAO setorDao;
 		try {
-			setorDao = new SetorDao();
+			setorDao = new SetorDAO();
 			return setorDao.select();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -35,9 +35,9 @@ public class SetorService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
 	public ArrayList<Setor> listarSetor(@PathParam("id") int id){
-		SetorDao setorDao;
+		SetorDAO setorDao;
 		try {
-			setorDao = new SetorDao();
+			setorDao = new SetorDAO();
 			return setorDao.selectId(id);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -48,9 +48,9 @@ public class SetorService {
 	
 	@PUT
 	public void alterar(Setor setor){
-		SetorDao setorDao;
+		SetorDAO setorDao;
 		try {
-			setorDao = new SetorDao();
+			setorDao = new SetorDAO();
 			setorDao.update(setor);
 
 		} catch (Exception e) {
@@ -59,9 +59,9 @@ public class SetorService {
 	}
 	@POST
 	public void inserir (Setor setor){
-		SetorDao setorDao;
+		SetorDAO setorDao;
 		try {
-			setorDao = new SetorDao();
+			setorDao = new SetorDAO();
 			setorDao.insert(setor);
 			
 		} catch (Exception e) {

@@ -1,0 +1,46 @@
+<meta charset="utf-8" />
+<header class="subhead" id="overview">
+		<div class="page-header">
+  			<h1>Categoria <small>Dados da Categoria</small></h1>
+		</div>
+		<div class="container">
+			<ul class="nav nav-pills">
+			  <li role="presentation" ><a href="#/index">Principal</a></li>
+			  <li role="presentation" class="active"><a href="#/categoria">Categoria</a></li>
+			  <li role="presentation"><a href="#/equipamento">Equipamento</a></li>
+			  <li role="presentation"><a href="#/funcionario">Funcionario</a></li>
+			  <li role="presentation"><a href="#/manutencao">Manutenção</a></li>
+			  <li role="presentation"><a href="#/setor">Setor</a></li>
+			  <li role="presentation"><a href="#/usuario">Usuário</a></li>
+			</ul>
+		</div>
+</header>
+
+
+<div class="page-header text-center">	
+	<h1>{{Categoria.nome}}</h1>
+</div>
+
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
+<form novalidate name="formulario" class="row" ng-submit="submeter()">
+	
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Categoria</label>
+			<input ng-model="categoria.nome" ng-maxlength="50" name="nome" class="form-control" placeholder="Digite o nome da Categoria" required />
+			<span ng-show="formulario.$submited && formulario.nome.$error.required" class="form-control alert-danger">
+				Nome  da Categoria obrigatório !!!
+			</span>
+			<span ng-show="formulario.nome.$error.maxlength" class="form-control alert-danger">
+				O Nome da Categoria deve ter no máximo 100 caracteres !!!
+			</span>
+		</div>
+
+		<hr />
+		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
+		<a href="#/categoria" class="btn btn-primary">Voltar</a>
+		<hr/>
+	</div>
+
+</form>	

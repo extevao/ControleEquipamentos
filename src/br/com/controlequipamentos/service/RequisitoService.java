@@ -10,7 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import br.com.controlequipamentos.dao.RequisitoDao;
+import br.com.controlequipamentos.dao.RequisitoDAO;
 import br.com.controlequipamentos.pojo.Requisito;
 @Path("/v1/requisito")
 public class RequisitoService {
@@ -20,9 +20,9 @@ public class RequisitoService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Requisito> listarRequisitos(){
 		
-		RequisitoDao manutencaoDao;
+		RequisitoDAO manutencaoDao;
 		try {
-			manutencaoDao = new RequisitoDao();
+			manutencaoDao = new RequisitoDAO();
 			return manutencaoDao.select();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -34,9 +34,9 @@ public class RequisitoService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
 	public ArrayList<Requisito> listarRequisito(@PathParam("id") int id){
-		RequisitoDao requisitoDao;
+		RequisitoDAO requisitoDao;
 		try {
-			requisitoDao = new RequisitoDao();
+			requisitoDao = new RequisitoDAO();
 			return requisitoDao.selectId(id);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -47,9 +47,9 @@ public class RequisitoService {
 	
 	@PUT
 	public void alterar(Requisito requisito){
-		RequisitoDao requisitoDao;
+		RequisitoDAO requisitoDao;
 		try {
-			requisitoDao = new RequisitoDao();
+			requisitoDao = new RequisitoDAO();
 			requisitoDao.update(requisito);
 
 		} catch (Exception e) {
@@ -58,9 +58,9 @@ public class RequisitoService {
 	}
 	@POST
 	public void inserir (Requisito requisito){
-		RequisitoDao requisitoDao;
+		RequisitoDAO requisitoDao;
 		try {
-			requisitoDao = new RequisitoDao();
+			requisitoDao = new RequisitoDAO();
 			requisitoDao.insert(requisito);
 			
 		} catch (Exception e) {

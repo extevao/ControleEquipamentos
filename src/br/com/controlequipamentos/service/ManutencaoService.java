@@ -10,7 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import br.com.controlequipamentos.dao.ManutencaoDao;
+import br.com.controlequipamentos.dao.ManutencaoDAO;
 import br.com.controlequipamentos.pojo.Manutencao;
 
 @Path("/v1/manutencao")
@@ -21,9 +21,9 @@ public class ManutencaoService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Manutencao> listarManutencoes(){
 		
-		ManutencaoDao manutencaoDao;
+		ManutencaoDAO manutencaoDao;
 		try {
-			manutencaoDao = new ManutencaoDao();
+			manutencaoDao = new ManutencaoDAO();
 			return manutencaoDao.select();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -35,9 +35,9 @@ public class ManutencaoService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
 	public ArrayList<Manutencao> listarManutencao(@PathParam("id") int id){
-		ManutencaoDao manutencaoDao;
+		ManutencaoDAO manutencaoDao;
 		try {
-			manutencaoDao = new ManutencaoDao();
+			manutencaoDao = new ManutencaoDAO();
 			return manutencaoDao.selectId(id);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -48,9 +48,9 @@ public class ManutencaoService {
 	
 	@PUT
 	public void alterar(Manutencao equipamento){
-		ManutencaoDao manutencaoDao;
+		ManutencaoDAO manutencaoDao;
 		try {
-			manutencaoDao = new ManutencaoDao();
+			manutencaoDao = new ManutencaoDAO();
 			manutencaoDao.update(equipamento);
 
 		} catch (Exception e) {
@@ -59,9 +59,9 @@ public class ManutencaoService {
 	}
 	@POST
 	public void inserir (Manutencao manutencao){
-		ManutencaoDao manutencaoDao;
+		ManutencaoDAO manutencaoDao;
 		try {
-			manutencaoDao = new ManutencaoDao();
+			manutencaoDao = new ManutencaoDAO();
 			manutencaoDao.insert(manutencao);
 			
 		} catch (Exception e) {

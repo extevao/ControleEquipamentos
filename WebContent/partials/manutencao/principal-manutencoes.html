@@ -1,0 +1,61 @@
+<meta charset="utf-8" />
+<header class="subhead" id="overview">
+		<div class="page-header">
+  			<h1>Manutenção <small>Lista de Manutenções</small></h1>
+		</div>
+		<div class="container">
+			<ul class="nav nav-pills">
+			  <li role="presentation" ><a href="#/index">Principal</a></li>
+			  <li role="presentation"><a href="#/categoria">Categoria</a></li>
+			  <li role="presentation"><a href="#/equipamento">Equipamento</a></li>
+			  <li role="presentation"><a href="#/funcionario">Funcionário</a></li>
+			  <li role="presentation" class="active"><a href="#/manutencao">Manutenção</a></li>
+			  <li role="presentation"><a href="#/setor">Setor</a></li>
+			  <li role="presentation"><a href="#/usuario">Usuário</a></li>
+			</ul>
+		</div>
+</header>
+<hr />
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<form>
+				<div class="input-group">
+					<span class="input-group-btn"> <a href="#/manutencao/new" 	class="btn btn-primary">Nova manutenção</a>
+					</span> <input ng-model="filtro" type="text" class="form-control" placeholder="Está procurando uma manutenção?" />
+				</div>
+			</form>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-striped">
+				<tr>
+					<th>Id</th>
+					<th>Descrição</th>
+					<th>motivo</th>
+					<th>Data Inicio</th>
+					<th>Data Fim</th>
+					<th>Equipamento</th>
+					<th>Setor</th>
+					<th>Funcionario</th>	
+					<th>Usuário</th>				
+					<th>Ação</th>
+				</tr>
+				<tr ng-repeat="manutencao in manutencoes| filter:filtro">
+					<td>{{manutencao.id}}</td>
+					<td>{{manutencao.descricao}}</td>
+					<td>{{manutencao.motivo}}</td>
+					<td>{{manutencao.datainicio}}</td>
+					<td>{{manutencao.datafim}}</td>
+					<td>{{manutencao.idEquipamento}}</td>
+					<td>{{manutencao.idSetor}}</td>
+					<td>{{manutencao.idFuncionario}}</td>
+					<td>{{manutencao.idUsuario}}</td>					
+					<td><a href="#/manutencao/edit/{{manutencao.id}}" class="btn btn-primary btn-block">Editar</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
