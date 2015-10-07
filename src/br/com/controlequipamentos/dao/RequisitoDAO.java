@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import br.com.controlequipamentos.pojo.Requisito;
 
 public class RequisitoDAO extends ConnectionFactory {
-
 	
 	public ArrayList<Requisito> select (){
 		ArrayList<Requisito> listaRequisitos = new ArrayList<>();

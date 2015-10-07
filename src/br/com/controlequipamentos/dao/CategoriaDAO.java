@@ -7,7 +7,6 @@ import br.com.controlequipamentos.pojo.Categoria;
 
 public class CategoriaDAO extends ConnectionFactory {
 
-	// Método para listar todas as categorias existentes
 	public ArrayList<Categoria> select() {
 		ArrayList<Categoria> listaCategoria = new ArrayList<>();
 		StringBuilder sbSelect = new StringBuilder();
@@ -28,7 +27,6 @@ public class CategoriaDAO extends ConnectionFactory {
 		return null;
 	}
 
-	// Método para pesquisar a categoria por id
 	public ArrayList<Categoria> selectId(int idCategoria) {
 		ArrayList<Categoria> listaCategoria = new ArrayList<>();
 		StringBuilder sbSelec = new StringBuilder();
@@ -50,7 +48,6 @@ public class CategoriaDAO extends ConnectionFactory {
 		return null;
 	}
 
-	// Método para inserir uma nova categoria
 	public void insert(Categoria categoria) {
 		StringBuilder sbInsert = new StringBuilder();
 		sbInsert.append("INSERT INTO Categoria SET nome= ?");
@@ -63,7 +60,6 @@ public class CategoriaDAO extends ConnectionFactory {
 
 		}
 	}
-
 	public void update(Categoria categoria) {
 		StringBuilder sbUpdate = new StringBuilder();
 		sbUpdate.append("UPDATE Categoria SET nome = ?  WHERE id = ?");

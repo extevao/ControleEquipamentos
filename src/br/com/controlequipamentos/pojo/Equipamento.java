@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 public class Equipamento implements Serializable {
+	
 	private static final long serialVersionUID = -9163826571643132969L;
 	private int id;
 	private String nome;

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import br.com.controlequipamentos.pojo.Funcionario;
 
 
-
 public class FuncionarioDAO extends ConnectionFactory {
 
 	public ArrayList<Funcionario> select (){

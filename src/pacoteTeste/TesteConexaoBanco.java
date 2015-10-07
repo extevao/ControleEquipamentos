@@ -9,8 +9,9 @@ import java.sql.SQLException;
 import javax.naming.NamingException;
 
 import br.com.controlequipamentos.dao.EquipamentoDAO;
+import br.com.controlequipamentos.dao.UsuarioDAO;
 import br.com.controlequipamentos.dao.UsuarioTesteDao;
-import br.com.controlequipamentos.pojo.Equipamento;
+import br.com.controlequipamentos.pojo.Usuario;
 import br.com.controlequipamentos.pojo.UsuarioTeste;
 
 public class TesteConexaoBanco {
@@ -27,8 +28,8 @@ public class TesteConexaoBanco {
 		
 	}
 	public  static void listar() throws NamingException{
-		EquipamentoDAO dao = new EquipamentoDAO();
-		for(Equipamento obj : dao.select()){
+		UsuarioDAO dao = new UsuarioDAO();
+		for(Usuario obj : dao.select()){
 			System.out.println(obj.toString());
 		}
 	}

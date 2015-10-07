@@ -13,15 +13,12 @@ import javax.ws.rs.core.MediaType;
 import br.com.controlequipamentos.dao.UsuarioDAO;
 import br.com.controlequipamentos.pojo.Usuario;
 
-
-
-
 @Path("/v1/usuario")
 public class UsuarioService {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Usuario> listarFuncionarios(){
+	public ArrayList<Usuario> listarUsuarios(){
 		
 		UsuarioDAO usuarioDAO;
 		try {
@@ -34,11 +31,11 @@ public class UsuarioService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
-	public ArrayList<Usuario> listarFuncionario(@PathParam("id") int id){
-		UsuarioDAO funcionarioDao;
+	public ArrayList<Usuario> usuario(@PathParam("id") int id){
+		UsuarioDAO usuarioDAO;
 		try {
-			funcionarioDao = new UsuarioDAO();
-			return funcionarioDao.selectId(id);
+			usuarioDAO = new UsuarioDAO();
+			return usuarioDAO.selectId(id);
 		} catch (Exception e) {
 			System.out.println(e);
 			return null;
@@ -47,20 +44,20 @@ public class UsuarioService {
 	
 	@PUT
 	public void alterar(Usuario usuario){
-		UsuarioDAO funcionarioDao;
+		UsuarioDAO usuarioDAO;
 		try {
-			funcionarioDao = new UsuarioDAO();
-			funcionarioDao.update(usuario);
+			usuarioDAO = new UsuarioDAO();
+			usuarioDAO.update(usuario);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
 	@POST
 	public void inserir (Usuario usuario){
-		UsuarioDAO funcionarioDao;
+		UsuarioDAO usuarioDAO;
 		try {
-			funcionarioDao = new UsuarioDAO();
-			funcionarioDao.insert(usuario);
+			usuarioDAO = new UsuarioDAO();
+			usuarioDAO.insert(usuario);
 		} catch (Exception e) {
 			System.out.println(e);
 		}

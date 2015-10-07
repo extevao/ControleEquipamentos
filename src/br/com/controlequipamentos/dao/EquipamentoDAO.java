@@ -26,7 +26,6 @@ public class EquipamentoDAO extends ConnectionFactory {
 				equipamento.setIdSetor(this.rs.getInt("idSetor"));
 				equipamento.setIdFuncionario(this.rs.getInt("idFuncionario"));
 				equipamento.setIdRequisito(this.rs.getInt("idRequisito"));
-				
 				listaEquipamento.add(equipamento);
 			}
 			return listaEquipamento;

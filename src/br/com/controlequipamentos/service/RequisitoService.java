@@ -12,18 +12,18 @@ import javax.ws.rs.core.MediaType;
 
 import br.com.controlequipamentos.dao.RequisitoDAO;
 import br.com.controlequipamentos.pojo.Requisito;
+
 @Path("/v1/requisito")
 public class RequisitoService {
 
-	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Requisito> listarRequisitos(){
 		
-		RequisitoDAO manutencaoDao;
+		RequisitoDAO requisitoDAO;
 		try {
-			manutencaoDao = new RequisitoDAO();
-			return manutencaoDao.select();
+			requisitoDAO = new RequisitoDAO();
+			return requisitoDAO.select();
 		} catch (Exception e) {
 			System.out.println(e);
 			return null;
@@ -34,10 +34,10 @@ public class RequisitoService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
 	public ArrayList<Requisito> listarRequisito(@PathParam("id") int id){
-		RequisitoDAO requisitoDao;
+		RequisitoDAO requisitoDAO;
 		try {
-			requisitoDao = new RequisitoDAO();
-			return requisitoDao.selectId(id);
+			requisitoDAO = new RequisitoDAO();
+			return requisitoDAO.selectId(id);
 		} catch (Exception e) {
 			System.out.println(e);
 			return null;
