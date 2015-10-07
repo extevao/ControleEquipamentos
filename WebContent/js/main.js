@@ -15,9 +15,8 @@ angular.module('moduloPrincipal', ['ngRoute'])
 		templateUrl: 'partials/categoria/formulario-categoria.html',
 		controller: 'CategoriaController'
 	});	
-	
 	$routeProvider.when('/equipamento', {
-		templateUrl: 'partials/equipamento/principal-equipamento.html',
+		templateUrl: 'partials/equipamento/principal-equipamentos.html',
 		controller: 'EquipamentosController'
 	});	
 	$routeProvider.when('/equipamento/new', {
@@ -42,6 +41,19 @@ angular.module('moduloPrincipal', ['ngRoute'])
 		controller: 'FuncionarioController'
 	});	
 	
+	$routeProvider.when('/manutencao', {
+		templateUrl: 'partials/manutencao/principal-manutencoes.html',
+		controller: 'ManutencoesController'
+	});	
+	$routeProvider.when('/manutencao/new', {
+		templateUrl: 'partials/manutencao/formulario-manutencao.html',
+		controller: 'ManutencaoController'
+	});	
+	$routeProvider.when('/manutencao/edit/:manutencaoId', {
+		templateUrl: 'partials/manutencao/formulario-manutencao.html',
+		controller: 'ManutencaoController'
+	});	
+	
 	$routeProvider.when('/usuario', {
 		templateUrl: 'partials/usuario/principal-usuarios.html',
 		controller: 'UsuariosController'
@@ -49,32 +61,16 @@ angular.module('moduloPrincipal', ['ngRoute'])
 	$routeProvider.when('/usuario/new', {
 		templateUrl: 'partials/usuario/formulario-usuario.html',
 		controller: 'UsuarioController'
-		
 	});	
 	$routeProvider.when('/usuario/edit/:usuarioId', {
 		templateUrl: 'partials/usuario/formulario-usuario.html',
 		controller: 'UsuarioController'
 	});	
-	
-
-	$routeProvider.when('/manutencao', {
-		templateUrl: 'partials/manutencao/principal-manutencoes.html'
-	});	
-	$routeProvider.when('/manutencao/new', {
-		templateUrl: 'partials/manutencao/formulario-manutencao.html'
-		
-	});	
-	$routeProvider.when('/manutencao/edit/:manutencaoId', {
-		templateUrl: 'partials/usuario/formulario-manutencao.html'
-	});	
-	
-	
 	$routeProvider.when('/setor', {
 		templateUrl: 'partials/setor/principal-setores.html'
 	});	
 	$routeProvider.when('/setor/new', {
 		templateUrl: 'partials/setor/formulario-setor.html'
-		
 	});	
 	$routeProvider.when('/setor/edit/:setorId', {
 		templateUrl: 'partials/setor/formulario-setor.html'

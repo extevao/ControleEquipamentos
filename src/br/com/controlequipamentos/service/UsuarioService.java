@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import br.com.controlequipamentos.dao.UsuarioDAO;
 import br.com.controlequipamentos.pojo.Usuario;
 
+
 @Path("/v1/usuario")
 public class UsuarioService {
 	

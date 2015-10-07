@@ -2,9 +2,9 @@ angular.module('moduloPrincipal').controller('FuncionariosController', function(
 
     $scope.funcionarios = [];
     $scope.filtro = '';
-
-    $http.get('api/v1/funcionario').success(function(data){
-        $scope.funcionarios = data;
+    
+    $http.get('api/v1/funcionario').success(function(bryan){
+        $scope.funcionarios = bryan;
     }).error(function(erro){
         console.log(erro);
     });

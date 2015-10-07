@@ -10,6 +10,7 @@
 			  <li role="presentation"><a href="#/equipamento">Equipamento</a></li>
 			  <li role="presentation"><a href="#/funcionario">Funcionário</a></li>
 			  <li role="presentation" class="active"><a href="#/manutencao">Manutenção</a></li>
+			  <li role="presentation"><a href="#/requisito">Requisito</a></li>
 			  <li role="presentation"><a href="#/setor">Setor</a></li>
 			  <li role="presentation"><a href="#/usuario">Usuário</a></li>
 			</ul>
@@ -43,12 +44,12 @@
 					<th>Usuário</th>				
 					<th>Ação</th>
 				</tr>
-				<tr ng-repeat="manutencao in manutencoes| filter:filtro">
+				<tr ng-repeat="manutencao in manutencoes | filter:filtro">
 					<td>{{manutencao.id}}</td>
 					<td>{{manutencao.descricao}}</td>
 					<td>{{manutencao.motivo}}</td>
-					<td>{{manutencao.datainicio}}</td>
-					<td>{{manutencao.datafim}}</td>
+					<td>{{manutencao.dataInicio}}</td>
+					<td>{{manutencao.dataFim}}</td>
 					<td>{{manutencao.idEquipamento}}</td>
 					<td>{{manutencao.idSetor}}</td>
 					<td>{{manutencao.idFuncionario}}</td>

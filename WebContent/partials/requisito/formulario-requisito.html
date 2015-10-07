@@ -1,16 +1,16 @@
 <meta charset="utf-8" />
 <header class="subhead" id="overview">
 		<div class="page-header">
-  			<h1>Categoria <small>Dados da Categoria</small></h1>
+  			<h1>Requisito <small>Dados do Requisito</small></h1>
 		</div>
 		<div class="container">
 			<ul class="nav nav-pills">
 			  <li role="presentation" ><a href="#/index">Principal</a></li>
-			  <li role="presentation" class="active"><a href="#/categoria">Categoria</a></li>
+			  <li role="presentation"><a href="#/categoria">Categoria</a></li>
 			  <li role="presentation"><a href="#/equipamento">Equipamento</a></li>
 			  <li role="presentation"><a href="#/funcionario">Funcionario</a></li>
 			  <li role="presentation"><a href="#/manutencao">Manutenção</a></li>
-			   <li role="presentation"><a href="#/requisito">Requisito</a></li>
+			   <li role="presentation" class="active"><a href="#/requisito">Requisito</a></li>
 			  <li role="presentation"><a href="#/setor">Setor</a></li>
 			  <li role="presentation"><a href="#/usuario">Usuário</a></li>
 			</ul>
@@ -19,7 +19,7 @@
 
 
 <div class="page-header text-center">	
-	<h1>{{Categoria.nome}}</h1>
+	<h1>{{requisito.processador}}</h1>
 </div>
 
 <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
@@ -28,19 +28,25 @@
 	
 	<div class="col-md-6">
 		<div class="form-group">
-			<label>Categoria</label>
-			<input ng-model="categoria.nome" ng-maxlength="50" name="nome" class="form-control" placeholder="Digite o nome da Categoria" required />
-			<span ng-show="formulario.$submited && formulario.nome.$error.required" class="form-control alert-danger">
-				Nome  da Categoria obrigatório !!!
-			</span>
-			<span ng-show="formulario.nome.$error.maxlength" class="form-control alert-danger">
-				O Nome da Categoria deve ter no máximo 100 caracteres !!!
-			</span>
+			<label>Processador</label>
+			<input ng-model="requisito.processador" name="processador" class="form-control" required />
+		</div>
+		<div class="form-group">
+			<label>Memória RAM</label>
+			<input ng-model="requisito.memoriaram" name="memoriaram" class="form-control" required />
+		</div>
+		<div class="form-group">
+			<label>HD</label>
+			<input ng-model="requisito.hd" name="hd" class="form-control" required />
+		</div>
+		<div class="form-group">
+			<label>Vídeo</label>
+			<input ng-model="requisito.video" name="video" class="form-control" required />
 		</div>
 
 		<hr />
 		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
-		<a href="#/categoria" class="btn btn-primary">Voltar</a>
+		<a href="#/requisito class="btn btn-primary">Voltar</a>
 		<hr/>
 	</div>
 

@@ -1,13 +1,14 @@
-angular.module('moduloPrincipal').controller('EquipamentoController', function($scope, $http, $routeParams) {
+angular.module('moduloPrincipal').controller('ManutencaoController', function($scope, $http, $routeParams) {
 
-        $scope.equipamento = {};
+        $scope.manutencao = {};
         $scope.mensagem = '';
-             
+        
+        
 
-        if($routeParams.equipamentoId) {
-            $http.get('api/v1/equipamento/' + $routeParams.equipamentoId)
+        if($routeParams.manutencaoId) {
+            $http.get('api/v1/manutencao/' + $routeParams.manutencaoId)
             .success(function(data) {
-                $scope.equipamento = data[0];
+                $scope.manutencao = data[0];
             })
             .error(function(erro) {
                 console.log(erro);
@@ -15,7 +16,7 @@ angular.module('moduloPrincipal').controller('EquipamentoController', function($
             });
         }
     
-        $scope.submeter = function(){
+        $scope.submeterx = function(){
             if($scope.formulario.$valid){
                 if($scope.equipamento.id){
                    $http.put('api/v1/equipamento', $scope.equipamento)

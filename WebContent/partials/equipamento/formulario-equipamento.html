@@ -10,6 +10,7 @@
 			  <li role="presentation"  class="active"><a href="#/equipamento">Equipamento</a></li>
 			  <li role="presentation"><a href="#/funcionario">Funcionario</a></li>
 			  <li role="presentation"><a href="#/manutencao">Manutenção</a></li>
+			  <li role="presentation"><a href="#/requisito">Requisito</a></li>
 			  <li role="presentation"><a href="#/setor">Setor</a></li>
 			  <li role="presentation"><a href="#/usuario">Usuário</a></li>
 			</ul>
@@ -29,27 +30,20 @@
 		<div class="form-group">
 			<label>Nome do Equipamento</label>
 			<input ng-model="equipamento.nome" ng-maxlength="100" name="nome" class="form-control" required />
-			<span ng-show="formulario.$submited && formulario.nome.$error.required" class="form-control alert-danger">
-				Nome do Equipamento obrigatório !!!
-			</span>
-			<span ng-show="formulario.nome.$error.maxlength" class="form-control alert-danger">
-				O Nome da Equipamento deve ter no máximo 100 caracteres !!!
-			</span>
-		</div>
 		<div class="form-group">
 			<label>Data Compra</label>
-			<input ng-model="equipamento.datacompra" name="datacompra" class="form-control" required />
+			<input ng-model="equipamento.dataCompra" name="datacompra" class="form-control" required />
 		</div>
 		<div class="form-group">
 			<label>Data Cadastro</label>
-			<input ng-model="equipamento.datacadastro" name="datacadastro" class="form-control" required />
+			<input ng-model="equipamento.dataCadastro" name="datacadastro" class="form-control" required />
 			<span ng-show="formulario.$submited && formulario.datacadastro.$error.required" class="form-control alert-danger">
 				Data de cadastro do equipamento obrigatório !!!
 			</span>
 		</div>
 		<div class="form-group">
 			<label>Data Inicio Operação</label>
-			<input ng-model="equipamento.datainiciooperacao"name="datainiciooperacao" class="form-control" required />
+			<input ng-model="equipamento.dataInicioOperacao"name="dataInicioOperacao" class="form-control" required />
 		</div>
 		<div class="form-group">
 			<label>Marca</label>
