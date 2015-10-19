@@ -10,7 +10,6 @@ public class Funcionario implements Serializable {
 	private String sobrenome;
 	private String email;
 	private String cargo;
-	private int setor;
 	private int idSetor;
 	
 	public Funcionario(){
@@ -76,13 +75,6 @@ public class Funcionario implements Serializable {
 		this.idSetor = idSetor;
 	}
 
-	public int getSetor() {
-		return setor;
-	}
-
-	public void setSetor(int setor) {
-		this.setor = setor;
-	}
 	
 	
 

@@ -1,8 +1,6 @@
 angular.module('moduloPrincipal', ['ngRoute'])
 .config(function($routeProvider) {
-	$routeProvider.when('/index', {
-		templateUrl: 'partials/principal/principal.html',
-	});
+	/* Categoria */
 	$routeProvider.when('/categoria', {
 		templateUrl: 'partials/categoria/principal-categorias.html',
 		controller: 'CategoriasController'
@@ -15,6 +13,7 @@ angular.module('moduloPrincipal', ['ngRoute'])
 		templateUrl: 'partials/categoria/formulario-categoria.html',
 		controller: 'CategoriaController'
 	});	
+	/* Equipamento */
 	$routeProvider.when('/equipamento', {
 		templateUrl: 'partials/equipamento/principal-equipamentos.html',
 		controller: 'EquipamentosController'
@@ -26,8 +25,8 @@ angular.module('moduloPrincipal', ['ngRoute'])
 	$routeProvider.when('/equipamento/edit/:equipamentoId', {
 		templateUrl: 'partials/equipamento/formulario-equipamento.html',
 		controller: 'EquipamentoController'
-	});	
-	
+	});
+	/* Funcionário */	
 	$routeProvider.when('/funcionario', {
 		templateUrl: 'partials/funcionario/principal-funcionarios.html',
 		controller: 'FuncionariosController'
@@ -40,7 +39,7 @@ angular.module('moduloPrincipal', ['ngRoute'])
 		templateUrl: 'partials/funcionario/formulario-funcionario.html',
 		controller: 'FuncionarioController'
 	});	
-	
+	/* Manutenção */
 	$routeProvider.when('/manutencao', {
 		templateUrl: 'partials/manutencao/principal-manutencoes.html',
 		controller: 'ManutencoesController'
@@ -53,7 +52,26 @@ angular.module('moduloPrincipal', ['ngRoute'])
 		templateUrl: 'partials/manutencao/formulario-manutencao.html',
 		controller: 'ManutencaoController'
 	});	
-	
+	/* Principal */
+	$routeProvider.when('/index', {
+		templateUrl: 'partials/principal/principal.html',
+		controller: 'PrincipalController'
+	});
+	/* Requisito */
+	$routeProvider.when('/requisito', {
+		templateUrl: 'partials/requisito/principal-requisitos.html'
+	});		
+	/* Setor */
+	$routeProvider.when('/setor', {
+		templateUrl: 'partials/setor/principal-setores.html'
+	});	
+	$routeProvider.when('/setor/new', {
+		templateUrl: 'partials/setor/formulario-setor.html'
+	});	
+	$routeProvider.when('/setor/edit/:setorId', {
+		templateUrl: 'partials/setor/formulario-setor.html'
+	});	
+	/* Usuário */
 	$routeProvider.when('/usuario', {
 		templateUrl: 'partials/usuario/principal-usuarios.html',
 		controller: 'UsuariosController'
@@ -66,16 +84,7 @@ angular.module('moduloPrincipal', ['ngRoute'])
 		templateUrl: 'partials/usuario/formulario-usuario.html',
 		controller: 'UsuarioController'
 	});	
-	$routeProvider.when('/setor', {
-		templateUrl: 'partials/setor/principal-setores.html'
-	});	
-	$routeProvider.when('/setor/new', {
-		templateUrl: 'partials/setor/formulario-setor.html'
-	});	
-	$routeProvider.when('/setor/edit/:setorId', {
-		templateUrl: 'partials/setor/formulario-setor.html'
-	});	
-	
+	/* Padrão */
 	$routeProvider.otherwise({ redirectTo: '/index'});
 
 });

@@ -28,7 +28,7 @@
 	
 	<div class="col-md-6">
 		<div class="form-group">
-			<label>Nomex</label>
+			<label>Nome</label>
 			<input ng-model="funcionario.nome" ng-maxlength="50" name="nome" class="form-control" required />
 			<span ng-show="formulario.$submited && formulario.nome.$error.required" class="form-control alert-danger">
 				Nome obrigatório !!!
@@ -66,7 +66,7 @@
 		</div>
 		<div class="form-group">
 			<label>Setor</label>
-			<select  name="setor" class="form-control" ng-controller="SetoresController" ng-model="funcionario.setor" ng-options="setor.id as setor.nome for setor in setores" required>
+			<select  name="setor" class="form-control" ng-controller="SetoresController" ng-model="funcionario.idSetor" ng-options="setor.id as setor.nome for setor in setores" required>
 				<option value="">Selecione Setor</option>
 			</select>
 			<span ng-show="formulario.$submited && formulario.setor.$error.required" class="form-control alert-danger">

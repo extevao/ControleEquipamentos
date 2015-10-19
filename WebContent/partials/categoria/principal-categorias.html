@@ -1,48 +1,65 @@
 <meta charset="utf-8" />
 <header class="subhead" id="overview">
-		<div class="page-header">
-  			<h1>Categoria <small>Lista de Categorias</small></h1>
-		</div>
-		<div class="container">
-			<ul class="nav nav-pills">
-			  <li role="presentation" ><a href="#/index">Principal</a></li>
-			  <li role="presentation" class="active"><a href="#/categoria">Categoria</a></li>
-			  <li role="presentation"><a href="#/equipamento">Equipamento</a></li>
-			  <li role="presentation"><a href="#/funcionario">Funcionário</a></li>
-			  <li role="presentation"><a href="#/manutencao">Manutenção</a></li>
-			  <li role="presentation"><a href="#/requisito">Requisito</a></li>
-			  <li role="presentation" ><a href="#/setor">Setor</a></li>
-			  <li role="presentation"><a href="#/usuario">Usuário</a></li>
-			</ul>
-		</div>
+	<div class="page-header">
+		<h1>Categoria <small>Lista de Categorias</small></h1>
+	</div>
+	<div class="container">
+		<ul class="nav nav-pills">
+		  <li role="presentation" ><a href="#/index">Principal</a></li>
+		  <li role="presentation" class="active"><a href="#/categoria">Categoria</a></li>
+		  <li role="presentation"><a href="#/equipamento">Equipamento</a></li>
+		  <li role="presentation"><a href="#/funcionario">Funcionário</a></li>
+		  <li role="presentation"><a href="#/manutencao">Manutenção</a></li>
+		  <li role="presentation"><a href="#/requisito">Requisito</a></li>
+		  <li role="presentation" ><a href="#/setor">Setor</a></li>
+		  <li role="presentation"><a href="#/usuario">Usuário</a></li>
+		</ul>
+	</div>
 </header>
 <hr />
+<p ng-show="mensagem.length" class="alert alert-success">{{mensagem}}</p>
 <div class="container">
+	
 	<div class="row">
 		<div class="col-md-12">
-			<form>
-				<div class="input-group">
-					<span class="input-group-btn"> <a href="#/categoria/new" 	class="btn btn-primary">Nova categoria</a>
-					</span> <input ng-model="filtro" type="text" class="form-control" placeholder="Está procurando alguma coisa?" />
-				</div>
-			</form>
+			<input ng-model="filtro" type="text" class="form-control"  />
 		</div>
 	</div>
 	<hr />
+	
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-12">
 			<table class="table table-striped">
 				<tr>
 					<th>Id</th>
 					<th>Nome</th>
-					<th>Ação</th>
 				</tr>
-				<tr ng-repeat="categoria in categorias| filter:filtro">
+				<tr ng-repeat="categoria in categorias| filter:filtro" ng-click="editar(categoria)">
 					<td>{{categoria.id}}</td>
 					<td>{{categoria.nome}}</td>				
-					<td><a href="#/categoria/edit/{{categoria.id}}" class="btn btn-primary btn-block">Editar</a></td>
 				</tr>
 			</table>
+		</div>
+	</div>
+	
+	<hr />
+	
+	<div class="row">
+		<div class="col-md-12">
+			
+			<form novalidate name="formulario" class="row" ng-submit="submeter()">	
+				<div class="input-group">
+					<span class="input-group-btn"> <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
+					</span> <input ng-model="categoria.nome" ng-maxlength="100" name="nome" class="form-control" placeholder="Adicione uma nova Categoria ou altere os dados da Categoria selecionada." required />
+				</div>
+				<span ng-show="formulario.$submited && formulario.nome.$error.required" class="form-control alert-danger">
+					Nome  da Categoria obrigatório !!!
+				</span>
+				<span ng-show="formulario.nome.$error.maxlength" class="form-control alert-danger">
+					O Nome da Categoria deve ter no máximo 100 caracteres !!!
+				</span>
+			</form>
+		
 		</div>
 	</div>
 </div>

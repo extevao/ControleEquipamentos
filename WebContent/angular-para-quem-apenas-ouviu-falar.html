@@ -15,7 +15,7 @@
 		$scope.lista =[];
 		$scope.usuario = null;
 		
-		$http.get('api/v1/usuario').success(function(data){
+		$http.get('api/v1/funcionario').success(function(data){
 			$scope.lista = data;
 			console.log('Sucesso !!!');
 		}).error(function(erro){
