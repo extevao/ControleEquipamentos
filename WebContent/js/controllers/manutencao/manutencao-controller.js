@@ -16,7 +16,7 @@ angular.module('moduloPrincipal').controller('ManutencaoController', function($s
             });
         }
     
-        $scope.submeterx = function(){
+        $scope.submeter = function(){
             if($scope.formulario.$valid){
                 if($scope.equipamento.id){
                    $http.put('api/v1/equipamento', $scope.equipamento)

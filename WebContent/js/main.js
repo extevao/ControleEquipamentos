@@ -59,17 +59,29 @@ angular.module('moduloPrincipal', ['ngRoute'])
 	});
 	/* Requisito */
 	$routeProvider.when('/requisito', {
-		templateUrl: 'partials/requisito/principal-requisitos.html'
-	});		
+		templateUrl: 'partials/requisito/principal-requisitos.html',
+		controller: 'RequisitosController'
+	});
+	$routeProvider.when('/requisito/new', {
+		templateUrl: 'partials/requisito/formulario-requisito.html',
+		controller: 'RequisitoController'
+	});	
+	$routeProvider.when('/requisito/edit/:requisitoId', {
+		templateUrl: 'partials/requisito/formulario-requisito.html',
+		controller: 'RequisitoController'
+	});
 	/* Setor */
 	$routeProvider.when('/setor', {
-		templateUrl: 'partials/setor/principal-setores.html'
+		templateUrl: 'partials/setor/principal-setores.html',
+		controller: 'SetoresController',
 	});	
 	$routeProvider.when('/setor/new', {
-		templateUrl: 'partials/setor/formulario-setor.html'
+		templateUrl: 'partials/setor/formulario-setor.html',
+		controller: 'SetorController'
 	});	
 	$routeProvider.when('/setor/edit/:setorId', {
-		templateUrl: 'partials/setor/formulario-setor.html'
+		templateUrl: 'partials/setor/formulario-setor.html',
+		controller: 'SetorController'
 	});	
 	/* Usuário */
 	$routeProvider.when('/usuario', {

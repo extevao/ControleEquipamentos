@@ -10,6 +10,7 @@
 			  <li role="presentation"><a href="#/equipamento">Equipamento</a></li>
 			  <li role="presentation"><a href="#/funcionario">Funcionário</a></li>
 			  <li role="presentation"><a href="#/manutencao">Manutenção</a></li>
+			  <li role="presentation"><a href="#/requisito">Requisito</a></li>
 			  <li role="presentation"  class="active"><a href="#/setor">Setor</a></li>
 			  <li role="presentation"><a href="#/usuario">Usuário</a></li>
 			</ul>
@@ -21,7 +22,7 @@
 		<div class="col-md-12">
 			<form>
 				<div class="input-group">
-					<span class="input-group-btn"> <a href="#/setor/new" 	class="btn btn-primary">Novo setor</a>
+					<span class="input-group-btn"> <a href="#/setor/new" class="btn btn-primary">Novo setorxxx</a>
 					</span> <input ng-model="filtro" type="text" class="form-control" placeholder="Está procurando algum setor?" />
 				</div>
 			</form>
@@ -29,7 +30,7 @@
 	</div>
 	<hr />
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-6">
 			<table class="table table-striped">
 				<tr>
 					<th>Id</th>
@@ -37,11 +38,11 @@
 					<th>Requisito</th>
 					<th>Ação</th>
 				</tr>
-				<tr ng-repeat="funcionario in funcionarios| filter:filtro">
+				<tr ng-repeat="setor in setores| filter:filtro">
 					<td>{{setor.id}}</td>
 					<td>{{setor.nome}}</td>
 					<td>{{setor.idRequisito}}</td>					
-					<td><a href="#/funcionario/edit/{{funcionario.id}}" class="btn btn-primary btn-block">Editar</a></td>
+					<td><a href="#/setor/edit/{{setor.id}}" class="btn btn-primary btn-block">Editar</a></td>
 				</tr>
 			</table>
 		</div>

@@ -1,24 +1,23 @@
 <meta charset="utf-8" />
 <header class="subhead" id="overview">
 		<div class="page-header">
-  			<h1>Setor <small>Dados do Setor</small></h1>
+  			<h1>Setor <small>Lista de Setores</small></h1>
 		</div>
 		<div class="container">
 			<ul class="nav nav-pills">
 			  <li role="presentation" ><a href="#/index">Principal</a></li>
 			  <li role="presentation"><a href="#/categoria">Categoria</a></li>
 			  <li role="presentation"><a href="#/equipamento">Equipamento</a></li>
-			  <li role="presentation"><a href="#/funcionario">Funcionario</a></li>
+			  <li role="presentation"><a href="#/funcionario">Funcionário</a></li>
 			  <li role="presentation"><a href="#/manutencao">Manutenção</a></li>
+			  <li role="presentation"><a href="#/requisito">Requisito</a></li>
 			  <li role="presentation"  class="active"><a href="#/setor">Setor</a></li>
 			  <li role="presentation"><a href="#/usuario">Usuário</a></li>
 			</ul>
 		</div>
 </header>
-
-
 <div class="page-header text-center">	
-	<h1>{{setor.nome}}</h1>
+	<h1>{{setor.nome}}xx</h1>
 </div>
 
 <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
@@ -30,7 +29,7 @@
 			<label>Nome</label>
 			<input ng-model="setor.nome" ng-maxlength="50" name="nome" class="form-control" required />
 			<span ng-show="formulario.$submited && formulario.nome.$error.required" class="form-control alert-danger">
-				Nome  obrigatório !!!
+				Nome do setor obrigatório !!!
 			</span>
 			<span ng-show="formulario.nome.$error.maxlength" class="form-control alert-danger">
 				O Nome do Setor deve ter no máximo 50 caracteres !!!

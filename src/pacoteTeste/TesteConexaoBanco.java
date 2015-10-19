@@ -9,9 +9,8 @@ import java.sql.SQLException;
 import javax.naming.NamingException;
 
 import br.com.controlequipamentos.dao.EquipamentoDAO;
-import br.com.controlequipamentos.dao.UsuarioDAO;
 import br.com.controlequipamentos.dao.UsuarioTesteDao;
-import br.com.controlequipamentos.pojo.Usuario;
+import br.com.controlequipamentos.pojo.Equipamento;
 import br.com.controlequipamentos.pojo.UsuarioTeste;
 
 public class TesteConexaoBanco {
@@ -28,14 +27,24 @@ public class TesteConexaoBanco {
 		
 	}
 	public  static void listar() throws NamingException{
-		UsuarioDAO dao = new UsuarioDAO();
-		for(Usuario obj : dao.select()){
+		EquipamentoDAO dao = new EquipamentoDAO();
+		for(Equipamento obj : dao.select()){
 			System.out.println(obj.toString());
 		}
 	}
 	
 	public static void inserir() throws NamingException{
-		//Equipamento novo = new Equipamento("OptiPlex 3020 Micro", "2015-07-24", "2015-08-15", "2015-09-10", "Dell", 3, 2, 4, 4);
+		Equipamento novo = new Equipamento();
+		novo.setNome("OptiPlex 3020 Micro");
+		//novo.setDataCompra(2015-07-24);
+		//novo.setDataCadastro(2015-08-15);
+		//novo.setDataInicioOperacao(2015-09-10);
+		novo.setMarca("Dell");
+		novo.setIdCategoria(3);
+		novo.setIdSetor(2);
+		novo.setIdFuncionario(4);
+		novo.setIdRequisito(4);
+		
 		EquipamentoDAO dao = new EquipamentoDAO();
 		//dao.insert(novo);
 	}
