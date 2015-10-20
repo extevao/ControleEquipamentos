@@ -49,37 +49,48 @@
 		</div>
 		<div class="form-group">
 			<label>Data Início Manutencão</label>
-			<input ng-model="manutencao.datainicio" ng-maxlength="50" name="datainicio" class="form-control" />
+			<input ng-model="manutencao.dataInicio" ng-maxlength="50" name="datainicio" class="form-control" />
 		</div>
 		<div class="form-group">
 			<label>Data Fim Manutenção</label>
-			<input ng-model="manutencao.datafim" ng-maxlength="50" name="datafim" class="form-control" />
+			<input ng-model="manutencao.dataFim" ng-maxlength="50" name="datafim" class="form-control" />
 		</div>
 		<div class="form-group">
 			<label>Equipamento</label>
-			<input ng-model="manutencao.idEquipamento" ng-maxlength="50" name="datafim" class="form-control" />
-		</div>
-		<div class="form-group">
-			<label>Data Fim Manutenção</label>
-			<input ng-model="manutencao.datafim" ng-maxlength="50" name="datafim" class="form-control" />
-		</div>
-		<div class="form-group">
-			<label>Equipamento</label>
-			<input ng-model="manutencao.idEquipamento" ng-maxlength="50" name="idEquipamento" class="form-control" />
+			<select  name="equipamento" class="form-control" ng-controller="EquipamentosController" ng-model="manutencao.idEquipamento" ng-options="equipamento.id as equipamento.nome for equipamento in equipamentos" required>
+				<option value="">Selecione um Equipamento</option>
+			</select>
+			<span ng-show="formulario.$submited && formulario.equipamento.$error.required" class="form-control alert-danger">
+				Equipamento obrigatório !!!
+			</span>
 		</div>
 		<div class="form-group">
 			<label>Setor</label>
-			<input ng-model="manutencao.idSetor" ng-maxlength="50" name="idSetor" class="form-control" />
+			<select  name="setor" class="form-control" ng-controller="SetoresController" ng-model="manutencao.idSetor" ng-options="setor.id as setor.nome for setor in setores" required>
+				<option value="">Selecione Setor</option>
+			</select>
+			<span ng-show="formulario.$submited && formulario.setor.$error.required" class="form-control alert-danger">
+				Setor obrigatório !!!
+			</span>
 		</div>
 		<div class="form-group">
 			<label>Funcionário</label>
-			<input ng-model="manutencao.idFuncionario" ng-maxlength="50" name="idFuncionario" class="form-control" />
+			<select  name="funcionario" class="form-control" ng-controller="FuncionariosController" ng-model="manutencao.idSetor" ng-options="funcionario.id as funcionario.nome for funcionario in funcionarios" required>
+				<option value="">Selecione o Funcionário</option>
+			</select>
+			<span ng-show="formulario.$submited && formulario.funcionario.$error.required" class="form-control alert-danger">
+				Funcionário obrigatório !!!
+			</span>
 		</div>
 		<div class="form-group">
 			<label>Usuário</label>
-			<input ng-model="manutencao.idUsuario" ng-maxlength="50" name="idUsuario" class="form-control" />
+			<select  name="usuario" class="form-control" ng-controller="UsuariosController" ng-model="manutencao.idUsuario" ng-options="usuario.id as usuario.login for usuario in usuarios" required>
+				<option value="">Selecione o Usuário</option>
+			</select>
+			<span ng-show="formulario.$submited && formulario.usuario.$error.required" class="form-control alert-danger">
+				Funcionário obrigatório !!!
+			</span>
 		</div>
-
 		<hr />
 		
 		<hr />

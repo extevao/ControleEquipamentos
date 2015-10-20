@@ -51,19 +51,39 @@
 		</div>
 		<div class="form-group">
 			<label>Categoria</label>
-			<input ng-model="equipamento.idCategoria" name="idCategoria" class="form-control" required />
+			<select  name="categoria" class="form-control" ng-controller="CategoriasController" ng-model="equipamento.idCategoria" ng-options="categoria.id as categoria.nome for categoria in categorias" required>
+				<option value="">Selecione a Categoria</option>
+			</select>
+			<span ng-show="formulario.$submited && formulario.categoria.$error.required" class="form-control alert-danger">
+				Categoria obrigatória !!!
+			</span>
 		</div>
 		<div class="form-group">
 			<label>Setor</label>
-			<input ng-model="equipamento.idSetor" name="idSetor" class="form-control" required />
+			<select  name="setor" class="form-control" ng-controller="SetoresController" ng-model="equipamento.idSetor" ng-options="setor.id as setor.nome for setor in setores" required>
+				<option value="">Selecione Setor</option>
+			</select>
+			<span ng-show="formulario.$submited && formulario.setor.$error.required" class="form-control alert-danger">
+				Setor obrigatório !!!
+			</span>
 		</div>
 		<div class="form-group">
 			<label>Funcionário</label>
-			<input ng-model="equipamento.idFuncionario" name="idFuncionario" class="form-control" required />
+			<select  name="funcionario" class="form-control" ng-controller="FuncionariosController" ng-model="equipamento.idSetor" ng-options="funcionario.id as funcionario.nome for funcionario in funcionarios" required>
+				<option value="">Selecione o Funcionário</option>
+			</select>
+			<span ng-show="formulario.$submited && formulario.funcionario.$error.required" class="form-control alert-danger">
+				Funcionário obrigatório !!!
+			</span>
 		</div>
 		<div class="form-group">
 			<label>Requisito</label>
-			<input ng-model="equipamento.idRequisito" name="idRequisito" class="form-control" required />
+			<select  name="requisito" class="form-control" ng-controller="RequisitosController" ng-model="equipamento.idSetor" ng-options="requisito.id as requisito.processador for requisito in requisitos" required>
+				<option value="">Selecione o Requisito</option>
+			</select>
+			<span ng-show="formulario.$submited && formulario.requisito.$error.required" class="form-control alert-danger">
+				Requisito obrigatório !!!
+			</span>
 		</div>
 		
 		<hr />
