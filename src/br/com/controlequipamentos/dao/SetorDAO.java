@@ -18,6 +18,7 @@ public class SetorDAO extends ConnectionFactory {
 				Setor setor = new Setor();
 				setor.setId(rs.getInt("id"));
 				setor.setNome(rs.getString("nome"));
+				setor.setIdStatus(rs.getInt("idStatus"));
 				setor.setIdRequisito(rs.getInt("idRequisito"));
 				
 				listaSetores.add(setor);
@@ -40,8 +41,8 @@ public class SetorDAO extends ConnectionFactory {
 				Setor setor = new Setor();
 				setor.setId(rs.getInt("id"));
 				setor.setNome(rs.getString("nome"));
+				setor.setIdStatus(rs.getInt("idStatus"));
 				setor.setIdRequisito(rs.getInt("idRequisito"));
-				
 				listaSetor.add(setor);
 			}
 			return listaSetor;
@@ -53,11 +54,12 @@ public class SetorDAO extends ConnectionFactory {
 	
 	public void insert(Setor setor) {
 		StringBuilder sbInsert = new StringBuilder();
-		sbInsert.append("INSERT INTO Setor (nome, idRequisito) VALUES (?, ?)");
+		sbInsert.append("INSERT INTO Setor (nome, idStatus, idRequisito) VALUES (?, ?, ?)");
 		try {
 			this.stmtp = this.getConnection().prepareStatement(sbInsert.toString());
 			this.stmtp.setString(1, setor.getNome());
-			this.stmtp.setInt(2, setor.getIdRequisito());
+			this.stmtp.setInt(2, setor.getIdStatus());
+			this.stmtp.setInt(3, setor.getIdRequisito());
 			this.stmtp.executeUpdate();
 		
 		} catch (SQLException e) {
@@ -67,11 +69,12 @@ public class SetorDAO extends ConnectionFactory {
 
 	public void update(Setor setor) {
 		StringBuilder sbUpdate = new StringBuilder();
-		sbUpdate.append("UPDATE Setor SET nome = ?, idRequisito=?  WHERE id = ?");
+		sbUpdate.append("UPDATE Setor SET nome = ?, idStatus = ?, idRequisito=?  WHERE id = ?");
 		try {
 			this.stmtp = this.getConnection().prepareStatement(sbUpdate.toString());
 			this.stmtp.setString(1, setor.getNome());
-			this.stmtp.setInt(2, setor.getIdRequisito());
+			this.stmtp.setInt(2, setor.getIdStatus());
+			this.stmtp.setInt(3, setor.getIdRequisito());
 		
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {

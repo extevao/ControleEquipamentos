@@ -1,120 +1,130 @@
 package br.com.controlequipamentos.pojo;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 public class Equipamento implements Serializable {
-	
+
 	private static final long serialVersionUID = -9163826571643132969L;
 	private int id;
 	private String nome;
-	private Date dataCompra;
-	private Date dataCadastro;
-	private Date dataInicioOperacao;
-	private String marca;
+	private String modelo;
+	private String dataInicio;
+	private String dataFim;
+	private String servstag;
+	private String patrimonio;
 	private int idCategoria;
+	private int idMarca;
 	private int idSetor;
 	private int idFuncionario;
 	private int idRequisito;
-	
-	public Equipamento(){
-		
+	private int idEstado;
+
+	public Equipamento() {
+
 	}
-	public Equipamento(String nome, Date dataCompra, Date dataCadastro, Date dataInicioOperacao, String marca, int idCategoria, int idSetor, int idFuncionario, int idRequisito) {
-		super();
-		this.nome = nome;
-		this.dataCompra = dataCompra;
-		this.dataCadastro = dataCadastro;
-		this.dataInicioOperacao = dataInicioOperacao;
-		this.marca = marca;
-		this.idCategoria = idCategoria;
-		this.idSetor = idSetor;
-		this.idFuncionario = idFuncionario;
-		this.idRequisito = idRequisito;
-	}
-	
-	public Equipamento(int id, String nome, Date dataCompra, Date dataCadastro, Date dataInicioOperacao, String marca, int idCategoria, int idSetor, int idFuncionario, int idRequisito) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.dataCompra = dataCompra;
-		this.dataCadastro = dataCadastro;
-		this.dataInicioOperacao = dataInicioOperacao;
-		this.marca = marca;
-		this.idCategoria = idCategoria;
-		this.idSetor = idSetor;
-		this.idFuncionario = idFuncionario;
-		this.idRequisito = idRequisito;
-	}
-	
-	@Override
-	public String toString() {
-		return "Equipamento [id=" + id + ", nome=" + nome + ", dataCompra=" + dataCompra + ", dataCadastro="
-				+ dataCadastro + ", dataInicioOperacao=" + dataInicioOperacao + ", marca=" + marca + ", idCategoria="
-				+ idCategoria + ", idSetor=" + idSetor + ", idFuncionario=" + idFuncionario + ", idRequisito="
-				+ idRequisito + "]";
-	}
-	
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getDataCompra() {
-		return dataCompra;
+
+	public String getModelo() {
+		return modelo;
 	}
-	public void setDataCompra(Date dataCompra) {
-		this.dataCompra = dataCompra;
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
 	}
-	public Date getDataCadastro() {
-		return dataCadastro;
+
+	public String getDataInicio() {
+		return dataInicio;
 	}
-	public void setDataCadastro(Date dataCadastro) {
-		this.dataCadastro = dataCadastro;
+
+	public void setDataInicio(String dataInicio) {
+		this.dataInicio = dataInicio;
 	}
-	public Date getDataInicioOperacao() {
-		return dataInicioOperacao;
+
+	public String getDataFim() {
+		return dataFim;
 	}
-	public void setDataInicioOperacao(Date dataInicioOperacao) {
-		this.dataInicioOperacao = dataInicioOperacao;
+
+	public void setDataFim(String dataFim) {
+		this.dataFim = dataFim;
 	}
-	public String getMarca() {
-		return marca;
+
+	public String getServstag() {
+		return servstag;
 	}
-	public void setMarca(String marca) {
-		this.marca = marca;
+
+	public void setServstag(String servstag) {
+		this.servstag = servstag;
 	}
-	public int getIdSetor() {
-		return idSetor;
+
+	public String getPatrimonio() {
+		return patrimonio;
 	}
-	public void setIdSetor(int idSetor) {
-		this.idSetor = idSetor;
+
+	public void setPatrimonio(String patrimonio) {
+		this.patrimonio = patrimonio;
 	}
-	public int getIdFuncionario() {
-		return idFuncionario;
-	}
-	public void setIdFuncionario(int idFuncionario) {
-		this.idFuncionario = idFuncionario;
-	}
-	public int getIdRequisito() {
-		return idRequisito;
-	}
-	public void setIdRequisito(int idRequisito) {
-		this.idRequisito = idRequisito;
-	}
+
 	public int getIdCategoria() {
 		return idCategoria;
 	}
+
 	public void setIdCategoria(int idCategoria) {
 		this.idCategoria = idCategoria;
 	}
-	
-	
+
+	public int getIdMarca() {
+		return idMarca;
+	}
+
+	public void setIdMarca(int idMarca) {
+		this.idMarca = idMarca;
+	}
+
+	public int getIdSetor() {
+		return idSetor;
+	}
+
+	public void setIdSetor(int idSetor) {
+		this.idSetor = idSetor;
+	}
+
+	public int getIdFuncionario() {
+		return idFuncionario;
+	}
+
+	public void setIdFuncionario(int idFuncionario) {
+		this.idFuncionario = idFuncionario;
+	}
+
+	public int getIdRequisito() {
+		return idRequisito;
+	}
+
+	public void setIdRequisito(int idRequisito) {
+		this.idRequisito = idRequisito;
+	}
+
+	public int getIdEstado() {
+		return idEstado;
+	}
+
+	public void setIdEstado(int idEstado) {
+		this.idEstado = idEstado;
+	}
+
 }

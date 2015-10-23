@@ -36,7 +36,7 @@
 		</div>
 		<div class="form-group">
 			<label>Data Cadastro</label>
-			<input ng-model="equipamento.dataCadastro" name="datacadastro" class="form-control" required />
+			<input type="date" ng-model="equipamento.dataCadastro" name="datacadastro" class="form-control"  placeholder="dd-MM-yyyy" required />
 			<span ng-show="formulario.$submited && formulario.datacadastro.$error.required" class="form-control alert-danger">
 				Data de cadastro do equipamento obrigatório !!!
 			</span>

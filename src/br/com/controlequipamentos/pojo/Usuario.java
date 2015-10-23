@@ -6,26 +6,33 @@ public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 913854533111421693L;
 	private int id;
+	private String nome;
+	private String sobrenome;
+	private String email;
 	private String login;
 	private String senha;
-	private int idFuncionario;
+	private int idStatus;
+	private int idSetor;
 
 	public Usuario(){
 		
 	}
-	public Usuario(int id, String login, String senha, int idFuncionario) {
+	
+	
+
+	public Usuario(int id, String nome, String sobrenome, String email, String login, String senha, int idStatus,
+			int idSetor) {
 		super();
 		this.id = id;
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.email = email;
 		this.login = login;
 		this.senha = senha;
-		this.idFuncionario = idFuncionario;
+		this.idStatus = idStatus;
+		this.idSetor = idSetor;
 	}
-	
-	
-	@Override
-	public String toString() {
-		return "Usuario [id=" + id + ", login=" + login + ", senha=" + senha + ", idFuncionario=" + idFuncionario + "]";
-	}
+
 
 
 	public int getId() {
@@ -34,6 +41,30 @@ public class Usuario implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getSobrenome() {
+		return sobrenome;
+	}
+
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getLogin() {
@@ -52,21 +83,23 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 	}
 
-	public int getIdFuncionario() {
-		return idFuncionario;
+	public int getIdStatus() {
+		return idStatus;
 	}
 
-	public void setIdFuncionario(int idFuncionario) {
-		this.idFuncionario = idFuncionario;
+	public void setIdStatus(int idStatus) {
+		this.idStatus = idStatus;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public int getIdSetor() {
+		return idSetor;
+	}
+
+	public void setIdSetor(int idSetor) {
+		this.idSetor = idSetor;
 	}
 
 	
-
-
 
 
 }

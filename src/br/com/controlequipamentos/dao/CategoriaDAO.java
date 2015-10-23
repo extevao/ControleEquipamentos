@@ -56,7 +56,7 @@ public class CategoriaDAO extends ConnectionFactory {
 			this.stmtp.setString(1, categoria.getNome());
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println("Erro ao inserir Categoria: " + e);
+			System.out.println("Houve um erro ao tentar salvar a nova Categoria: " + e);
 
 		}
 	}
@@ -69,7 +69,7 @@ public class CategoriaDAO extends ConnectionFactory {
 			this.stmtp.setInt(2, categoria.getId());
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println("Erro ao alterar a categoria. " + e);
+			System.out.println("Ocorreu um erro ao tentar alterar a categoria: " + e);
 		}
 	}
 

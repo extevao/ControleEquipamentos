@@ -22,6 +22,7 @@ public class FuncionarioDAO extends ConnectionFactory {
 				funcionario.setSobrenome(rs.getString("sobrenome"));
 				funcionario.setEmail(rs.getString("email"));
 				funcionario.setCargo(rs.getString("cargo"));
+				funcionario.setIdStatus(rs.getInt("idStatus"));
 				funcionario.setIdSetor(rs.getInt("idSetor"));
 				
 				listaFuncionarios.add(funcionario);
@@ -47,6 +48,7 @@ public class FuncionarioDAO extends ConnectionFactory {
 				funcionario.setSobrenome(rs.getString("sobrenome"));
 				funcionario.setEmail(rs.getString("email"));
 				funcionario.setCargo(rs.getString("cargo"));
+				funcionario.setIdStatus(rs.getInt("idStatus"));
 				funcionario.setIdSetor(rs.getInt("idSetor"));
 				listaFuncionario.add(funcionario);
 			}
@@ -59,14 +61,15 @@ public class FuncionarioDAO extends ConnectionFactory {
 	
 	public void insert(Funcionario funcionario) {
 		StringBuilder sbInsert = new StringBuilder();
-		sbInsert.append("INSERT INTO Funcionario (nome, sobrenome, email, cargo, idSetor) VALUES (?, ?, ?, ?, ?)");
+		sbInsert.append("INSERT INTO Funcionario (nome, sobrenome, email, cargo, idStatus, idSetor) VALUES (?, ?, ?, ?, ?, ?)");
 		try {
 			this.stmtp = this.getConnection().prepareStatement(sbInsert.toString());
 			this.stmtp.setString(1, funcionario.getNome());
 			this.stmtp.setString(2, funcionario.getSobrenome());
 			this.stmtp.setString(3, funcionario.getEmail());
 			this.stmtp.setString(4, funcionario.getCargo());
-			this.stmtp.setInt(5, funcionario.getIdSetor());
+			this.stmtp.setInt(5, funcionario.getIdStatus());
+			this.stmtp.setInt(6, funcionario.getIdSetor());
 			this.stmtp.executeUpdate();		
 		} catch (SQLException e) {
 			System.out.println("Erro ao inserir novo funcionário: " + e);
@@ -75,15 +78,15 @@ public class FuncionarioDAO extends ConnectionFactory {
 
 	public void update(Funcionario funcionario) {
 		StringBuilder sbUpdate = new StringBuilder();
-		sbUpdate.append("UPDATE Funcionario SET nome = ?, sobrenome = ?, email = ?, cargo=?, idSetor=?  WHERE id = ?");
+		sbUpdate.append("UPDATE Funcionario SET nome = ?, sobrenome = ?, email = ?, cargo=?, idStatus=?, idSetor=?  WHERE id = ?");
 		try {
 			this.stmtp = this.getConnection().prepareStatement(sbUpdate.toString());
 			this.stmtp.setString(1, funcionario.getNome());
 			this.stmtp.setString(2, funcionario.getSobrenome());
 			this.stmtp.setString(3, funcionario.getEmail());
 			this.stmtp.setString(4, funcionario.getCargo());
-			this.stmtp.setInt(5, funcionario.getIdSetor());
-			this.stmtp.setInt(6, funcionario.getId());
+			this.stmtp.setInt(5, funcionario.getIdStatus());
+			this.stmtp.setInt(6, funcionario.getIdSetor());
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Erro ao alterar os dados do funcionário. " + e);

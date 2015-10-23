@@ -18,9 +18,13 @@ public class UsuarioDAO extends ConnectionFactory {
 			while (rs.next()) {	
 				Usuario usuario = new Usuario();
 				usuario.setId(rs.getInt("id"));
+				usuario.setNome(rs.getString("nome"));
+				usuario.setSobrenome(rs.getString("sobrenome"));
+				usuario.setEmail(rs.getString("email"));
 				usuario.setLogin(rs.getString("login"));
 				usuario.setSenha(rs.getString("senha"));
-				usuario.setIdFuncionario(rs.getInt("idFuncionario"));
+				usuario.setIdStatus(rs.getInt("idStatus"));
+				usuario.setIdSetor(rs.getInt("idSetor"));
 				listaUsuarios.add(usuario);
 			}
 			return listaUsuarios;
@@ -40,9 +44,13 @@ public class UsuarioDAO extends ConnectionFactory {
 			while (rs.next()) {
 				Usuario usuario = new Usuario();
 				usuario.setId(rs.getInt("id"));
+				usuario.setNome(rs.getString("nome"));
+				usuario.setSobrenome(rs.getString("sobrenome"));
+				usuario.setEmail(rs.getString("email"));
 				usuario.setLogin(rs.getString("login"));
 				usuario.setSenha(rs.getString("senha"));
-				usuario.setIdFuncionario(rs.getInt("idFuncionario"));
+				usuario.setIdStatus(rs.getInt("idStatus"));
+				usuario.setIdSetor(rs.getInt("idSetor"));
 				listaUsuario.add(usuario);
 			}
 			return listaUsuario;
@@ -53,12 +61,16 @@ public class UsuarioDAO extends ConnectionFactory {
 	}
 	public void insert(Usuario usuario) {
 		StringBuilder sbInsert = new StringBuilder();
-		sbInsert.append("INSERT INTO usuario (login, senha, idFuncionario) VALUES (?, ?, ?)");
+		sbInsert.append("INSERT INTO usuario (nome, sobrenome, email, login, senha, idStatus, idSetor) VALUES (?, ?, ?, ?, ?, ?, ? )");
 		try {
 			this.stmtp = this.getConnection().prepareStatement(sbInsert.toString());
-			this.stmtp.setString(1, usuario.getLogin());
-			this.stmtp.setString(2, usuario.getSenha());
-			this.stmtp.setInt(3, usuario.getIdFuncionario());
+			this.stmtp.setString(1, usuario.getNome());
+			this.stmtp.setString(2, usuario.getSobrenome());
+			this.stmtp.setString(3, usuario.getEmail());
+			this.stmtp.setString(4, usuario.getLogin());
+			this.stmtp.setString(5, usuario.getSenha());
+			this.stmtp.setInt(6, usuario.getIdStatus());
+			this.stmtp.setInt(7, usuario.getIdSetor());
 			this.stmtp.executeUpdate();
 		
 		} catch (SQLException e) {
@@ -68,13 +80,16 @@ public class UsuarioDAO extends ConnectionFactory {
 
 	public void update(Usuario usuario) {
 		StringBuilder sbUpdate = new StringBuilder();
-		sbUpdate.append("UPDATE usuario SET login = ?, senha= ?, idFuncionario= ? WHERE id = ?");
+		sbUpdate.append("UPDATE usuario SET nome = ?, sobrenome = ?, email = ?, login = ?, senha= ?, idStatus= ?, idSetor = ? WHERE id = ?");
 		try {
 			this.stmtp = this.getConnection().prepareStatement(sbUpdate.toString());
-			this.stmtp.setString(1, usuario.getLogin());
-			this.stmtp.setString(2, usuario.getSenha());
-			this.stmtp.setInt(3, usuario.getIdFuncionario());
-			this.stmtp.setInt(4, usuario.getId());
+			this.stmtp.setString(1, usuario.getNome());
+			this.stmtp.setString(2, usuario.getSobrenome());
+			this.stmtp.setString(3, usuario.getEmail());
+			this.stmtp.setString(4, usuario.getLogin());
+			this.stmtp.setString(5, usuario.getSenha());
+			this.stmtp.setInt(6, usuario.getIdStatus());
+			this.stmtp.setInt(7, usuario.getIdSetor());
 			this.stmtp.executeUpdate();
 		
 		} catch (SQLException e) {

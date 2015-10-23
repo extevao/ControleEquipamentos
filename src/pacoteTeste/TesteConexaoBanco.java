@@ -35,15 +35,6 @@ public class TesteConexaoBanco {
 	
 	public static void inserir() throws NamingException{
 		Equipamento novo = new Equipamento();
-		novo.setNome("OptiPlex 3020 Micro");
-		//novo.setDataCompra(2015-07-24);
-		//novo.setDataCadastro(2015-08-15);
-		//novo.setDataInicioOperacao(2015-09-10);
-		novo.setMarca("Dell");
-		novo.setIdCategoria(3);
-		novo.setIdSetor(2);
-		novo.setIdFuncionario(4);
-		novo.setIdRequisito(4);
 		
 		EquipamentoDAO dao = new EquipamentoDAO();
 		//dao.insert(novo);

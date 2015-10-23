@@ -1,7 +1,6 @@
 package br.com.controlequipamentos.service;
 
 import java.util.ArrayList;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -9,7 +8,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-
 import br.com.controlequipamentos.dao.FuncionarioDAO;
 import br.com.controlequipamentos.pojo.Funcionario;
 
@@ -42,7 +40,6 @@ public class FuncionarioService {
 			return null;
 		}
 	}
-	
 	@PUT
 	public void alterar(Funcionario funcionario){
 		FuncionarioDAO funcionarioDao;
@@ -59,7 +56,6 @@ public class FuncionarioService {
 		try {
 			funcionarioDao = new FuncionarioDAO();
 			funcionarioDao.insert(funcionairo);
-			
 		} catch (Exception e) {
 			System.out.println(e);
 		}	
