@@ -1,20 +1,26 @@
 <meta charset="utf-8" />
-<header class="subhead" id="overview">
-		<div class="page-header">
-  			<h1>Manutenção <small>Lista de Manutenções</small></h1>
+<header>
+	<nav class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-header">
+			<a href="#/index" class="navbar-brand">Controle de Equipamentos</a>
+			<button type="button" class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">Menu</button>
 		</div>
-		<div class="container">
-			<ul class="nav nav-pills">
-			  <li role="presentation" ><a href="#/index">Principal</a></li>
-			  <li role="presentation"><a href="#/categoria">Categoria</a></li>
-			  <li role="presentation"><a href="#/equipamento">Equipamento</a></li>
-			  <li role="presentation"><a href="#/funcionario">Funcionário</a></li>
-			  <li role="presentation" class="active"><a href="#/manutencao">Manutenção</a></li>
-			  <li role="presentation"><a href="#/requisito">Requisito</a></li>
-			  <li role="presentation"><a href="#/setor">Setor</a></li>
-			  <li role="presentation"><a href="#/usuario">Usuário</a></li>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li role="presentation" ><a href="#/index">Principal</a></li>
+				<li role="presentation"><a href="#/categoria">Categoria</a></li>
+				<li role="presentation"><a href="#/equipamento">Equipamento</a></li>
+				<li role="presentation" ><a href="#/estado">Estado do Equipamento</a></li>
+				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
+				<li role="presentation" class="active"><a href="#/manutencao">Manutenção</a></li>
+				<li role="presentation"><a href="#/marca">Marca</a></li>
+				<li role="presentation"><a href="#/requisito">Requisito</a></li>
+				<li role="presentation" ><a href="#/setor">Setor</a></li>
+				<li role="presentation" ><a href="#/status">Status</a></li>
+				<li role="presentation"><a href="#/usuario">Usuário</a></li>
 			</ul>
 		</div>
+	</nav>
 </header>
 <hr />
 <div class="container">
@@ -34,26 +40,18 @@
 			<table class="table table-striped">
 				<tr>
 					<th>Id</th>
+					<th>Título</th>
 					<th>Descrição</th>
-					<th>motivo</th>
-					<th>Data Inicio</th>
-					<th>Data Fim</th>
-					<th>Equipamento</th>
-					<th>Setor</th>
-					<th>Funcionario</th>	
-					<th>Usuário</th>				
+					<th>Data Inicio Manutenção</th>
+					<th>Data Fim Manutenção</th>	
 					<th>Ação</th>
 				</tr>
 				<tr ng-repeat="manutencao in manutencoes | filter:filtro">
 					<td>{{manutencao.id}}</td>
+					<td>{{manutencao.titulo}}</td>
 					<td>{{manutencao.descricao}}</td>
-					<td>{{manutencao.motivo}}</td>
 					<td>{{manutencao.dataInicio}}</td>
-					<td>{{manutencao.dataFim}}</td>
-					<td>{{manutencao.idEquipamento}}</td>
-					<td>{{manutencao.idSetor}}</td>
-					<td>{{manutencao.idFuncionario}}</td>
-					<td>{{manutencao.idUsuario}}</td>					
+					<td>{{manutencao.dataFim}}</td>				
 					<td><a href="#/manutencao/edit/{{manutencao.id}}" class="btn btn-primary btn-block">Editar</a></td>
 				</tr>
 			</table>

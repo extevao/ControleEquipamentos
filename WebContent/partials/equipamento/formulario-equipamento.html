@@ -1,22 +1,27 @@
 <meta charset="utf-8" />
-<header class="subhead" id="overview">
-		<div class="page-header">
-  			<h1>Equipamento <small>Dados do Equipamento</small></h1>
+<header>
+	<nav class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-header">
+			<a href="#/index" class="navbar-brand">Controle de Equipamentos</a>
+			<button type="button" class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">Menu</button>
 		</div>
-		<div class="container">
-			<ul class="nav nav-pills">
-			  <li role="presentation" ><a href="#/index">Principal</a></li>
-			  <li role="presentation"><a href="#/categoria">Categoria</a></li>
-			  <li role="presentation"  class="active"><a href="#/equipamento">Equipamento</a></li>
-			  <li role="presentation"><a href="#/funcionario">Funcionario</a></li>
-			  <li role="presentation"><a href="#/manutencao">Manutenção</a></li>
-			  <li role="presentation"><a href="#/requisito">Requisito</a></li>
-			  <li role="presentation"><a href="#/setor">Setor</a></li>
-			  <li role="presentation"><a href="#/usuario">Usuário</a></li>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li role="presentation" ><a href="#/index">Principal</a></li>
+				<li role="presentation"><a href="#/categoria">Categoria</a></li>
+				<li role="presentation" class="active"><a href="#/equipamento">Equipamento</a></li>
+				<li role="presentation"><a href="#/estado">Estado do Equipamento</a></li>
+				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
+				<li role="presentation"><a href="#/manutencao">Manutenção</a></li>
+				<li role="presentation"><a href="#/marca">Marca</a></li>
+				<li role="presentation"><a href="#/requisito">Requisito</a></li>
+				<li role="presentation" ><a href="#/setor">Setor</a></li>
+				<li role="presentation" ><a href="#/status">Status</a></li>
+				<li role="presentation"><a href="#/usuario">Usuário</a></li>
 			</ul>
 		</div>
+	</nav>
 </header>
-
 
 <div class="page-header text-center">	
 	<h1>{{equipamento.nome}}</h1>
@@ -28,62 +33,75 @@
 	
 	<div class="col-md-6">
 		<div class="form-group">
-			<label>Nome do Equipamento</label>
+			<label>Nome</label>
 			<input ng-model="equipamento.nome" ng-maxlength="100" name="nome" class="form-control" required />
-		<div class="form-group">
-			<label>Data Compra</label>
-			<input ng-model="equipamento.dataCompra" name="datacompra" class="form-control" required />
 		</div>
 		<div class="form-group">
-			<label>Data Cadastro</label>
-			<input type="date" ng-model="equipamento.dataCadastro" name="datacadastro" class="form-control"  placeholder="dd-MM-yyyy" required />
-			<span ng-show="formulario.$submited && formulario.datacadastro.$error.required" class="form-control alert-danger">
-				Data de cadastro do equipamento obrigatório !!!
-			</span>
+			<label>Modelo</label>
+			<input ng-model="equipamento.modelo" ng-maxlength="100" name="modelo" class="form-control" required />
+		</div>	
+		<div class="form-group">
+			<label>Data Início</label>
+			<input ng-model="equipamento.dataInicio" name="dataInicio" class="form-control"  />
 		</div>
 		<div class="form-group">
-			<label>Data Inicio Operação</label>
-			<input ng-model="equipamento.dataInicioOperacao"name="dataInicioOperacao" class="form-control" required />
+			<label>Data Fim</label>
+			<input ng-model="equipamento.dataFim" name="dataFim" class="form-control"  placeholder="dd/MM/yyyy" />
 		</div>
 		<div class="form-group">
-			<label>Marca</label>
-			<input ng-model="equipamento.marca" name="marca" class="form-control" required />
+			<label>Servstag</label>
+			<input ng-model="equipamento.servstag" name="servstag" class="form-control"  />
+		</div>
+		<div class="form-group">
+			<label>Patrimônio</label>
+			<input ng-model="equipamento.patrimonio" name="patrimonio" class="form-control"  />
 		</div>
 		<div class="form-group">
 			<label>Categoria</label>
-			<select  name="categoria" class="form-control" ng-controller="CategoriasController" ng-model="equipamento.idCategoria" ng-options="categoria.id as categoria.nome for categoria in categorias" required>
+			<select  name="categoria" class="form-control" ng-controller="CategoriasController" ng-model="equipamento.idCategoria" ng-options="categoria.id as categoria.nome for categoria in categorias" >
 				<option value="">Selecione a Categoria</option>
 			</select>
-			<span ng-show="formulario.$submited && formulario.categoria.$error.required" class="form-control alert-danger">
-				Categoria obrigatória !!!
-			</span>
+			
 		</div>
 		<div class="form-group">
+			<label>Marca</label>
+			<select  name="marca" class="form-control" ng-controller="MarcasController" ng-model="equipamento.idMarca" ng-options="marca.id as marca.nome for marca in marcas" required />
+				<option value="">Selecione a Marca do Equipamento</option>
+			</select>
+			<span ng-show="formulario.$submited && formulario.marca.$error.required" class="form-control alert-danger">
+				Marca obrigatória !!!
+			</span>
+		</div>
+		
+		<div class="form-group">
 			<label>Setor</label>
-			<select  name="setor" class="form-control" ng-controller="SetoresController" ng-model="equipamento.idSetor" ng-options="setor.id as setor.nome for setor in setores" required>
+			<select  name="setor" class="form-control" ng-controller="SetoresController" ng-model="equipamento.idSetor" ng-options="setor.id as setor.nome for setor in setores" >
 				<option value="">Selecione Setor</option>
 			</select>
-			<span ng-show="formulario.$submited && formulario.setor.$error.required" class="form-control alert-danger">
-				Setor obrigatório !!!
-			</span>
+			
 		</div>
 		<div class="form-group">
 			<label>Funcionário</label>
-			<select  name="funcionario" class="form-control" ng-controller="FuncionariosController" ng-model="equipamento.idSetor" ng-options="funcionario.id as funcionario.nome for funcionario in funcionarios" required>
+			<select  name="funcionario" class="form-control" ng-controller="FuncionariosController" ng-model="equipamento.idFuncionario" ng-options="funcionario.id as funcionario.nome for funcionario in funcionarios" >
 				<option value="">Selecione o Funcionário</option>
 			</select>
-			<span ng-show="formulario.$submited && formulario.funcionario.$error.required" class="form-control alert-danger">
-				Funcionário obrigatório !!!
-			</span>
+			
 		</div>
 		<div class="form-group">
 			<label>Requisito</label>
-			<select  name="requisito" class="form-control" ng-controller="RequisitosController" ng-model="equipamento.idSetor" ng-options="requisito.id as requisito.processador for requisito in requisitos" required>
+			<select  name="requisito" class="form-control" ng-controller="RequisitosController" ng-model="equipamento.idRequisito" ng-options="requisito.id as requisito.processador for requisito in requisitos" >
 				<option value="">Selecione o Requisito</option>
 			</select>
-			<span ng-show="formulario.$submited && formulario.requisito.$error.required" class="form-control alert-danger">
-				Requisito obrigatório !!!
-			</span>
+			
+		</div>
+		
+		<div class="form-group">
+			<label>Estado</label>
+			<select  name="estado" class="form-control" ng-controller="EstadosController" ng-model="equipamento.idEstado" ng-options="estado.id as estado.nome for estado in estados" >
+				<option value="">Selecione o Estado</option>
+			</select>
+			
+			
 		</div>
 		
 		<hr />

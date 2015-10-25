@@ -18,19 +18,21 @@ angular.module('moduloPrincipal').controller('ManutencaoController', function($s
     
         $scope.submeter = function(){
             if($scope.formulario.$valid){
-                if($scope.equipamento.id){
-                   $http.put('api/v1/equipamento', $scope.equipamento)
+                if($scope.manutencao.id){
+                   $http.put('api/v1/manutencao', $scope.manutencao)
                    .success(function(){
-                        $scope.mensagem = "Dados alterados com Sucesso !!!";
+                	   delete $scope.manutencao;
+                       $scope.mensagem = "Dados alterados com Sucesso !!!";
                    }).error(function(erro){
                 	   console.log(erro);
                         $scope.mensagem = "Não foi possível alterar os dados !!!";
                    });
                 }else{
-                    $http.post('api/v1/equipamento', $scope.equipamento).success(function(){
-                        $scope.mensagem ="Equipamento cadastrada com sucesso !!!";
+                    $http.post('api/v1/manutencao', $scope.manutencao).success(function(){
+                        delete $scope.manutencao;
+                    	$scope.mensagem ="Manutenção cadastrada com sucesso !!!";
                      }).error(function(erro){
-                         $scope.mensagem = "Erro ao tentar gravar o equipamento";
+                         $scope.mensagem = "Erro ao tentar gravar a manutenção";
                     });
                 }
             }

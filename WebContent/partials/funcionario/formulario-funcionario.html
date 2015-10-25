@@ -1,20 +1,26 @@
 <meta charset="utf-8" />
-<header class="subhead" id="overview">
-		<div class="page-header">
-  			<h1>Funcionário <small>Dados do Funcionário</small></h1>
+<header>
+	<nav class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-header">
+			<a href="#/index" class="navbar-brand">Controle de Equipamentos</a>
+			<button type="button" class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">Menu</button>
 		</div>
-		<div class="container">
-			<ul class="nav nav-pills">
-			  <li role="presentation" ><a href="#/index">Principal</a></li>
-			  <li role="presentation"><a href="#/categoria">Categoria</a></li>
-			  <li role="presentation"><a href="#/equipamento">Equipamento</a></li>
-			  <li role="presentation" class="active"><a href="#/funcionario">Funcionario</a></li>
-			  <li role="presentation"><a href="#/manutencao">Manutenção</a></li>
-			  <li role="presentation"><a href="#/requisito">Requisito</a></li>
-			  <li role="presentation"><a href="#/setor">Setor</a></li>
-			  <li role="presentation"><a href="#/usuario">Usuário</a></li>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li role="presentation" ><a href="#/index">Principal</a></li>
+				<li role="presentation"><a href="#/categoria">Categoria</a></li>
+				<li role="presentation"><a href="#/equipamento">Equipamento</a></li>
+				<li role="presentation" ><a href="#/estado">Estado do Equipamento</a></li>
+				<li role="presentation" class="active"><a href="#/funcionario">Funcionário</a></li>
+				<li role="presentation"><a href="#/manutencao">Manutenção</a></li>
+				<li role="presentation"><a href="#/marca">Marca</a></li>
+				<li role="presentation"><a href="#/requisito">Requisito</a></li>
+				<li role="presentation" ><a href="#/setor">Setor</a></li>
+				<li role="presentation" ><a href="#/status">Status</a></li>
+				<li role="presentation"><a href="#/usuario">Usuário</a></li>
 			</ul>
 		</div>
+	</nav>
 </header>
 
 
@@ -74,24 +80,9 @@
 			</span>
 		</div>
 		<hr />
-		{{funcionario}}
-		<hr />
 		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
 		<a href="#/funcionario" class="btn btn-primary">Voltar</a>
 		<hr/>
-	</div>
-	<div class="col-md-6" ng-controller="SetoresController">
-		<table class="table table-striped">
-				<tr>
-					<th>Id</th>
-					<th>Nome</th>
-				</tr>
-				<tr ng-repeat="setor in setores">
-					<td>{{setor.id}}</td>
-					<td>{{setor.nome}}</td>
-				</tr>
-			</table>
-	
 	</div>
 
 </form>	

@@ -9,6 +9,7 @@
 <!-- import scripts Angular-->
 <script src="js/lib/angular.min.js"></script>
 <script src="js/lib/angular-route.min.js"></script>
+<link rel="stylesheet" href="css/estilo.css">
 <!-- import main e controles -->
 <script src="js/main.js"></script>
 <!-- categoria -->
@@ -17,12 +18,18 @@
 <!-- equipamento -->
 <script src="js/controllers/equipamento/equipamentos-controller.js"></script>
 <script src="js/controllers/equipamento/equipamento-controller.js"></script>
+<!-- estado do equipamento -->
+<script src="js/controllers/estado/estados-controller.js"></script>
+<script src="js/controllers/estado/estado-controller.js"></script>
 <!-- funcionario -->
 <script src="js/controllers/funcionario/funcionarios-controller.js"></script>
 <script src="js/controllers/funcionario/funcionario-controller.js"></script>
 <!-- manutenção -->
 <script src="js/controllers/manutencao/manutencoes-controller.js"></script>
 <script src="js/controllers/manutencao/manutencao-controller.js"></script>
+<!-- marca -->
+<script src="js/controllers/marca/marcas-controller.js"></script>
+<script src="js/controllers/marca/marca-controller.js"></script>
 <!-- principal -->
 <script src="js/controllers/principal/principal-controller.js"></script>
 <!-- requisito -->
@@ -37,9 +44,13 @@
 
 </head>
 <body>
-	<div class="container">
-		<ng-view></ng-view>
-	</div>
-	
+	<main>
+		<div class="container">
+			<ng-view></ng-view>
+		</div>
+	</main>	
+	<script src="js/lib/jquery-1.11.3.js"></script>
+    <script src="js/lib/bootstrap.min.js"> </script> 
+</body>
 </body>
 </html>

@@ -21,7 +21,7 @@ angular.module('moduloPrincipal').controller('FuncionarioController', function($
                 if($scope.funcionario.id){
                    $http.put('api/v1/funcionario', $scope.funcionario)
                    .success(function(){
-    
+                	   	delete $scope.funcionario;
                         $scope.mensagem = "Dados alterados com Sucesso !!!";
                    }).error(function(erro){
                 	   console.log($scope.funcionario);
@@ -29,7 +29,8 @@ angular.module('moduloPrincipal').controller('FuncionarioController', function($
                    });
                 }else{
                     $http.post('api/v1/funcionario', $scope.funcionario).success(function(){
-                        $scope.mensagem ="Sucesso !!!";
+                    	delete $scope.funcionario;
+                    	$scope.mensagem ="Sucesso !!!";
                      }).error(function(erro){
                          $scope.mensagem = "Erro  post!!!";
                     });

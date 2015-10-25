@@ -14,12 +14,13 @@ angular.module('moduloPrincipal').controller('EquipamentoController', function($
                 $scope.mensagem = 'Não foi possível obter o equipamento.';
             });
         }
-    
+  
         $scope.submeter = function(){
             if($scope.formulario.$valid){
                 if($scope.equipamento.id){
                    $http.put('api/v1/equipamento', $scope.equipamento)
                    .success(function(){
+                		delete $scope.equipamento;
                         $scope.mensagem = "Dados alterados com Sucesso !!!";
                    }).error(function(erro){
                 	   console.log(erro);
@@ -27,7 +28,8 @@ angular.module('moduloPrincipal').controller('EquipamentoController', function($
                    });
                 }else{
                     $http.post('api/v1/equipamento', $scope.equipamento).success(function(){
-                        $scope.mensagem ="Equipamento cadastrada com sucesso !!!";
+                    	delete $scope.equipamento;
+                    	$scope.mensagem ="Equipamento cadastrado com sucesso !!!";
                      }).error(function(erro){
                          $scope.mensagem = "Erro ao tentar gravar o equipamento";
                     });

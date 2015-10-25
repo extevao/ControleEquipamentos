@@ -13,14 +13,17 @@ angular.module('moduloPrincipal').controller('CategoriasController', function($s
     
     $scope.editar = function(categoria){
     	 $scope.categoria = categoria;
+    	 
 	};	
 	
-	$scope.submeter = function (){
+	$scope.submeter = function (categoria){
 		 if($scope.formulario.$valid){
 		     if($scope.categoria.id){
 		        $http.put('api/v1/categoria', $scope.categoria)
 		        .success(function(){
-		             $scope.mensagem = "Categoria alterada com sucesso !!";
+		        	delete $scope.categoria;
+		        	$scope.mensagem = "Categoria alterada com sucesso !!";
+		        	
 		        }).error(function(erro){
 		     	   console.log(erro);
 		             $scope.mensagem = "Não foi possível alterar os dados da Categoria !";
@@ -28,6 +31,8 @@ angular.module('moduloPrincipal').controller('CategoriasController', function($s
 		     }else{
 		         $http.post('api/v1/categoria', $scope.categoria).success(function(){
 		             $scope.mensagem ="Categoria cadastrada com sucesso !!!";
+		             $scope.categorias.push(categoria);
+		             delete $scope.categoria;
 		          }).error(function(erro){
 		              $scope.mensagem = "Erro ao tentar cadastrar a nova categoria";
 		         });

@@ -7,10 +7,10 @@
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li role="presentation" class="active" ><a href="#/index">Principal</a></li>
-				<li role="presentation" ><a href="#/categoria">Categoria</a></li>
+				<li role="presentation" ><a href="#/index">Principal</a></li>
+				<li role="presentation"><a href="#/categoria">Categoria</a></li>
 				<li role="presentation"><a href="#/equipamento">Equipamento</a></li>
-				<li role="presentation"><a href="#/estado">Estado do Equipamento</a></li>
+				<li role="presentation" class="active"><a href="#/estado">Estado do Equipamento</a></li>
 				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
 				<li role="presentation"><a href="#/manutencao">Manutenção</a></li>
 				<li role="presentation"><a href="#/marca">Marca</a></li>
@@ -22,22 +22,30 @@
 		</div>
 	</nav>
 </header>
-<hr />
-<main>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				
-				<div class="panel panel-default">
-					<div class="panel-heading"></div>
-					 <div class="panel-body">
-					 	
-					 </div>
-				</div>
-			
-			</div>
-		</div>
-		
-		</div>
 
-</main>
+	
+<div class="container">
+	<div class="well">
+		<table class="table table-striped">
+			<tr>
+				<th>Id</th>
+				<th>Nome</th>
+				<th>Ações</th>
+			</tr>
+			<tr ng-repeat="usuario in lista | filter: termoBusca ">
+				<td>{{estado.id}}</td>
+				<td>{{estado.nome}}</td>
+				<td>
+					<button ng-click="editar(usuario)" class="btn btn-primary">Editar</button>
+				</td>
+			</tr>
+		</table>
+		
+		<form ng-submit="submeter()">
+			<div class="form-group">
+				<label for="nome" class="control-label">Nome</label>
+				<input ng-model="estado.nome" type="text" class="form-control" name="nome" placeholder="Nome" />
+			</div>
+			<button class="btn btn-primary">Salvar</button>
+		</form>
+	</div>

@@ -1,23 +1,27 @@
 <meta charset="utf-8" />
-<header class="subhead" id="overview">
-		<div class="page-header">
-  			<h1>Manutenção <small>Dados das Manutenções</small></h1>
+<header>
+	<nav class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-header">
+			<a href="#/index" class="navbar-brand">Controle de Equipamentos</a>
+			<button type="button" class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">Menu</button>
 		</div>
-		<div class="container">
-			<ul class="nav nav-pills">
-			  <li role="presentation"><a href="#/index">Principal</a></li>
-			  <li role="presentation"><a href="#/categoria">Categoria</a></li>
-			  <li role="presentation"><a href="#/equipamento">Equipamento</a></li>
-			  <li role="presentation"><a href="#/funcionario">Funcionario</a></li>
-			  <li role="presentation" class="active"><a href="#/manutencao">Manutenção</a></li>
-			  <li role="presentation"><a href="#/requisito">Requisito</a></li>
-			  <li role="presentation"><a href="#/setor">Setor</a></li>
-			  <li role="presentation"><a href="#/usuario">Usuário</a></li>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li role="presentation" ><a href="#/index">Principal</a></li>
+				<li role="presentation"><a href="#/categoria">Categoria</a></li>
+				<li role="presentation"><a href="#/equipamento">Equipamento</a></li>
+				<li role="presentation" ><a href="#/estado">Estado do Equipamento</a></li>
+				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
+				<li role="presentation" class="active"><a href="#/manutencao">Manutenção</a></li>
+				<li role="presentation"><a href="#/marca">Marca</a></li>
+				<li role="presentation"><a href="#/requisito">Requisito</a></li>
+				<li role="presentation" ><a href="#/setor">Setor</a></li>
+				<li role="presentation" ><a href="#/status">Status</a></li>
+				<li role="presentation"><a href="#/usuario">Usuário</a></li>
 			</ul>
 		</div>
+	</nav>
 </header>
-
-
 <div class="page-header text-center">	
 	<h1>{{manutencao.nome}}</h1>
 </div>
@@ -28,23 +32,23 @@
 	
 	<div class="col-md-6">
 		<div class="form-group">
+			<label>Título</label>
+			<input ng-model="manutencao.titulo" ng-maxlength="50" name="titulo" class="form-control" required />
+			<span ng-show="formulario.$submited && formulario.titulo.$error.required" class="form-control alert-danger">
+				Título obrigatório !!!
+			</span>
+			<span ng-show="formulario.motivo.$error.maxlength" class="form-control alert-danger">
+				O título deve ter no máximo 100 caracteres !!!
+			</span>
+		</div>
+		<div class="form-group">
 			<label>Descrição</label>
-			<input ng-model="manutencao.descricao" ng-maxlength="50" name="descricao" class="form-control" required />
+			<textarea ng-model="manutencao.descricao" ng-maxlength="50" name="descricao" class="form-control" required></textarea>
 			<span ng-show="formulario.$submited && formulario.descricao.$error.required" class="form-control alert-danger">
 				Descrição obrigatório !!!
 			</span>
 			<span ng-show="formulario.descricao.$error.maxlength" class="form-control alert-danger">
-				A descrição deve ter no máximo 100 caracteres !!!
-			</span>
-		</div>
-		<div class="form-group">
-			<label>Motivo</label>
-			<input ng-model="manutencao.motivo" ng-maxlength="50" name="motivo" class="form-control" required />
-			<span ng-show="formulario.$submited && formulario.motivo.$error.required" class="form-control alert-danger">
-				Motivo obrigatório !!!
-			</span>
-			<span ng-show="formulario.motivo.$error.maxlength" class="form-control alert-danger">
-				O motivo deve ter no máximo 100 caracteres !!!
+				A descrição deve ter no máximo 300 caracteres !!!
 			</span>
 		</div>
 		<div class="form-group">
@@ -75,7 +79,7 @@
 		</div>
 		<div class="form-group">
 			<label>Funcionário</label>
-			<select  name="funcionario" class="form-control" ng-controller="FuncionariosController" ng-model="manutencao.idSetor" ng-options="funcionario.id as funcionario.nome for funcionario in funcionarios" required>
+			<select  name="funcionario" class="form-control" ng-controller="FuncionariosController" ng-model="manutencao.idFuncionario" ng-options="funcionario.id as funcionario.nome for funcionario in funcionarios" required>
 				<option value="">Selecione o Funcionário</option>
 			</select>
 			<span ng-show="formulario.$submited && formulario.funcionario.$error.required" class="form-control alert-danger">
@@ -84,31 +88,28 @@
 		</div>
 		<div class="form-group">
 			<label>Usuário</label>
-			<select  name="usuario" class="form-control" ng-controller="UsuariosController" ng-model="manutencao.idUsuario" ng-options="usuario.id as usuario.login for usuario in usuarios" required>
+			<select  name="usuario" class="form-control" ng-controller="UsuariosController" ng-model="manutencao.idUsuario" ng-options="usuario.id as usuario.nome for usuario in usuarios" required>
 				<option value="">Selecione o Usuário</option>
 			</select>
 			<span ng-show="formulario.$submited && formulario.usuario.$error.required" class="form-control alert-danger">
-				Funcionário obrigatório !!!
+				Usuário obrigatório !!!
 			</span>
 		</div>
 		<hr />
+			<div class="form-group">
+			<label>Estado do Equipamento</label>
+			<select  name="estado" class="form-control" ng-controller="EstadosController" ng-model="manutencao.idEstado" ng-options="estado.id as estado.nome for estado in estados" required>
+				<option value="">Selecione ou Altere o Estado do Equipamento</option>
+			</select>
+			<span ng-show="formulario.$submited && formulario.usuario.$error.required" class="form-control alert-danger">
+				Estado obrigatório !!!
+			</span>
+		</div>
 		
 		<hr />
 		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
 		<a href="#/manutencao" class="btn btn-primary">Voltar</a>
 		<hr/>
-	</div>
-	<div class="col-md-6" ng-controller="SetoresController">
-		<table class="table table-striped">
-				<tr>
-					<th>Id</th>
-					<th>Nome</th>
-				</tr>
-				<tr ng-repeat="setor in setores">
-					<td>{{setor.id}}</td>
-					<td>{{setor.nome}}</td>
-				</tr>
-			</table>
 	</div>
 
 </form>	
