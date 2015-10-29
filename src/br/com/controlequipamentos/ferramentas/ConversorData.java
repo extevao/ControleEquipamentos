@@ -7,8 +7,8 @@ public class ConversorData {
 
 	public String converteDataDoMYSQL(String data) {
 		if(data == null){
-			System.out.println("Tecnicamente data nulla " + data);
-			return "";
+			System.out.println("Tecnicamente data do banco nulla " + data);
+			return null;
 		}
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -23,7 +23,7 @@ public class ConversorData {
 
 	public String converteDataParaMYSQL(String data) {
 		if(data == null){
-			System.out.println("Tecnicamente data nulla " + data);
+			System.out.println("Tecnicamente data para o banco nulla " + data);
 			return null;
 		}
 		try {

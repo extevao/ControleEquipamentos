@@ -75,7 +75,7 @@ public class SetorDAO extends ConnectionFactory {
 			this.stmtp.setString(1, setor.getNome());
 			this.stmtp.setInt(2, setor.getIdStatus());
 			this.stmtp.setInt(3, setor.getIdRequisito());
-		
+			this.stmtp.setInt(4, setor.getId());
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Erro ao alterar os dados do setor !!! " + e);

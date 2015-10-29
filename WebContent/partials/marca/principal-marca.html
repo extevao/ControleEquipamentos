@@ -1,3 +1,4 @@
+
 <meta charset="utf-8" />
 <header>
 	<nav class="navbar navbar-fixed-top navbar-inverse">
@@ -7,12 +8,12 @@
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li role="presentation" class="active"><a href="#/categoria">Categoria</a></li>
+				<li role="presentation"><a href="#/categoria">Categoria</a></li>
 				<li role="presentation"><a href="#/equipamento">Equipamento</a></li>
 				<li role="presentation"><a href="#/estado">Estado do Equipamento</a></li>
 				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
 				<li role="presentation"><a href="#/manutencao">Manutenção</a></li>
-				<li role="presentation"><a href="#/marca">Marca</a></li>
+				<li role="presentation" class="active"><a href="#/marca">Marca</a></li>
 				<li role="presentation"><a href="#/requisito">Requisito</a></li>
 				<li role="presentation" ><a href="#/setor">Setor</a></li>
 				<li role="presentation" ><a href="#/status">Status</a></li>
@@ -23,8 +24,6 @@
 </header>
 <hr />
 <p ng-show="mensagem.length" class="alert alert-success">{{mensagem}}</p>
-
-	
 <div class="row">
 	<div class="col-md-12">
 		<input ng-model="filtro" type="text" class="form-control"  />
@@ -36,7 +35,7 @@
 	<div class="col-md-4">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h1 class="panel-title">Lista de categorias</h1>
+				<h1 class="panel-title">Lista de Marcas de Equipamentos </h1>
 			</div>
 
 			<table class="table table-striped table-bordered">
@@ -45,31 +44,31 @@
 					<th>Nome</th>
 					<th>Ação</th>
 				</tr>
-				<tr ng-repeat="categoria in categorias| filter:filtro">
-					<td>{{categoria.id}}</td>
-					<td>{{categoria.nome}}</td>				
-					<td><button ng-click="editar(categoria)" class="btn"><span class="glyphicon glyphicon-edit"></span></button></td>
+				<tr ng-repeat="marca in marcas| filter:filtro">
+					<td>{{marca.id}}</td>
+					<td>{{marca.nome}}</td>				
+					<td><button ng-click="editar(marca)" class="btn"><span class="glyphicon glyphicon-edit"></span></button></td>
 				</tr>
 			</table>
 			
 		</div>
 	</div>
 	<div class="col-md-8">
-		<form novalidate name="formulario" class="row" ng-submit="submeter()">	
+		<form novalidate name="formulario" class="row" ng-submit="submeter(marca)">	
 			<fieldset>
-				<legend>Informações da categoria</legend>
+				<legend>Informações da marca</legend>
 				<div class="form-group">
-					<label for="categoria">Categoria:</label>
+					<label for="marca">Marca:</label>
 					<div class="input-group">
 						<span class="input-group-btn"><button ng-click="limpar()" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
-						</span> <input ng-model="categoria.nome" ng-maxlength="100" name="categoria" id="categoria" class="form-control" placeholder="Adicione uma nova categoria ou altere os dados da categoria selecionada." required />
+						</span> <input ng-model="marca.nome" ng-maxlength="100" name="marca" id="marca" class="form-control" placeholder="Adicione uma nova marca ou altere os dados da marca selecionada." required />
 					</div>
 				</div>
 				<span ng-show="formulario.$submited && formulario.nome.$error.required" class="form-control alert-danger">
-					Nome  da Categoria obrigatório !!!
+					Nome  da marca é obrigatório !!!
 				</span>
 				<span ng-show="formulario.nome.$error.maxlength" class="form-control alert-danger">
-					O Nome da Categoria deve ter no máximo 100 caracteres !!!
+					O Nome da marca deve ter no máximo 100 caracteres !!!
 				</span>
 				<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
 					<span class="glyphicon glyphicon-floppy-disk"></span>

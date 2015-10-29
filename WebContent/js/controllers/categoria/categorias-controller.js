@@ -1,7 +1,6 @@
 angular.module('moduloPrincipal').controller('CategoriasController', function($scope, $http){
 
     $scope.categorias = [];
-    $scope.filtro = '';
     $scope.categoria = {};
     $scope.mensagem = '';
 
@@ -20,7 +19,7 @@ angular.module('moduloPrincipal').controller('CategoriasController', function($s
     	 
 	};		
 	
-	$scope.submeter = function (categoria){
+	$scope.submeter = function (){
 		 if($scope.formulario.$valid){
 		     if($scope.categoria.id){
 		        $http.put('api/v1/categoria', $scope.categoria)
@@ -35,7 +34,7 @@ angular.module('moduloPrincipal').controller('CategoriasController', function($s
 		     }else{
 		         $http.post('api/v1/categoria', $scope.categoria).success(function(){
 		             $scope.mensagem ="Categoria cadastrada com sucesso !!!";
-		             $scope.categorias.push(categoria);
+		              $scope.categorias.push(angular.copy($scope.categoria));
 		             delete $scope.categoria;
 		          }).error(function(erro){
 		              $scope.mensagem = "Erro ao tentar cadastrar a nova categoria";

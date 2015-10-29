@@ -28,7 +28,8 @@ angular.module('moduloPrincipal', ['ngRoute'])
 	});
 	/* Estado */
 	$routeProvider.when('/estado', {
-		templateUrl: 'partials/em-construcao.html'
+		templateUrl: 'partials/estado/principal-estados.html',
+		controller: 'EstadosController'
 	});	
 	/* Funcionário */	
 	$routeProvider.when('/funcionario', {
@@ -58,7 +59,8 @@ angular.module('moduloPrincipal', ['ngRoute'])
 	});	
 	/* Marca */
 	$routeProvider.when('/marca', {
-		templateUrl: 'partials/em-construcao.html'
+		templateUrl: 'partials/marca/principal-marca.html',
+		controller: 'MarcasController'
 	});	
 	/* Principal */
 	$routeProvider.when('/index', {
@@ -82,11 +84,7 @@ angular.module('moduloPrincipal', ['ngRoute'])
 	$routeProvider.when('/setor', {
 		templateUrl: 'partials/setor/principal-setores.html',
 		controller: 'SetoresController',
-	});	
-	/* Status */
-	$routeProvider.when('/status', {
-		templateUrl: 'partials/em-construcao.html'
-	});	
+	});		
 	$routeProvider.when('/setor/new', {
 		templateUrl: 'partials/setor/formulario-setor.html',
 		controller: 'SetorController'
@@ -95,6 +93,11 @@ angular.module('moduloPrincipal', ['ngRoute'])
 		templateUrl: 'partials/setor/formulario-setor.html',
 		controller: 'SetorController'
 	});	
+	/* Status */
+	$routeProvider.when('/status', {
+		templateUrl: 'partials/status/principal-status.html',
+		controller: 'StatusController'
+	});
 	/* Usuário */
 	$routeProvider.when('/usuario', {
 		templateUrl: 'partials/usuario/principal-usuarios.html',

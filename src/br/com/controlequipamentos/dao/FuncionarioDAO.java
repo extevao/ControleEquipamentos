@@ -87,6 +87,7 @@ public class FuncionarioDAO extends ConnectionFactory {
 			this.stmtp.setString(4, funcionario.getCargo());
 			this.stmtp.setInt(5, funcionario.getIdStatus());
 			this.stmtp.setInt(6, funcionario.getIdSetor());
+			this.stmtp.setInt(7, funcionario.getId());
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Erro ao alterar os dados do funcionário. " + e);

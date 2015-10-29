@@ -7,15 +7,15 @@
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li role="presentation" class="active"><a href="#/categoria">Categoria</a></li>
+				<li role="presentation"><a href="#/categoria">Categoria</a></li>
 				<li role="presentation"><a href="#/equipamento">Equipamento</a></li>
 				<li role="presentation"><a href="#/estado">Estado do Equipamento</a></li>
 				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
 				<li role="presentation"><a href="#/manutencao">Manutenção</a></li>
 				<li role="presentation"><a href="#/marca">Marca</a></li>
 				<li role="presentation"><a href="#/requisito">Requisito</a></li>
-				<li role="presentation" ><a href="#/setor">Setor</a></li>
-				<li role="presentation" ><a href="#/status">Status</a></li>
+				<li role="presentation"><a href="#/setor">Setor</a></li>
+				<li role="presentation" class="active"><a href="#/status">Status</a></li>
 				<li role="presentation"><a href="#/usuario">Usuário</a></li>
 			</ul>
 		</div>
@@ -36,7 +36,7 @@
 	<div class="col-md-4">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h1 class="panel-title">Lista de categorias</h1>
+				<h1 class="panel-title">Lista de Status</h1>
 			</div>
 
 			<table class="table table-striped table-bordered">
@@ -45,10 +45,10 @@
 					<th>Nome</th>
 					<th>Ação</th>
 				</tr>
-				<tr ng-repeat="categoria in categorias| filter:filtro">
-					<td>{{categoria.id}}</td>
-					<td>{{categoria.nome}}</td>				
-					<td><button ng-click="editar(categoria)" class="btn"><span class="glyphicon glyphicon-edit"></span></button></td>
+				<tr ng-repeat="statuss in listaStatus| filter:filtro">
+					<td>{{statuss.id}}</td>
+					<td>{{statuss.nome}}</td>				
+					<td><button ng-click="editar(statuss)" class="btn"><span class="glyphicon glyphicon-edit"></span></button></td>
 				</tr>
 			</table>
 			
@@ -57,19 +57,19 @@
 	<div class="col-md-8">
 		<form novalidate name="formulario" class="row" ng-submit="submeter()">	
 			<fieldset>
-				<legend>Informações da categoria</legend>
+				<legend>Informações do status</legend>
 				<div class="form-group">
-					<label for="categoria">Categoria:</label>
+					<label for="nome">Status:</label>
 					<div class="input-group">
 						<span class="input-group-btn"><button ng-click="limpar()" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
-						</span> <input ng-model="categoria.nome" ng-maxlength="100" name="categoria" id="categoria" class="form-control" placeholder="Adicione uma nova categoria ou altere os dados da categoria selecionada." required />
+						</span> <input ng-model="statuss.nome" ng-maxlength="100" name="nome" id="nome" class="form-control" placeholder="Adicione um novo status ou altere os dados do status selecionada." required />
 					</div>
 				</div>
 				<span ng-show="formulario.$submited && formulario.nome.$error.required" class="form-control alert-danger">
-					Nome  da Categoria obrigatório !!!
+					O nome do status é obrigatório !!!
 				</span>
 				<span ng-show="formulario.nome.$error.maxlength" class="form-control alert-danger">
-					O Nome da Categoria deve ter no máximo 100 caracteres !!!
+					O nome do status deve ter no máximo 100 caracteres !!!
 				</span>
 				<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
 					<span class="glyphicon glyphicon-floppy-disk"></span>

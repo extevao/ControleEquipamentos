@@ -102,6 +102,7 @@ public class ManutencaoDAO extends ConnectionFactory {
 			this.stmtp.setInt(7, manutencao.getIdFuncionario());
 			this.stmtp.setInt(8, manutencao.getIdUsuario());
 			this.stmtp.setInt(9, manutencao.getIdEstado());
+			this.stmtp.setInt(10, manutencao.getId());
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Erro ao alterar os dados da Manutenção: " + e);

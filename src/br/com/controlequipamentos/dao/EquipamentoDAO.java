@@ -16,10 +16,11 @@ public class EquipamentoDAO extends ConnectionFactory {
 		try {
 			this.stmtp = this.getConnection().prepareStatement(sbSelect.toString());
 			this.rs = stmtp.executeQuery();
-			while(this.rs.next()) {	
+			while(this.rs.next()) {		
 				Equipamento equipamento = new Equipamento();
 				equipamento.setId(this.rs.getInt("id"));
 				equipamento.setNome(this.rs.getString("nome"));
+				equipamento.setModelo(this.rs.getString("modelo"));
 				equipamento.setDataInicio(conversorData.converteDataDoMYSQL(this.rs.getString("data_inicio")));
 				equipamento.setDataFim(conversorData.converteDataDoMYSQL(this.rs.getString("data_fim")));
 				equipamento.setServstag(this.rs.getString("servstag"));
@@ -52,6 +53,7 @@ public class EquipamentoDAO extends ConnectionFactory {
 				Equipamento equipamento = new Equipamento();
 				equipamento.setId(this.rs.getInt("id"));
 				equipamento.setNome(this.rs.getString("nome"));
+				equipamento.setModelo(this.rs.getString("modelo"));
 				equipamento.setDataInicio(conversorData.converteDataDoMYSQL(this.rs.getString("data_inicio")));
 				equipamento.setDataFim(conversorData.converteDataDoMYSQL(this.rs.getString("data_fim")));
 				equipamento.setServstag(this.rs.getString("servstag"));

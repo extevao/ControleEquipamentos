@@ -90,6 +90,7 @@ public class UsuarioDAO extends ConnectionFactory {
 			this.stmtp.setString(5, usuario.getSenha());
 			this.stmtp.setInt(6, usuario.getIdStatus());
 			this.stmtp.setInt(7, usuario.getIdSetor());
+			this.stmtp.setInt(8, usuario.getId());
 			this.stmtp.executeUpdate();
 		
 		} catch (SQLException e) {

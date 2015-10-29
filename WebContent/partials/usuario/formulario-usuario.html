@@ -1,19 +1,25 @@
 <meta charset="utf-8" />
-<header class="subhead" id="overview">
-		<div class="page-header">
-  			<h1>Usuário <small>Dados do Usuário</small></h1>
+<header>
+	<nav class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-header">
+			<a href="#/index" class="navbar-brand">Controle de Equipamentos</a>
+			<button type="button" class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">Menu</button>
 		</div>
-		<div class="container">
-			<ul class="nav nav-pills">
-			  <li role="presentation"><a href="#/index">Principal</a></li>
-			  <li role="presentation"><a href="#/categoria">Categoria</a></li>
-			  <li role="presentation"><a href="#/equipamento">Equipamento</a></li>
-			  <li role="presentation"><a href="#/funcionario">Funcionário</a></li>
-			  <li role="presentation"><a href="#/manutencao">Manutenção</a></li>
-			  <li role="presentation"><a href="#/setor">Setor</a></li>
-			  <li role="presentation" class="active"><a href="#/usuario">Usuário</a></li>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li role="presentation"><a href="#/categoria">Categoria</a></li>
+				<li role="presentation"><a href="#/equipamento">Equipamento</a></li>
+				<li role="presentation"><a href="#/estado">Estado do Equipamento</a></li>
+				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
+				<li role="presentation"><a href="#/manutencao">Manutenção</a></li>
+				<li role="presentation"><a href="#/marca">Marca</a></li>
+				<li role="presentation"><a href="#/requisito">Requisito</a></li>
+				<li role="presentation"><a href="#/setor">Setor</a></li>
+				<li role="presentation"><a href="#/status">Status</a></li>
+				<li role="presentation" class="active"><a href="#/usuario">Usuário</a></li>
 			</ul>
 		</div>
+	</nav>
 </header>
 <hr />
 <div class="page-header text-center">	
@@ -25,6 +31,36 @@
 <form novalidate name="formulario" class="row" ng-submit="submeter()">
 	
 	<div class="col-md-6">
+		<div class="form-group">
+			<label>Nome</label>
+			<input ng-model="usuario.nome" ng-maxlength="50" name="nome" class="form-control" required />
+			<span ng-show="formulario.$submited && formulario.nome.$error.required" class="form-control alert-danger">
+				Nome obrigatório !!!
+			</span>
+			<span ng-show="formulario.nome.$error.maxlength" class="form-control alert-danger">
+				O nome deve ter no máximo 50 caracteres !!!
+			</span>
+		</div>
+		<div class="form-group">
+			<label>Sobrenome</label>
+			<input ng-model="usuario.sobrenome" ng-maxlength="50" name="sobrenome" class="form-control" required />
+			<span ng-show="formulario.$submited && formulario.sobrenome.$error.required" class="form-control alert-danger">
+				Sobrenome obrigatório !!!
+			</span>
+			<span ng-show="formulario.sobrenome.$error.maxlength" class="form-control alert-danger">
+				O sobrenome deve ter no máximo 50 caracteres !!!
+			</span>
+		</div>
+		<div class="form-group">
+			<label>E-mail</label>
+			<input ng-model="usuario.email" ng-maxlength="50" name="email" class="form-control" required />
+			<span ng-show="formulario.$submited && formulario.email.$error.required" class="form-control alert-danger">
+				E-mail obrigatório !!!
+			</span>
+			<span ng-show="formulario.email.$error.maxlength" class="form-control alert-danger">
+				O e-mail deve ter no máximo 50 caracteres !!!
+			</span>
+		</div>
 		<div class="form-group">
 			<label>Login</label>
 			<input ng-model="usuario.login" ng-maxlength="100" name="login" class="form-control" required />
@@ -45,14 +81,25 @@
 				A senha deve ter no máximo 100 caracteres !!!
 			</span>
 		</div>
-
-		
-		<hr />
-		{{usuario}}
-		<hr />
+		<div class="form-group">
+			<label>Status</label>
+			<select  name="idStatus" class="form-control" ng-controller="StatusController" ng-model="usuario.idStatus" ng-options="statuss.id as statuss.nome for statuss in listaStatus" >
+				<option value="">Selecione o status do Setor</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Setor</label>
+			<select  name="setor" class="form-control" ng-controller="SetoresController" ng-model="usuario.idSetor" ng-options="setor.id as setor.nome for setor in setores" >
+				<option value="">Selecione Setor</option>
+			</select>
+			<span ng-show="formulario.$submited && formulario.setor.$error.required" class="form-control alert-danger">
+				Setor obrigatório !!!
+			</span>
+		</div>
+		<hr/>
 		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
 		<a href="#/usuario" class="btn btn-primary">Voltar</a>
-		<hr/>
+		
 	</div>
 	
 

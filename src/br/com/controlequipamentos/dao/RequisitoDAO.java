@@ -59,7 +59,7 @@ public class RequisitoDAO extends ConnectionFactory {
 	
 	public void insert(Requisito requisito) {
 		StringBuilder sbInsert = new StringBuilder();
-		sbInsert.append("INSERT INTO Requisito (processador, frequencia, numero_nucleos, memoria, hd, video) VALUES (?, ?, ?, ?, ?)");
+		sbInsert.append("INSERT INTO Requisito (processador, frequencia, numero_nucleos, memoria, hd, video) VALUES (?, ?, ?, ?, ?, ?)");
 		try {
 			this.stmtp = this.getConnection().prepareStatement(sbInsert.toString());
 			this.stmtp.setString(1, requisito.getProcessador());
@@ -86,6 +86,7 @@ public class RequisitoDAO extends ConnectionFactory {
 			this.stmtp.setString(4, requisito.getMemoria());
 			this.stmtp.setString(5, requisito.getHd());
 			this.stmtp.setString(6, requisito.getVideo());
+			this.stmtp.setInt(7, requisito.getId());
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Erro ao alterar os dados do requisito. " + e);

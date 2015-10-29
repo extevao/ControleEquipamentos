@@ -11,12 +11,15 @@ angular.module('moduloPrincipal').controller('EstadosController', function($scop
     });
     
 	
-	$scope.editar = function(usuario){
-		$scope.usuario = estado;
+	$scope.editar = function(estado){
+		$scope.estado = estado;
 	};		
 	$scope.salvar = function(){
-		$scope.lista.push($scope.estado);
-		$scope.usuario = null;
+		$scope.estados.push($scope.estado);
+		$scope.estado = null;
+	};
+	  $scope.limpar = function(){
+	    	delete $scope.estado;    	 
 	};
 	
     $scope.submeter = function(){
@@ -24,6 +27,7 @@ angular.module('moduloPrincipal').controller('EstadosController', function($scop
             if($scope.estado.id){
                $http.put('api/v1/estado', $scope.estado)
                .success(function(){
+            		delete $scope.estado;
                     $scope.mensagem = "Dados alterados com Sucesso !!!";
                }).error(function(erro){
             	   console.log(erro);
@@ -31,6 +35,8 @@ angular.module('moduloPrincipal').controller('EstadosController', function($scop
                });
             }else{
                 $http.post('api/v1/estado', $scope.estado).success(function(){
+                    $scope.estados.push(angular.copy($scope.estado));
+                    delete $scope.estado;
                     $scope.mensagem ="Estado cadastrado com sucesso !!!";
                  }).error(function(erro){
                      $scope.mensagem = "Erro ao tentar gravar o estado do equipamento";

@@ -35,11 +35,13 @@
 	</div>
 	<hr />
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<table class="table table-striped">
 				<tr>
 					<th>Id</th>
 					<th>Processador</th>
+					<th>Frequência</th>
+					<th>N° Núcleos</th>
 					<th>Memória RAM</th>
 					<th>HD</th>
 					<th>Vídeo</th>
@@ -48,7 +50,9 @@
 				<tr ng-repeat="requisito in requisitos | filter:filtro">
 					<td>{{requisito.id}}</td>
 					<td>{{requisito.processador}}</td>
-					<td>{{requisito.memoriaram}}</td>
+					<td>{{requisito.frequencia}}</td>
+					<td>{{requisito.numeroNucleos}}</td>
+					<td>{{requisito.memoria}}</td>
 					<td>{{requisito.hd}}</td>	
 					<td>{{requisito.video}}</td>		
 					<td><a href="#/requisito/edit/{{requisito.id}}" class="btn btn-primary btn-block">Editar</a></td>
