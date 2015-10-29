@@ -14,7 +14,11 @@ angular.module('moduloPrincipal').controller('CategoriasController', function($s
     $scope.editar = function(categoria){
     	 $scope.categoria = categoria;
     	 
-	};	
+	};
+	  $scope.limpar = function(){
+    	delete $scope.categoria;
+    	 
+	};		
 	
 	$scope.submeter = function (categoria){
 		 if($scope.formulario.$valid){

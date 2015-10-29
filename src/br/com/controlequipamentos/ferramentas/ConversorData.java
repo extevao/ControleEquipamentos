@@ -6,6 +6,10 @@ import java.util.Date;
 public class ConversorData {
 
 	public String converteDataDoMYSQL(String data) {
+		if(data == null){
+			System.out.println("Tecnicamente data nulla " + data);
+			return "";
+		}
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			Date dataConvertida = sdf.parse(data);
@@ -18,6 +22,10 @@ public class ConversorData {
 	}
 
 	public String converteDataParaMYSQL(String data) {
+		if(data == null){
+			System.out.println("Tecnicamente data nulla " + data);
+			return null;
+		}
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			Date dataConvertida = sdf.parse(data);
