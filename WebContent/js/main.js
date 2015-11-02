@@ -26,6 +26,10 @@ angular.module('moduloPrincipal', ['ngRoute'])
 		templateUrl: 'partials/equipamento/formulario-equipamento.html',
 		controller: 'EquipamentoController'
 	});
+	$routeProvider.when('/equipamento/relatorio/equipamento-categoria', {
+		templateUrl: 'partials/relatorio/equipamento/relatorio-equipamentos-categoria.html',
+		controller: 'EquipamentosCategoriaController'
+	});
 	/* Estado */
 	$routeProvider.when('/estado', {
 		templateUrl: 'partials/estado/principal-estados.html',

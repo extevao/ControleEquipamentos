@@ -2,6 +2,7 @@
 <html lang="pt-br" ng-app="moduloPrincipal">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Controle Equipamentos</title>
 <!-- import folhas de estilo -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -18,6 +19,7 @@
 <!-- equipamento -->
 <script src="js/controllers/equipamento/equipamentos-controller.js"></script>
 <script src="js/controllers/equipamento/equipamento-controller.js"></script>
+<script src="js/controllers/relatorio/equipamento/equipamentos-categoria.js"></script>
 <!-- estado do equipamento -->
 <script src="js/controllers/estado/estados-controller.js"></script>
 <!-- funcionario -->
@@ -45,10 +47,8 @@
 
 </head>
 <body>
-	<main>
-		<div class="container">
-			<ng-view></ng-view>
-		</div>
+	<main>		
+		<ng-view></ng-view>
 	</main>	
 	<script src="js/lib/jquery-1.11.3.js"></script>
     <script src="js/lib/bootstrap.min.js"> </script> 
