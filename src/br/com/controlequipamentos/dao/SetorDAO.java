@@ -16,10 +16,10 @@ public class SetorDAO extends ConnectionFactory {
 			this.rs = stmtp.executeQuery();
 			while (rs.next()) {	
 				Setor setor = new Setor();
-				setor.setId(rs.getInt("id"));
+				setor.setId(rs.getString("id"));
 				setor.setNome(rs.getString("nome"));
-				setor.setIdStatus(rs.getInt("idStatus"));
-				setor.setIdRequisito(rs.getInt("idRequisito"));
+				setor.setIdStatus(rs.getString("idStatus"));
+				setor.setIdRequisito(rs.getString("idRequisito"));
 				
 				listaSetores.add(setor);
 			}
@@ -39,10 +39,10 @@ public class SetorDAO extends ConnectionFactory {
 			this.rs = stmtp.executeQuery();
 			while (rs.next()) {
 				Setor setor = new Setor();
-				setor.setId(rs.getInt("id"));
+				setor.setId(rs.getString("id"));
 				setor.setNome(rs.getString("nome"));
-				setor.setIdStatus(rs.getInt("idStatus"));
-				setor.setIdRequisito(rs.getInt("idRequisito"));
+				setor.setIdStatus(rs.getString("idStatus"));
+				setor.setIdRequisito(rs.getString("idRequisito"));
 				listaSetor.add(setor);
 			}
 			return listaSetor;
@@ -58,8 +58,8 @@ public class SetorDAO extends ConnectionFactory {
 		try {
 			this.stmtp = this.getConnection().prepareStatement(sbInsert.toString());
 			this.stmtp.setString(1, setor.getNome());
-			this.stmtp.setInt(2, setor.getIdStatus());
-			this.stmtp.setInt(3, setor.getIdRequisito());
+			this.stmtp.setString(2, setor.getIdStatus());
+			this.stmtp.setString(3, setor.getIdRequisito());
 			this.stmtp.executeUpdate();
 		
 		} catch (SQLException e) {
@@ -73,9 +73,9 @@ public class SetorDAO extends ConnectionFactory {
 		try {
 			this.stmtp = this.getConnection().prepareStatement(sbUpdate.toString());
 			this.stmtp.setString(1, setor.getNome());
-			this.stmtp.setInt(2, setor.getIdStatus());
-			this.stmtp.setInt(3, setor.getIdRequisito());
-			this.stmtp.setInt(4, setor.getId());
+			this.stmtp.setString(2, setor.getIdStatus());
+			this.stmtp.setString(3, setor.getIdRequisito());
+			this.stmtp.setString(4, setor.getId());
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Erro ao alterar os dados do setor !!! " + e);

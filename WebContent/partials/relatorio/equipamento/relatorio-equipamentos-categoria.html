@@ -43,6 +43,7 @@
 					<h3>Lista de equipamentos</h3>
 				</div>
 				<div class="panel-body">
+					{{equipamentocategoria}}
 					<div class="table-responsive" >
 						<table  ng-repeat="categoria in categorias">
 							<thead>
@@ -52,7 +53,14 @@
 							</thead>
 							<tbody ng-if="verificaId(categoria)">
 								<tr ng-repeat="equipamento in teste">
+									<td>{{equipamento.nome}}</td>
 									<td>{{equipamento.modelo}}</td>
+									<td>{{equipamento.servstag}}</td>
+									<td>{{equipamento.patrimonio}}</td>
+									<td>{{equipamento.idCategoria}}</td>
+									<td>{{equipamento.idMarca}}</td>
+									<td>{{equipamento.idSetor}}</td>
+									<td>{{equipamento.idEstado}}</td>
 								</tr>
 							</tbody>
 						</table>

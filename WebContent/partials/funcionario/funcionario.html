@@ -1,0 +1,89 @@
+<meta charset="utf-8" />
+<header>
+	<nav class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-header">
+			<a href="#/index" class="navbar-brand">Controle de Equipamentos</a>
+			<button type="button" class="navbar-toggle"
+				data-target=".navbar-collapse" data-toggle="collapse">Menu</button>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li role="presentation"><a href="#/categoria">Categoria</a></li>
+				<li role="presentation"><a href="#/equipamento">Equipamento</a></li>
+				<li role="presentation" class="active"><a href="#/funcionario">Funcionário</a></li>
+				<li role="presentation"><a href="#/manutencao">Manutenção</a></li>
+				<li role="presentation"><a href="#/marca">Marca</a></li>
+				<li role="presentation"><a href="#/requisito">Requisito</a></li>
+				<li role="presentation"><a href="#/setor">Setor</a></li>
+				<li role="presentation"><a href="#/status">Status</a></li>
+				<li role="presentation"><a href="#/usuario">Usuário</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+
+		<div class="col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li><a href="#/funcionario">Funcinário</a></li>
+			</ul>
+		</div>
+
+		<div class="col-md-10 col-md-offset-2 main">
+
+			<form class="form-horizontal">
+				<fieldset>
+
+					<div class="form-group">
+						<label class="control-label col-md-1">Nome</label>
+						<div class="col-md-8">
+							<input ng-model="funcionario.nome" ng-maxlength="50" name="nome"
+								class="form-control" readonly />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-1">Sobrenome</label>
+						<div class="col-md-8">
+							<input ng-model="funcionario.sobrenome" ng-maxlength="50"
+								name="sobrenome" class="form-control" readonly />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-1">E-mail</label>
+						<div class="col-md-8">
+							<input ng-model="funcionario.email" ng-maxlength="50"
+								name="email" class="form-control" readonly />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-1">Cargo</label>
+						<div class="col-md-8">
+							<input ng-model="funcionario.cargo" ng-maxlength="50"
+								name="cargo" class="form-control" readonly />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-1">Setor</label>
+						<div class="col-md-8">
+							<select name="setor" class="form-control"
+								ng-controller="SetoresController" ng-model="funcionario.idSetor"
+								ng-options="setor.id as setor.nome for setor in setores" disabled>
+							</select>
+						</div>
+					</div>
+
+					<a href="#/funcionario/edit/{{funcionario.id}}"	class="btn btn-primary">Editar</a> 
+					<a href="#/funcionario" class="btn btn-primary">Voltar</a>
+		</fieldset>
+		</form>
+
+
+	</div>
+
+
+
+
+</div>
+</div>

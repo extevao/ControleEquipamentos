@@ -16,7 +16,7 @@ public class StatusDAO extends ConnectionFactory{
 			this.rs = stmtp.executeQuery();
 			while (this.rs.next()) {
 				Status  status = new Status();
-				status .setId(rs.getInt("id"));
+				status .setId(rs.getString("id"));
 				status .setNome(rs.getString("nome"));
 				listaStatus.add(status );
 			}
@@ -37,7 +37,7 @@ public class StatusDAO extends ConnectionFactory{
 			this.rs = stmtp.executeQuery();
 			while (rs.next()) {
 				Status status = new Status();
-				status.setId(rs.getInt("id"));
+				status.setId(rs.getString("id"));
 				status.setNome(rs.getString("nome"));
 				listaStatus.add(status);
 			}
@@ -66,7 +66,7 @@ public class StatusDAO extends ConnectionFactory{
 		try {
 			this.stmtp = this.getConnection().prepareStatement(sbUpdate.toString());
 			this.stmtp.setString(1, Status.getNome());
-			this.stmtp.setInt(2, Status.getId());
+			this.stmtp.setString(2, Status.getId());
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Ocorreu um erro ao tentar alterar a Status: " + e);

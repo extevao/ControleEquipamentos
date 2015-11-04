@@ -8,7 +8,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import br.com.controlequipamentos.dao.EquipamentoRelatorioDAO;
-import br.com.controlequipamentos.pojo.EquipamentoRelatorio;
+import br.com.controlequipamentos.pojo.Equipamento;
+
 
 @Path("/v1/relatorio/equipamento-categoria")
 public class EquipamentoRelatorioCategoriaService {
@@ -16,7 +17,7 @@ public class EquipamentoRelatorioCategoriaService {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<EquipamentoRelatorio> listarEquipamento(){
+	public ArrayList<Equipamento> listarEquipamento(){
 		EquipamentoRelatorioDAO equipamentoDAO;
 		try {
 			equipamentoDAO = new EquipamentoRelatorioDAO();

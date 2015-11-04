@@ -1,4 +1,4 @@
-angular.module('moduloPrincipal').controller('EquipamentoController', function($scope, $http, $routeParams) {
+angular.module('moduloPrincipal').controller('EquipamentoController', function($scope, $http, $routeParams, $location) {
 
         $scope.equipamento = {};
         $scope.mensagem = '';
@@ -20,16 +20,19 @@ angular.module('moduloPrincipal').controller('EquipamentoController', function($
                 if($scope.equipamento.id){
                    $http.put('api/v1/equipamento', $scope.equipamento)
                    .success(function(){
-                		delete $scope.equipamento;
+                		
                         $scope.mensagem = "Dados alterados com Sucesso !!!";
+                        $location.path("/equipamento");
+
                    }).error(function(erro){
                 	   console.log(erro);
                         $scope.mensagem = "Não foi possível alterar os dados !!!";
                    });
                 }else{
                     $http.post('api/v1/equipamento', $scope.equipamento).success(function(){
-                    	delete $scope.equipamento;
+                    	
                     	$scope.mensagem ="Equipamento cadastrado com sucesso !!!";
+                        $location.path("/equipamento");
                      }).error(function(erro){
                          $scope.mensagem = "Erro ao tentar gravar o equipamento";
                     });

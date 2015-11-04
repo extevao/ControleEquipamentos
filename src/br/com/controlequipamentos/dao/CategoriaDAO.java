@@ -16,7 +16,7 @@ public class CategoriaDAO extends ConnectionFactory {
 			this.rs = stmtp.executeQuery();
 			while (this.rs.next()) {
 				Categoria categoria = new Categoria();
-				categoria.setId(rs.getInt("id"));
+				categoria.setId(rs.getString("id"));
 				categoria.setNome(rs.getString("nome"));
 				listaCategoria.add(categoria);
 			}
@@ -37,7 +37,7 @@ public class CategoriaDAO extends ConnectionFactory {
 			this.rs = stmtp.executeQuery();
 			while (rs.next()) {
 				Categoria categoria = new Categoria();
-				categoria.setId(rs.getInt("id"));
+				categoria.setId(rs.getString("id"));
 				categoria.setNome(rs.getString("nome"));
 				listaCategoria.add(categoria);
 			}
@@ -66,7 +66,7 @@ public class CategoriaDAO extends ConnectionFactory {
 		try {
 			this.stmtp = this.getConnection().prepareStatement(sbUpdate.toString());
 			this.stmtp.setString(1, categoria.getNome());
-			this.stmtp.setInt(2, categoria.getId());
+			this.stmtp.setString(2, categoria.getId());
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Ocorreu um erro ao tentar alterar a categoria: " + e);

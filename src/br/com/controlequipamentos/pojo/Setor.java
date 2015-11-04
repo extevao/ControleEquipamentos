@@ -5,16 +5,16 @@ import java.io.Serializable;
 public class Setor implements Serializable {
 
 	private static final long serialVersionUID = -5581268418367797182L;
-	private int id;
+	private String id;
 	private String nome;
-	private int idStatus;
-	private int idRequisito;
+	private String idStatus;
+	private String idRequisito;
 	
 	public Setor(){
 		
 	}
 
-	public Setor(int id, String nome, int idStatus, int idRequisito) {
+	public Setor(String id, String nome, String idStatus, String idRequisito) {
 
 		this.id = id;
 		this.nome = nome;
@@ -22,11 +22,11 @@ public class Setor implements Serializable {
 		this.idRequisito = idRequisito;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -38,19 +38,19 @@ public class Setor implements Serializable {
 		this.nome = nome;
 	}
 
-	public int getIdStatus() {
+	public String getIdStatus() {
 		return idStatus;
 	}
 
-	public void setIdStatus(int idStatus) {
+	public void setIdStatus(String idStatus) {
 		this.idStatus = idStatus;
 	}
 
-	public int getIdRequisito() {
+	public String getIdRequisito() {
 		return idRequisito;
 	}
 
-	public void setIdRequisito(int idRequisito) {
+	public void setIdRequisito(String idRequisito) {
 		this.idRequisito = idRequisito;
 	}
 

@@ -6,26 +6,26 @@ public class Manutencao implements Serializable {
 
 	private static final long serialVersionUID = -4985405848018743735L;
 
-	private int id;
+	private String id;
 	private String titulo;
 	private String descricao;
 	private String dataInicio;
 	private String dataFim;
-	private int idEquipamento;
-	private int idSetor;
-	private int idFuncionario;
-	private int idUsuario;
-	private int idEstado;
+	private String idEquipamento;
+	private String idSetor;
+	private String idFuncionario;
+	private String idUsuario;
+	private String idEstado;
 	
 	public Manutencao(){
 		
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -61,43 +61,43 @@ public class Manutencao implements Serializable {
 		this.dataFim = dataFim;
 	}
 
-	public int getIdEquipamento() {
+	public String getIdEquipamento() {
 		return idEquipamento;
 	}
 
-	public void setIdEquipamento(int idEquipamento) {
+	public void setIdEquipamento(String idEquipamento) {
 		this.idEquipamento = idEquipamento;
 	}
 
-	public int getIdSetor() {
+	public String getIdSetor() {
 		return idSetor;
 	}
 
-	public void setIdSetor(int idSetor) {
+	public void setIdSetor(String idSetor) {
 		this.idSetor = idSetor;
 	}
 
-	public int getIdFuncionario() {
+	public String getIdFuncionario() {
 		return idFuncionario;
 	}
 
-	public void setIdFuncionario(int idFuncionario) {
+	public void setIdFuncionario(String idFuncionario) {
 		this.idFuncionario = idFuncionario;
 	}
 
-	public int getIdUsuario() {
+	public String getIdUsuario() {
 		return idUsuario;
 	}
 
-	public void setIdUsuario(int idUsuario) {
+	public void setIdUsuario(String idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 
-	public int getIdEstado() {
+	public String getIdEstado() {
 		return idEstado;
 	}
 
-	public void setIdEstado(int idEstado) {
+	public void setIdEstado(String idEstado) {
 		this.idEstado = idEstado;
 	}
 

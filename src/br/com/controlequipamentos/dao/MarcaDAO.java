@@ -17,7 +17,7 @@ public class MarcaDAO extends ConnectionFactory {
 			this.rs = stmtp.executeQuery();
 			while (this.rs.next()) {
 				Marca marca = new Marca();
-				marca.setId(rs.getInt("id"));
+				marca.setId(rs.getString("id"));
 				marca.setNome(rs.getString("nome"));
 				listamarcas.add(marca);
 			}
@@ -38,7 +38,7 @@ public class MarcaDAO extends ConnectionFactory {
 			this.rs = stmtp.executeQuery();
 			while (rs.next()) {
 				Marca marca = new Marca();
-				marca.setId(rs.getInt("id"));
+				marca.setId(rs.getString("id"));
 				marca.setNome(rs.getString("nome"));
 				listamarca.add(marca);
 			}
@@ -67,7 +67,7 @@ public class MarcaDAO extends ConnectionFactory {
 		try {
 			this.stmtp = this.getConnection().prepareStatement(sbUpdate.toString());
 			this.stmtp.setString(1, marca.getNome());
-			this.stmtp.setInt(2, marca.getId());
+			this.stmtp.setString(2, marca.getId());
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Ocorreu um erro ao tentar alterar a marca: " + e);

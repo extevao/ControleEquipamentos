@@ -26,12 +26,16 @@ angular.module('moduloPrincipal', ['ngRoute'])
 		templateUrl: 'partials/equipamento/formulario-equipamento.html',
 		controller: 'EquipamentoController'
 	});
+	$routeProvider.when('/equipamento/view/:equipamentoId', {
+		templateUrl: 'partials/equipamento/equipamento.html',
+		controller: 'EquipamentoController'
+	});
 	$routeProvider.when('/equipamento/relatorio/equipamento-categoria', {
 		templateUrl: 'partials/relatorio/equipamento/relatorio-equipamentos-categoria.html',
 		controller: 'EquipamentosCategoriaController'
 	});
 	/* Estado */
-	$routeProvider.when('/estado', {
+	$routeProvider.when('/equipamento/estado', {
 		templateUrl: 'partials/estado/principal-estados.html',
 		controller: 'EstadosController'
 	});	
@@ -46,6 +50,10 @@ angular.module('moduloPrincipal', ['ngRoute'])
 	});	
 	$routeProvider.when('/funcionario/edit/:funcionarioId', {
 		templateUrl: 'partials/funcionario/formulario-funcionario.html',
+		controller: 'FuncionarioController'
+	});	
+	$routeProvider.when('/funcionario/view/:funcionarioId', {
+		templateUrl: 'partials/funcionario/funcionario.html',
 		controller: 'FuncionarioController'
 	});	
 	/* Manutenção */

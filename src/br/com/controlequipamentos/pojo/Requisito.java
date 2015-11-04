@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Requisito implements Serializable {
 
 	private static final long serialVersionUID = -3825006979098572199L;
-	private int id;
+	private String id;
 	private String processador;
 	private String frequencia;
 	private String numeroNucleos;
@@ -17,7 +17,7 @@ public class Requisito implements Serializable {
 
 	}
 
-	public Requisito(int id, String processador, String frequencia, String numeroNucleos, String memoria, String hd,
+	public Requisito(String id, String processador, String frequencia, String numeroNucleos, String memoria, String hd,
 			String video) {
 		super();
 		this.id = id;
@@ -29,11 +29,11 @@ public class Requisito implements Serializable {
 		this.video = video;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

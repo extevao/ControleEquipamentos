@@ -16,7 +16,7 @@ public class EstadoDAO extends ConnectionFactory {
 			this.rs = stmtp.executeQuery();
 			while (this.rs.next()) {
 				Estado estado = new Estado();
-				estado.setId(rs.getInt("id"));
+				estado.setId(rs.getString("id"));
 				estado.setNome(rs.getString("nome"));
 				listaestados.add(estado);
 			}
@@ -37,7 +37,7 @@ public class EstadoDAO extends ConnectionFactory {
 			this.rs = stmtp.executeQuery();
 			while (rs.next()) {
 				Estado estado = new Estado();
-				estado.setId(rs.getInt("id"));
+				estado.setId(rs.getString("id"));
 				estado.setNome(rs.getString("nome"));
 				listaestado.add(estado);
 			}
@@ -66,7 +66,7 @@ public class EstadoDAO extends ConnectionFactory {
 		try {
 			this.stmtp = this.getConnection().prepareStatement(sbUpdate.toString());
 			this.stmtp.setString(1, estado.getNome());
-			this.stmtp.setInt(2, estado.getId());
+			this.stmtp.setString(2, estado.getId());
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Ocorreu um erro ao tentar alterar os dados do estado: " + e);

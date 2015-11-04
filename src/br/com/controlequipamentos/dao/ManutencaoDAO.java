@@ -18,16 +18,16 @@ public class ManutencaoDAO extends ConnectionFactory {
 			this.rs = stmtp.executeQuery();
 			while (rs.next()) {	
 				Manutencao manutencao = new Manutencao();
-				manutencao.setId(rs.getInt("id"));
+				manutencao.setId(rs.getString("id"));
 				manutencao.setTitulo(rs.getString("titulo"));
 				manutencao.setDescricao(rs.getString("descricao"));
 				manutencao.setDataInicio(conversorData.converteDataDoMYSQL(rs.getString("data_inicio")));
 				manutencao.setDataFim(conversorData.converteDataDoMYSQL(rs.getString("data_fim")));
-				manutencao.setIdEquipamento(rs.getInt("idEquipamento"));
-				manutencao.setIdSetor(rs.getInt("idSetor"));
-				manutencao.setIdFuncionario(rs.getInt("idFuncionario"));
-				manutencao.setIdUsuario(rs.getInt("idUsuario"));
-				manutencao.setIdEstado(rs.getInt("idEstado"));
+				manutencao.setIdEquipamento(rs.getString("idEquipamento"));
+				manutencao.setIdSetor(rs.getString("idSetor"));
+				manutencao.setIdFuncionario(rs.getString("idFuncionario"));
+				manutencao.setIdUsuario(rs.getString("idUsuario"));
+				manutencao.setIdEstado(rs.getString("idEstado"));
 				listaManutencoes.add(manutencao);
 			}
 			return listaManutencoes;
@@ -47,16 +47,16 @@ public class ManutencaoDAO extends ConnectionFactory {
 			this.rs = stmtp.executeQuery();
 			while (rs.next()) {
 				Manutencao manutencao = new Manutencao();
-				manutencao.setId(rs.getInt("id"));
+				manutencao.setId(rs.getString("id"));
 				manutencao.setTitulo(rs.getString("titulo"));
 				manutencao.setDescricao(rs.getString("descricao"));
 				manutencao.setDataInicio(conversorData.converteDataDoMYSQL(rs.getString("data_inicio")));
 				manutencao.setDataFim(conversorData.converteDataDoMYSQL(rs.getString("data_fim")));
-				manutencao.setIdEquipamento(rs.getInt("idEquipamento"));
-				manutencao.setIdSetor(rs.getInt("idSetor"));
-				manutencao.setIdFuncionario(rs.getInt("idFuncionario"));
-				manutencao.setIdUsuario(rs.getInt("idUsuario"));
-				manutencao.setIdEstado(rs.getInt("idEstado"));
+				manutencao.setIdEquipamento(rs.getString("idEquipamento"));
+				manutencao.setIdSetor(rs.getString("idSetor"));
+				manutencao.setIdFuncionario(rs.getString("idFuncionario"));
+				manutencao.setIdUsuario(rs.getString("idUsuario"));
+				manutencao.setIdEstado(rs.getString("idEstado"));
 				listaManutencao.add(manutencao);
 			}
 			return listaManutencao;
@@ -76,11 +76,11 @@ public class ManutencaoDAO extends ConnectionFactory {
 			this.stmtp.setString(2, manutencao.getDescricao());
 			this.stmtp.setString(3, conversorData.converteDataDoMYSQL(manutencao.getDataInicio()));
 			this.stmtp.setString(4, conversorData.converteDataDoMYSQL(manutencao.getDataFim()));
-			this.stmtp.setInt(5, manutencao.getIdEquipamento());
-			this.stmtp.setInt(6, manutencao.getIdSetor());
-			this.stmtp.setInt(7, manutencao.getIdFuncionario());
-			this.stmtp.setInt(8, manutencao.getIdUsuario());
-			this.stmtp.setInt(9, manutencao.getIdEstado());
+			this.stmtp.setString(5, manutencao.getIdEquipamento());
+			this.stmtp.setString(6, manutencao.getIdSetor());
+			this.stmtp.setString(7, manutencao.getIdFuncionario());
+			this.stmtp.setString(8, manutencao.getIdUsuario());
+			this.stmtp.setString(9, manutencao.getIdEstado());
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Erro ao cadastrar uma nova manutenção: " + e);
@@ -97,12 +97,12 @@ public class ManutencaoDAO extends ConnectionFactory {
 			this.stmtp.setString(2, manutencao.getDescricao());
 			this.stmtp.setString(3, conversorData.converteDataDoMYSQL(manutencao.getDataInicio()));
 			this.stmtp.setString(4, conversorData.converteDataDoMYSQL(manutencao.getDataFim()));
-			this.stmtp.setInt(5, manutencao.getIdEquipamento());
-			this.stmtp.setInt(6, manutencao.getIdSetor());
-			this.stmtp.setInt(7, manutencao.getIdFuncionario());
-			this.stmtp.setInt(8, manutencao.getIdUsuario());
-			this.stmtp.setInt(9, manutencao.getIdEstado());
-			this.stmtp.setInt(10, manutencao.getId());
+			this.stmtp.setString(5, manutencao.getIdEquipamento());
+			this.stmtp.setString(6, manutencao.getIdSetor());
+			this.stmtp.setString(7, manutencao.getIdFuncionario());
+			this.stmtp.setString(8, manutencao.getIdUsuario());
+			this.stmtp.setString(9, manutencao.getIdEstado());
+			this.stmtp.setString(10, manutencao.getId());
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Erro ao alterar os dados da Manutenção: " + e);

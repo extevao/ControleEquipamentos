@@ -5,19 +5,19 @@ import java.io.Serializable;
 public class Funcionario implements Serializable {
 
 	private static final long serialVersionUID = 2709836540260025787L;
-	private int id;
+	private String id;
 	private String nome;
 	private String sobrenome;
 	private String email;
 	private String cargo;
-	private int idStatus;
-	private int idSetor;
+	private String idStatus;
+	private String idSetor;
 
 	public Funcionario() {
 
 	}
 
-	public Funcionario(int id, String nome, String sobrenome, String email, String cargo, int idStatus, int idSetor) {
+	public Funcionario(String id, String nome, String sobrenome, String email, String cargo, String idStatus, String idSetor) {
 		this.id = id;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
@@ -27,11 +27,11 @@ public class Funcionario implements Serializable {
 		this.idSetor = idSetor;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -67,19 +67,19 @@ public class Funcionario implements Serializable {
 		this.cargo = cargo;
 	}
 
-	public int getIdStatus() {
+	public String getIdStatus() {
 		return idStatus;
 	}
 
-	public void setIdStatus(int idStatus) {
+	public void setIdStatus(String idStatus) {
 		this.idStatus = idStatus;
 	}
 
-	public int getIdSetor() {
+	public String getIdSetor() {
 		return idSetor;
 	}
 
-	public void setIdSetor(int idSetor) {
+	public void setIdSetor(String idSetor) {
 		this.idSetor = idSetor;
 	}
 

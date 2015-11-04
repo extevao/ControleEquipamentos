@@ -17,13 +17,13 @@ public class FuncionarioDAO extends ConnectionFactory {
 			this.rs = stmtp.executeQuery();
 			while (rs.next()) {	
 				Funcionario funcionario = new Funcionario();
-				funcionario.setId(rs.getInt("id"));
+				funcionario.setId(rs.getString("id"));
 				funcionario.setNome(rs.getString("nome"));
 				funcionario.setSobrenome(rs.getString("sobrenome"));
 				funcionario.setEmail(rs.getString("email"));
 				funcionario.setCargo(rs.getString("cargo"));
-				funcionario.setIdStatus(rs.getInt("idStatus"));
-				funcionario.setIdSetor(rs.getInt("idSetor"));
+				funcionario.setIdStatus(rs.getString("idStatus"));
+				funcionario.setIdSetor(rs.getString("idSetor"));
 				
 				listaFuncionarios.add(funcionario);
 			}
@@ -43,13 +43,13 @@ public class FuncionarioDAO extends ConnectionFactory {
 			this.rs = stmtp.executeQuery();
 			while (rs.next()) {
 				Funcionario funcionario = new Funcionario();
-				funcionario.setId(rs.getInt("id"));
+				funcionario.setId(rs.getString("id"));
 				funcionario.setNome(rs.getString("nome"));
 				funcionario.setSobrenome(rs.getString("sobrenome"));
 				funcionario.setEmail(rs.getString("email"));
 				funcionario.setCargo(rs.getString("cargo"));
-				funcionario.setIdStatus(rs.getInt("idStatus"));
-				funcionario.setIdSetor(rs.getInt("idSetor"));
+				funcionario.setIdStatus(rs.getString("idStatus"));
+				funcionario.setIdSetor(rs.getString("idSetor"));
 				listaFuncionario.add(funcionario);
 			}
 			return listaFuncionario;
@@ -68,8 +68,8 @@ public class FuncionarioDAO extends ConnectionFactory {
 			this.stmtp.setString(2, funcionario.getSobrenome());
 			this.stmtp.setString(3, funcionario.getEmail());
 			this.stmtp.setString(4, funcionario.getCargo());
-			this.stmtp.setInt(5, funcionario.getIdStatus());
-			this.stmtp.setInt(6, funcionario.getIdSetor());
+			this.stmtp.setString(5, funcionario.getIdStatus());
+			this.stmtp.setString(6, funcionario.getIdSetor());
 			this.stmtp.executeUpdate();		
 		} catch (SQLException e) {
 			System.out.println("Erro ao inserir novo funcionário: " + e);
@@ -85,9 +85,9 @@ public class FuncionarioDAO extends ConnectionFactory {
 			this.stmtp.setString(2, funcionario.getSobrenome());
 			this.stmtp.setString(3, funcionario.getEmail());
 			this.stmtp.setString(4, funcionario.getCargo());
-			this.stmtp.setInt(5, funcionario.getIdStatus());
-			this.stmtp.setInt(6, funcionario.getIdSetor());
-			this.stmtp.setInt(7, funcionario.getId());
+			this.stmtp.setString(5, funcionario.getIdStatus());
+			this.stmtp.setString(6, funcionario.getIdSetor());
+			this.stmtp.setString(7, funcionario.getId());
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Erro ao alterar os dados do funcionário. " + e);

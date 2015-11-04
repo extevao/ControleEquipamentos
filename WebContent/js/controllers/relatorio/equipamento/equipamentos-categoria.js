@@ -19,13 +19,11 @@ angular.module('moduloPrincipal').controller('EquipamentosCategoriaController', 
     
     
     $scope.verificaId = function(categoria){
-    	if($scope.teste = $scope.equipamentocategoria.filter(function (elemento){
-			  return elemento.idCategoria === categoria.id ;
-			})){
-    		 return true;
-    	}
-    	return false;
-			
+    	$scope.teste = $scope.equipamentocategoria.filter(function (elemento){
+			  return elemento.id == categoria.id ;
+		});
+    	 return true;
+
 
 		
     };

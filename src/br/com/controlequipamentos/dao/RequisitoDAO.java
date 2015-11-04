@@ -16,7 +16,7 @@ public class RequisitoDAO extends ConnectionFactory {
 			this.rs = stmtp.executeQuery();
 			while (rs.next()) {	
 				Requisito requisito = new Requisito();
-				requisito.setId(rs.getInt("id"));
+				requisito.setId(rs.getString("id"));
 				requisito.setProcessador(rs.getString("processador"));
 				requisito.setFrequencia(rs.getString("frequencia"));
 				requisito.setNumeroNucleos(rs.getString("numero_nucleos"));
@@ -41,7 +41,7 @@ public class RequisitoDAO extends ConnectionFactory {
 			this.rs = stmtp.executeQuery();
 			while (rs.next()) {
 				Requisito requisito = new Requisito();
-				requisito.setId(rs.getInt("id"));
+				requisito.setId(rs.getString("id"));
 				requisito.setProcessador(rs.getString("processador"));
 				requisito.setFrequencia(rs.getString("frequencia"));
 				requisito.setNumeroNucleos(rs.getString("numero_nucleos"));
@@ -86,7 +86,7 @@ public class RequisitoDAO extends ConnectionFactory {
 			this.stmtp.setString(4, requisito.getMemoria());
 			this.stmtp.setString(5, requisito.getHd());
 			this.stmtp.setString(6, requisito.getVideo());
-			this.stmtp.setInt(7, requisito.getId());
+			this.stmtp.setString(7, requisito.getId());
 			this.stmtp.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Erro ao alterar os dados do requisito. " + e);

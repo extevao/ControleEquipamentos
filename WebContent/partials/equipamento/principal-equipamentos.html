@@ -9,7 +9,6 @@
 			<ul class="nav navbar-nav">
 				<li role="presentation"><a href="#/categoria">Categoria</a></li>
 				<li role="presentation" class="active"><a href="#/equipamento">Equipamento</a></li>
-				<li role="presentation"><a href="#/estado">Estado do Equipamento</a></li>
 				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
 				<li role="presentation"><a href="#/manutencao">Manutenção</a></li>
 				<li role="presentation"><a href="#/marca">Marca</a></li>
@@ -23,11 +22,12 @@
 </header>
 
 <div class="container-fluid">
-	<div class="row">
+	<div class="row-fluid">
 
 		<div class="col-md-2 sidebar">
 			<ul class="nav nav-sidebar">
 				<li class="active"><a href="#/equipamento">Visão geral</a></li>
+				<li><a href="#/equipamento/estado">Estado do Equipamento</a></li>
 				<li><a href="#/equipamento/relatorio/equipamento-categoria">Relatório equipamentos por categoria</a></li>
 			</ul>
 		</div>
@@ -69,15 +69,15 @@
 						</thead>
 						<tbody>
 							<tr ng-repeat="equipamento in equipamentos| filter:filtro">
-							<td>{{equipamento.id}}</td>
-							<td>{{equipamento.nome}}</td>
-							<td>{{equipamento.modelo}}</td>
-							<td>{{equipamento.dataInicio}}</td>
-							<td>{{equipamento.dataFim}}</td>
-							<td>{{equipamento.servstag}}</td>
-							<td>{{equipamento.patrimonio}}</td>								
-							<td><a href="#/equipamento/edit/{{equipamento.id}}" class="btn btn-primary btn-block">Editar</a></td>
-						</tr>
+								<td>{{equipamento.id}}</td>
+								<td>{{equipamento.nome}}</td>
+								<td>{{equipamento.modelo}}</td>
+								<td>{{equipamento.dataInicio}}</td>
+								<td>{{equipamento.dataFim}}</td>
+								<td>{{equipamento.servstag}}</td>
+								<td>{{equipamento.patrimonio}}</td>								
+								<td><a href="#/equipamento/view/{{equipamento.id}}" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+							</tr>
 						</tbody>
 					</table>
 				</div>

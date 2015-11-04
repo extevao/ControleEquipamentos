@@ -5,14 +5,14 @@ import java.io.Serializable;
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 913854533111421693L;
-	private int id;
+	private String id;
 	private String nome;
 	private String sobrenome;
 	private String email;
 	private String login;
 	private String senha;
-	private int idStatus;
-	private int idSetor;
+	private String idStatus;
+	private String idSetor;
 
 	public Usuario(){
 		
@@ -20,8 +20,8 @@ public class Usuario implements Serializable {
 	
 	
 
-	public Usuario(int id, String nome, String sobrenome, String email, String login, String senha, int idStatus,
-			int idSetor) {
+	public Usuario(String id, String nome, String sobrenome, String email, String login, String senha, String idStatus,
+			String idSetor) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -35,11 +35,11 @@ public class Usuario implements Serializable {
 
 
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -83,19 +83,19 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 	}
 
-	public int getIdStatus() {
+	public String getIdStatus() {
 		return idStatus;
 	}
 
-	public void setIdStatus(int idStatus) {
+	public void setIdStatus(String idStatus) {
 		this.idStatus = idStatus;
 	}
 
-	public int getIdSetor() {
+	public String getIdSetor() {
 		return idSetor;
 	}
 
-	public void setIdSetor(int idSetor) {
+	public void setIdSetor(String idSetor) {
 		this.idSetor = idSetor;
 	}
 

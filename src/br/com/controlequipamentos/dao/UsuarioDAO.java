@@ -17,14 +17,14 @@ public class UsuarioDAO extends ConnectionFactory {
 			this.rs = stmtp.executeQuery();
 			while (rs.next()) {	
 				Usuario usuario = new Usuario();
-				usuario.setId(rs.getInt("id"));
+				usuario.setId(rs.getString("id"));
 				usuario.setNome(rs.getString("nome"));
 				usuario.setSobrenome(rs.getString("sobrenome"));
 				usuario.setEmail(rs.getString("email"));
 				usuario.setLogin(rs.getString("login"));
 				usuario.setSenha(rs.getString("senha"));
-				usuario.setIdStatus(rs.getInt("idStatus"));
-				usuario.setIdSetor(rs.getInt("idSetor"));
+				usuario.setIdStatus(rs.getString("idStatus"));
+				usuario.setIdSetor(rs.getString("idSetor"));
 				listaUsuarios.add(usuario);
 			}
 			return listaUsuarios;
@@ -43,14 +43,14 @@ public class UsuarioDAO extends ConnectionFactory {
 			this.rs = stmtp.executeQuery();
 			while (rs.next()) {
 				Usuario usuario = new Usuario();
-				usuario.setId(rs.getInt("id"));
+				usuario.setId(rs.getString("id"));
 				usuario.setNome(rs.getString("nome"));
 				usuario.setSobrenome(rs.getString("sobrenome"));
 				usuario.setEmail(rs.getString("email"));
 				usuario.setLogin(rs.getString("login"));
 				usuario.setSenha(rs.getString("senha"));
-				usuario.setIdStatus(rs.getInt("idStatus"));
-				usuario.setIdSetor(rs.getInt("idSetor"));
+				usuario.setIdStatus(rs.getString("idStatus"));
+				usuario.setIdSetor(rs.getString("idSetor"));
 				listaUsuario.add(usuario);
 			}
 			return listaUsuario;
@@ -69,8 +69,8 @@ public class UsuarioDAO extends ConnectionFactory {
 			this.stmtp.setString(3, usuario.getEmail());
 			this.stmtp.setString(4, usuario.getLogin());
 			this.stmtp.setString(5, usuario.getSenha());
-			this.stmtp.setInt(6, usuario.getIdStatus());
-			this.stmtp.setInt(7, usuario.getIdSetor());
+			this.stmtp.setString(6, usuario.getIdStatus());
+			this.stmtp.setString(7, usuario.getIdSetor());
 			this.stmtp.executeUpdate();
 		
 		} catch (SQLException e) {
@@ -88,9 +88,9 @@ public class UsuarioDAO extends ConnectionFactory {
 			this.stmtp.setString(3, usuario.getEmail());
 			this.stmtp.setString(4, usuario.getLogin());
 			this.stmtp.setString(5, usuario.getSenha());
-			this.stmtp.setInt(6, usuario.getIdStatus());
-			this.stmtp.setInt(7, usuario.getIdSetor());
-			this.stmtp.setInt(8, usuario.getId());
+			this.stmtp.setString(6, usuario.getIdStatus());
+			this.stmtp.setString(7, usuario.getIdSetor());
+			this.stmtp.setString(8, usuario.getId());
 			this.stmtp.executeUpdate();
 		
 		} catch (SQLException e) {

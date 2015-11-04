@@ -1,0 +1,128 @@
+<meta charset="utf-8" />
+<header>
+	<nav class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-header">
+			<a href="#/index" class="navbar-brand">Controle de Equipamentos</a>
+			<button type="button" class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">Menu</button>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li role="presentation"><a href="#/categoria">Categoria</a></li>
+				<li role="presentation" class="active"><a href="#/equipamento">Equipamento</a></li>
+				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
+				<li role="presentation"><a href="#/manutencao">Manutenção</a></li>
+				<li role="presentation"><a href="#/marca">Marca</a></li>
+				<li role="presentation"><a href="#/requisito">Requisito</a></li>
+				<li role="presentation" ><a href="#/setor">Setor</a></li>
+				<li role="presentation" ><a href="#/status">Status</a></li>
+				<li role="presentation"><a href="#/usuario">Usuário</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+
+		<div class="col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+			<li><a href="#/equipamento">Visão geral</a></li>
+				<li class="active"><a href="#/equipamento/estado">Estado do Equipamento</a></li>
+				<li><a href="#/equipamento/relatorio/equipamento-categoria">Relatório equipamentos por categoria</a></li>
+			</ul>
+		</div>
+
+		<div class="col-md-10 col-md-offset-2 main">
+				
+		<form class="form-horizontal">
+			<fieldset>
+				<div class="form-group">
+					<label class="control-label col-md-1">Nome</label> 
+					 <div class="col-md-8"> 
+						<input ng-model="equipamento.nome" ng-maxlength="100" name="nome" class="form-control" readonly  />
+					</div>	
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-1">Modelo</label> 
+					<div class="col-md-8"> 	
+						<input ng-model="equipamento.modelo" ng-maxlength="100" name="modelo" class="form-control" readonly  />
+					</div>	
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-1">Data Início</label> 
+					<div class="col-md-8"> 
+						<input ng-model="equipamento.dataInicio" name="dataInicio" class="form-control" readonly/>
+					</div>	
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-1">Data Fim</label>
+					<div class="col-md-8"> 	
+				 		<input ng-model="equipamento.dataFim" name="dataFim" class="form-control" placeholder="dd/MM/yyyy" readonly />
+				 	</div>	
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-1">Servstag</label>
+					<div class="col-md-8">  
+						<input ng-model="equipamento.servstag"name="servstag" class="form-control" readonly/>
+					</div>	
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-1">Patrimônio</label> 
+					<div class="col-md-8"> 
+						<input ng-model="equipamento.patrimonio" name="patrimonio" class="form-control" readonly/>
+					</div>	
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-1">Categoria</label>
+					<div class="col-md-8">  
+						<select name="categoria" class="form-control" ng-controller="CategoriasController" ng-model="equipamento.idCategoria" ng-options="categoria.id as categoria.nome for categoria in categorias" disabled></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-1">Marca</label>
+					<div class="col-md-8">  
+						<select name="marca" class="form-control" ng-controller="MarcasController" ng-model="equipamento.idMarca" ng-options="marca.id as marca.nome for marca in marcas"  disabled>
+						</select> 
+					</div>	
+				</div>
+		
+				<div class="form-group">
+					<label class="control-label col-md-1">Setor</label>
+					<div class="col-md-8">  
+						<select name="setor" class="form-control" ng-controller="SetoresController" ng-model="equipamento.idSetor" ng-options="setor.id as setor.nome for setor in setores" disabled></select>
+					</div>	
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-1">Funcionário</label>
+					<div class="col-md-8"> 
+						<select name="funcionario"class="form-control" ng-controller="FuncionariosController" ng-model="equipamento.idFuncionario" ng-options="funcionario.id as funcionario.nome for funcionario in funcionarios" disabled></select>
+					</div>	
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-1">Requisito</label>
+					<div class="col-md-8">  
+						<select name="requisito" class="form-control" ng-controller="RequisitosController" ng-model="equipamento.idRequisito"	ng-options="requisito.id as requisito.processador for requisito in requisitos" disabled> </select>
+					</div>
+				</div>		
+				<div class="form-group">
+					<label class="control-label col-md-1">Estado</label>
+					<div class="col-md-8">  
+						<select name="estado" class="form-control" ng-controller="EstadosController" ng-model="equipamento.idEstado" 	ng-options="estado.id as estado.nome for estado in estados" disabled></select>
+					</div>		
+				</div>
+		
+				<div class="btn-group">
+				<a href="#/equipamento" class="btn btn-primary btn-md">Voltar</a>
+				<a href="#/equipamento/edit/{{equipamento.id}}" class="btn btn-primary btn-md"> Editar <span class="glyphicon glyphicon-edit"></span></a>
+				 </div>
+				</fieldset>
+			</form>	
+
+
+		</div>
+
+
+
+
+	</div>
+</div>

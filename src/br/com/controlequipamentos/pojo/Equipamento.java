@@ -5,29 +5,29 @@ import java.io.Serializable;
 public class Equipamento implements Serializable {
 
 	private static final long serialVersionUID = -9163826571643132969L;
-	private int id;
+	private String id;
 	private String nome;
 	private String modelo;
 	private String dataInicio;
 	private String dataFim;
 	private String servstag;
 	private String patrimonio;
-	private int idCategoria;
-	private int idMarca;
-	private int idSetor;
-	private int idFuncionario;
-	private int idRequisito;
-	private int idEstado;
+	private String idCategoria;
+	private String idMarca;
+	private String idSetor;
+	private String idFuncionario;
+	private String idRequisito;
+	private String idEstado;
 
 	public Equipamento() {
 
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -79,52 +79,54 @@ public class Equipamento implements Serializable {
 		this.patrimonio = patrimonio;
 	}
 
-	public int getIdCategoria() {
+	public String getIdCategoria() {
 		return idCategoria;
 	}
 
-	public void setIdCategoria(int idCategoria) {
+	public void setIdCategoria(String idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 
-	public int getIdMarca() {
+	public String getIdMarca() {
 		return idMarca;
 	}
 
-	public void setIdMarca(int idMarca) {
+	public void setIdMarca(String idMarca) {
 		this.idMarca = idMarca;
 	}
 
-	public int getIdSetor() {
+	public String getIdSetor() {
 		return idSetor;
 	}
 
-	public void setIdSetor(int idSetor) {
+	public void setIdSetor(String idSetor) {
 		this.idSetor = idSetor;
 	}
 
-	public int getIdFuncionario() {
+	public String getIdFuncionario() {
 		return idFuncionario;
 	}
 
-	public void setIdFuncionario(int idFuncionario) {
+	public void setIdFuncionario(String idFuncionario) {
 		this.idFuncionario = idFuncionario;
 	}
 
-	public int getIdRequisito() {
+	public String getIdRequisito() {
 		return idRequisito;
 	}
 
-	public void setIdRequisito(int idRequisito) {
+	public void setIdRequisito(String idRequisito) {
 		this.idRequisito = idRequisito;
 	}
 
-	public int getIdEstado() {
+	public String getIdEstado() {
 		return idEstado;
 	}
 
-	public void setIdEstado(int idEstado) {
+	public void setIdEstado(String idEstado) {
 		this.idEstado = idEstado;
 	}
+
+
 
 }

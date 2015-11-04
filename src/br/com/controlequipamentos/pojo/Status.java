@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Status implements Serializable{
 
 	private static final long serialVersionUID = -2244044344629535444L;
-	private int id;
+	private String id;
 	private String nome;
 	
 	
@@ -13,17 +13,17 @@ public class Status implements Serializable{
 	
 	}
 
-	public Status(int id, String nome) {
+	public Status(String id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

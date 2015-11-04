@@ -24,7 +24,7 @@
 </header>
 
 <div class="container-fluid">
-	<div class="row">
+	<div class="row-fluid">
 
 		<div class="col-md-2 sidebar">
 			<ul class="nav nav-sidebar">
@@ -64,9 +64,11 @@
 									<tr ng-repeat="categoria in categorias| filter:filtro">
 										<td>{{categoria.id}}</td>
 										<td>{{categoria.nome}}</td>
-										<td><button ng-click="editar(categoria)" class="btn">
+										<td>
+											<button ng-click="editar(categoria)" class="btn">
 												<span class="glyphicon glyphicon-edit"></span>
-											</button></td>
+											</button>
+										</td>
 									</tr>
 								</tbody>
 							</table>
