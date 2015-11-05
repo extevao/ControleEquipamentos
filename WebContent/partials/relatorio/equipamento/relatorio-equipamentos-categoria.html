@@ -9,7 +9,6 @@
 			<ul class="nav navbar-nav">
 				<li role="presentation"><a href="#/categoria">Categoria</a></li>
 				<li role="presentation" class="active"><a href="#/equipamento">Equipamento</a></li>
-				<li role="presentation"><a href="#/estado">Estado do Equipamento</a></li>
 				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
 				<li role="presentation"><a href="#/manutencao">Manutenção</a></li>
 				<li role="presentation"><a href="#/marca">Marca</a></li>
@@ -27,8 +26,10 @@
 
 		<div class="col-md-2 sidebar">
 			<ul class="nav nav-sidebar">
-				<li><a href="#/equipamento">Visão geral</a></li>
-				<li class="active"><a href="#/equipamento/relatorio/equipamento-categoria">Relatório equipamentos por categoria</a></li>
+					<li><a href="#/equipamento">Visão geral</a></li>
+					<li><a href="#/equipamento/estado">Estado do Equipamento</a></li>
+					<li><a href="#/equipamento/marca">Marcas</a></li>
+					<li class="active"><a href="#/equipamento/relatorio/equipamento-categoria">Relatório equipamentos por categoria</a></li>
 			</ul>
 		</div>
 		
@@ -37,35 +38,30 @@
 
 			<div class="row placeholders">
 			</div>
-
-			<div class="panel panel-default">
+					<div class="panel panel-default"  ng-repeat="categoria in categorias">
 				<div class="panel-heading">
-					<h3>Lista de equipamentos</h3>
+					{{categoria.nome}}
 				</div>
-				<div class="panel-body">
-					{{equipamentocategoria}}
-					<div class="table-responsive" >
-						<table  ng-repeat="categoria in categorias">
-							<thead>
-								<tr>
-									<th>{{categoria.nome}}</th>
-								</tr>
-							</thead>
-							<tbody ng-if="verificaId(categoria)">
-								<tr ng-repeat="equipamento in teste">
-									<td>{{equipamento.nome}}</td>
-									<td>{{equipamento.modelo}}</td>
-									<td>{{equipamento.servstag}}</td>
-									<td>{{equipamento.patrimonio}}</td>
-									<td>{{equipamento.idCategoria}}</td>
-									<td>{{equipamento.idMarca}}</td>
-									<td>{{equipamento.idSetor}}</td>
-									<td>{{equipamento.idEstado}}</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>	
+				<table class="table"  ng-if="verificaId(categoria)">
+					<tr>
+						<th>Nome</th>
+						<th>Modelo</th>
+						<th>Servstag</th>
+						<th>Patrimônio</th>
+						<th>Marca</th>
+						<th>Setor</th>
+						<th>Estado</th>
+					</tr>
+					<tr ng-repeat="equipamento in teste">
+						<td>{{equipamento.nome}}</td>
+						<td>{{equipamento.modelo}}</td>
+						<td>{{equipamento.servstag}}</td>
+						<td>{{equipamento.patrimonio}}</td>
+						<td>{{equipamento.idMarca}}</td>
+						<td>{{equipamento.idSetor}}</td>
+						<td>{{equipamento.idEstado}}</td>
+					</tr>
+				</table>
 			</div>
 
 		</div>

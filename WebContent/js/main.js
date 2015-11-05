@@ -69,8 +69,12 @@ angular.module('moduloPrincipal', ['ngRoute'])
 		templateUrl: 'partials/manutencao/formulario-manutencao.html',
 		controller: 'ManutencaoController'
 	});	
+	$routeProvider.when('/manutencao/view/:manutencaoId', {
+		templateUrl: 'partials/manutencao/manutencao.html',
+		controller: 'ManutencaoController'
+	});	
 	/* Marca */
-	$routeProvider.when('/marca', {
+	$routeProvider.when('/equipamento/marca', {
 		templateUrl: 'partials/marca/principal-marca.html',
 		controller: 'MarcasController'
 	});	

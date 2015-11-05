@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="moduloPrincipal">
+<head>
+<meta charset="utf-8" />
+<title>teste</title>
+<!-- import folhas de estilo -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- import scripts Angular-->
+<script src="js/lib/angular.min.js"></script>
+<script type="text/javascript">
+angular.module('moduloPrincipal', []);
+angular.module('moduloPrincipal').controller('EquipamentosCategoriaController', function($scope, $http){
+
+    $scope.categorias = [];
+    $scope.equipamentocategoria = [];
+    $scope.teste = {};
+
+    $http.get('api/v1/categoria').success(function(data){
+        $scope.categorias = data;
+    }).error(function(erro){
+        console.log(erro);
+    });
+    
+    $http.get('api/v1/relatorio/equipamento-categoria').success(function(data){
+        $scope.equipamentocategoria = data;
+    }).error(function(erro){
+        console.log(erro);
+    });
+   
+    
+    $scope.verificaId = function(categoria){
+    	$scope.teste = $scope.equipamentocategoria.filter(function (elemento){
+			  return elemento.idCategoria == categoria.id ;
+		});
+    	 return true;
+    };
+    
+    
+});
+
+</script>
+</head>
+<body ng-controller="EquipamentosCategoriaController">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			
+		<div class="col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li><a href="#/equipamento">Visão geral</a></li>
+				<li class="active"><a href=""></a></li>
+			</ul>
+		</div>
+		
+		<div class="col-md-10 col-md-offset-2 main">
+			<h1 class="page-header">Equipamentos por categoria</h1>
+
+
+			<div class="panel panel-default"  ng-repeat="categoria in categorias">
+				<div class="panel-heading">
+					{{categoria.nome}}
+				</div>
+				<table class="table"  ng-if="verificaId(categoria)">
+					<tr>
+						<th>Nome</th>
+						<th>Modelo</th>
+						<th>Servstag</th>
+						<th>Patrimônio</th>
+						<th>Marca</th>
+						<th>Setor</th>
+						<th>Estado</th>
+					</tr>
+					<tr ng-repeat="equipamento in teste">
+						<td>{{equipamento.nome}}</td>
+						<td>{{equipamento.modelo}}</td>
+						<td>{{equipamento.servstag}}</td>
+						<td>{{equipamento.patrimonio}}</td>
+						<td>{{equipamento.idMarca}}</td>
+						<td>{{equipamento.idSetor}}</td>
+						<td>{{equipamento.idEstado}}</td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+
+
+
+
+
+
+
+		</div>
+	</div>
+
+</body>
+</html>

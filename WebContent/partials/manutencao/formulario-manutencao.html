@@ -3,112 +3,115 @@
 	<nav class="navbar navbar-fixed-top navbar-inverse">
 		<div class="navbar-header">
 			<a href="#/index" class="navbar-brand">Controle de Equipamentos</a>
-			<button type="button" class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">Menu</button>
+			<button type="button" class="navbar-toggle"
+				data-target=".navbar-collapse" data-toggle="collapse">Menu</button>
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li role="presentation"><a href="#/categoria">Categoria</a></li>
 				<li role="presentation"><a href="#/equipamento">Equipamento</a></li>
-				<li role="presentation" ><a href="#/estado">Estado do Equipamento</a></li>
 				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
 				<li role="presentation" class="active"><a href="#/manutencao">Manutenção</a></li>
-				<li role="presentation"><a href="#/marca">Marca</a></li>
+
 				<li role="presentation"><a href="#/requisito">Requisito</a></li>
-				<li role="presentation" ><a href="#/setor">Setor</a></li>
-				<li role="presentation" ><a href="#/status">Status</a></li>
+				<li role="presentation"><a href="#/setor">Setor</a></li>
+				<li role="presentation"><a href="#/status">Status</a></li>
 				<li role="presentation"><a href="#/usuario">Usuário</a></li>
 			</ul>
 		</div>
 	</nav>
 </header>
-<div class="page-header text-center">	
-	<h1>{{manutencao.nome}}</h1>
-</div>
-
-<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
-
-<form novalidate name="formulario" class="row" ng-submit="submeter()">
+<div class="container-fluid">
+	<div class="row-fluid">
 	
-	<div class="col-md-6">
-		<div class="form-group">
-			<label>Título</label>
-			<input ng-model="manutencao.titulo" ng-maxlength="100" name="titulo" class="form-control" required />
-			<span ng-show="formulario.$submited && formulario.titulo.$error.required" class="form-control alert-danger">
-				Título obrigatório !!!
-			</span>
-			<span ng-show="formulario.motivo.$error.maxlength" class="form-control alert-danger">
-				O título deve ter no máximo 100 caracteres !!!
-			</span>
-		</div>
-		<div class="form-group">
-			<label>Descrição</label>
-			<textarea ng-model="manutencao.descricao" ng-maxlength="300" name="descricao" class="form-control" required></textarea>
-			<span ng-show="formulario.$submited && formulario.descricao.$error.required" class="form-control alert-danger">
-				Descrição obrigatório !!!
-			</span>
-			<span ng-show="formulario.descricao.$error.maxlength" class="form-control alert-danger">
-				A descrição deve ter no máximo 300 caracteres !!!
-			</span>
-		</div>
-		<div class="form-group">
-			<label>Data Início Manutencão</label>
-			<input ng-model="manutencao.dataInicio" ng-maxlength="50" name="datainicio" class="form-control" />
-		</div>
-		<div class="form-group">
-			<label>Data Fim Manutenção</label>
-			<input ng-model="manutencao.dataFim" ng-maxlength="50" name="datafim" class="form-control" />
-		</div>
-		<div class="form-group">
-			<label>Equipamento</label>
-			<select  name="equipamento" class="form-control" ng-controller="EquipamentosController" ng-model="manutencao.idEquipamento" ng-options="equipamento.id as equipamento.modelo for equipamento in equipamentos" required>
-				<option value="">Selecione um Equipamento</option>
-			</select>
-			<span ng-show="formulario.$submited && formulario.equipamento.$error.required" class="form-control alert-danger">
-				Equipamento obrigatório !!!
-			</span>
-		</div>
-		<div class="form-group">
-			<label>Setor</label>
-			<select  name="setor" class="form-control" ng-controller="SetoresController" ng-model="manutencao.idSetor" ng-options="setor.id as setor.nome for setor in setores" required>
-				<option value="">Selecione Setor</option>
-			</select>
-			<span ng-show="formulario.$submited && formulario.setor.$error.required" class="form-control alert-danger">
-				Setor obrigatório !!!
-			</span>
-		</div>
-		<div class="form-group">
-			<label>Funcionário</label>
-			<select  name="funcionario" class="form-control" ng-controller="FuncionariosController" ng-model="manutencao.idFuncionario" ng-options="funcionario.id as funcionario.nome for funcionario in funcionarios" required>
-				<option value="">Selecione o Funcionário</option>
-			</select>
-			<span ng-show="formulario.$submited && formulario.funcionario.$error.required" class="form-control alert-danger">
-				Funcionário obrigatório !!!
-			</span>
-		</div>
-		<div class="form-group">
-			<label>Usuário</label>
-			<select  name="usuario" class="form-control" ng-controller="UsuariosController" ng-model="manutencao.idUsuario" ng-options="usuario.id as usuario.nome for usuario in usuarios" required>
-				<option value="">Selecione o Usuário</option>
-			</select>
-			<span ng-show="formulario.$submited && formulario.usuario.$error.required" class="form-control alert-danger">
-				Usuário obrigatório !!!
-			</span>
-		</div>
-		<hr />
-			<div class="form-group">
-			<label>Estado do Equipamento</label>
-			<select  name="estado" class="form-control" ng-controller="EstadosController" ng-model="manutencao.idEstado" ng-options="estado.id as estado.nome for estado in estados" required>
-				<option value="">Selecione ou Altere o Estado do Equipamento</option>
-			</select>
-			<span ng-show="formulario.$submited && formulario.usuario.$error.required" class="form-control alert-danger">
-				Estado obrigatório !!!
-			</span>
-		</div>
-		
-		<hr />
-		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
-		<a href="#/manutencao" class="btn btn-primary">Voltar</a>
-		<hr/>
-	</div>
 
-</form>	
+		<div class="col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li class="active"><a href="#/manutencao">Visão geral</a></li>
+			</ul>
+		</div>
+		<div class="col-md-10 col-md-offset-2 main">
+		
+			<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+			
+			<form novalidate name="formulario" class="row" ng-submit="submeter()">
+				<div class="form-group">
+					<label>Título</label>
+					<input ng-model="manutencao.titulo" ng-maxlength="100" name="titulo" class="form-control" required />
+					<span ng-show="formulario.$submited && formulario.titulo.$error.required" class="form-control alert-danger">
+						Título obrigatório !!!
+					</span>
+					<span ng-show="formulario.motivo.$error.maxlength" class="form-control alert-danger">
+						O título deve ter no máximo 100 caracteres !!!
+					</span>
+				</div>
+				<div class="form-group">
+					<label>Descrição</label>
+					<textarea ng-model="manutencao.descricao" ng-maxlength="300" name="descricao" class="form-control" required></textarea>
+					<span ng-show="formulario.$submited && formulario.descricao.$error.required" class="form-control alert-danger">
+						Descrição obrigatório !!!
+					</span>
+					<span ng-show="formulario.descricao.$error.maxlength" class="form-control alert-danger">
+						A descrição deve ter no máximo 300 caracteres !!!
+					</span>
+				</div>
+				<div class="form-group">
+					<label>Data Início Manutencão</label>
+					<input ng-model="manutencao.dataInicio" ng-maxlength="50" name="datainicio" class="form-control" />
+				</div>
+				<div class="form-group">
+					<label>Data Fim Manutenção</label>
+					<input ng-model="manutencao.dataFim" ng-maxlength="50" name="datafim" class="form-control" />
+				</div>
+				<div class="form-group">
+					<label>Equipamento</label>
+					<select  name="equipamento" class="form-control" ng-controller="EquipamentosController" ng-model="manutencao.idEquipamento" ng-options="equipamento.id as equipamento.modelo for equipamento in equipamentos" required>
+						<option value="">Selecione um Equipamento</option>
+					</select>
+					<span ng-show="formulario.$submited && formulario.equipamento.$error.required" class="form-control alert-danger">
+						Equipamento obrigatório !!!
+					</span>
+				</div>
+				<div class="form-group">
+					<label>Setor</label>
+					<select  name="setor" class="form-control" ng-controller="SetoresController" ng-model="manutencao.idSetor" ng-options="setor.id as setor.nome for setor in setores" required>
+						<option value="">Selecione Setor</option>
+					</select>
+					<span ng-show="formulario.$submited && formulario.setor.$error.required" class="form-control alert-danger">
+						Setor obrigatório !!!
+					</span>
+				</div>
+				<div class="form-group">
+					<label>Funcionário</label>
+					<select  name="funcionario" class="form-control" ng-controller="FuncionariosController" ng-model="manutencao.idFuncionario" ng-options="funcionario.id as funcionario.nome for funcionario in funcionarios" required>
+						<option value="">Selecione o Funcionário</option>
+					</select>
+					<span ng-show="formulario.$submited && formulario.funcionario.$error.required" class="form-control alert-danger">
+						Funcionário obrigatório !!!
+					</span>
+				</div>
+				<div class="form-group">
+					<label>Usuário</label>
+					<select  name="usuario" class="form-control" ng-controller="UsuariosController" ng-model="manutencao.idUsuario" ng-options="usuario.id as usuario.nome for usuario in usuarios" required>
+						<option value="">Selecione o Usuário</option>
+					</select>
+					<span ng-show="formulario.$submited && formulario.usuario.$error.required" class="form-control alert-danger">
+						Usuário obrigatório !!!
+					</span>
+				</div>
+				<div class="form-group">
+					<label>Estado do Equipamento</label>
+					<select  name="estado" class="form-control" ng-controller="EstadosController" ng-model="manutencao.idEstado" ng-options="estado.id as estado.nome for estado in estados" required>
+						<option value="">Selecione ou Altere o Estado do Equipamento</option>
+					</select>
+					<span ng-show="formulario.$submited && formulario.usuario.$error.required" class="form-control alert-danger">
+						Estado obrigatório !!!
+					</span>
+				</div>
+				
+				<a href="#/manutencao" class="btn btn-primary">Voltar</a>
+				<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
+			</form>	
+		</div>
+	</div>
+</div>

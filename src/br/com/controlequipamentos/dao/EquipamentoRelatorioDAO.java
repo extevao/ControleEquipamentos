@@ -9,7 +9,7 @@ import br.com.controlequipamentos.pojo.Equipamento;
 public class EquipamentoRelatorioDAO  extends ConnectionFactory{
 
 	
-	public ArrayList<Equipamento> selectEquipamentoPorCategoria() {
+	public ArrayList<Equipamento> selectEquipamentoPorCategoria(int id) {
 		ArrayList<Equipamento> listaEquipamento = new ArrayList<>();
 		StringBuilder sbSelec = new StringBuilder();
 		sbSelec.append("Select "
@@ -34,15 +34,15 @@ public class EquipamentoRelatorioDAO  extends ConnectionFactory{
 	
 		try {
 			this.stmtp = this.getConnection().prepareStatement(sbSelec.toString());
+			this.stmtp.setInt(1, id);
 			this.rs = stmtp.executeQuery();
 			while (rs.next()) {
 				Equipamento equipamento = new Equipamento();
-				equipamento.setId(this.rs.getString("idCategoria"));
 				equipamento.setModelo(this.rs.getString("modelo"));
 				equipamento.setNome(this.rs.getString("equipamento_nome"));
 				equipamento.setServstag(this.rs.getString("servstag"));
 				equipamento.setPatrimonio(this.rs.getString("patrimonio"));
-				equipamento.setIdCategoria(this.rs.getString("categoria"));
+				equipamento.setIdCategoria(this.rs.getString("idCategoria"));
 				equipamento.setIdMarca(this.rs.getString("marca"));
 				equipamento.setIdSetor(this.rs.getString("setor"));
 				equipamento.setIdEstado(this.rs.getString("estado_esquipamento"));		
