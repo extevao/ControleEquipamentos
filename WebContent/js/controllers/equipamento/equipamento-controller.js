@@ -2,6 +2,8 @@ angular.module('moduloPrincipal').controller('EquipamentoController', function($
 
         $scope.equipamento = {};
         $scope.mensagem = '';
+        $scope.manutencoes_equipamento = {};
+        $scope.visualizar = false;
              
 
         if($routeParams.equipamentoId) {
@@ -40,6 +42,21 @@ angular.module('moduloPrincipal').controller('EquipamentoController', function($
             }
         	
         };
+        $scope.mostrar = function(){
+        	 $scope.visualizar = !$scope.visualizar ;
+        };
+        
+        $scope.listarManutencao = function(equipamento){
+        	 $http.get('api/v1/manutencoes/equipamento/' + equipamento.id)
+             .success(function(data) {
+            	 $scope.manutencoes_equipamento = data;
+             })
+             .error(function(erro) {
+                 console.log(erro);
+                 $scope.mensagem = 'Não foi possível obter a lista de manutenções do equipamento.';
+             });
+        };
+
         
 
 });
