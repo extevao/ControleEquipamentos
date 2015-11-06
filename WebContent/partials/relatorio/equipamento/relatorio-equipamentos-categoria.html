@@ -37,12 +37,12 @@
 			<h1 class="page-header">Equipamentos por categoria</h1>
 
 			<div class="row placeholders">
+			{{categorias}}
 			</div>
-					<div class="panel panel-default"  ng-repeat="categoria in categorias">
-				<div class="panel-heading">
-					{{categoria.nome}}
-				</div>
+			<div class="panel panel-default"  ng-repeat="categoria in categorias">
+			
 				<table class="table"  ng-if="verificaId(categoria)">
+					<tr><th>{{categoria.nome}}</th></tr>
 					<tr>
 						<th>Nome</th>
 						<th>Modelo</th>

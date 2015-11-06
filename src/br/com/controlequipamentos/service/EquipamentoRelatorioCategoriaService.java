@@ -11,7 +11,7 @@ import br.com.controlequipamentos.dao.EquipamentoRelatorioDAO;
 import br.com.controlequipamentos.pojo.Equipamento;
 
 
-@Path("/v1/relatorio/equipamento-categoria")
+@Path("/v1/relatorio/equipamento/categoria")
 public class EquipamentoRelatorioCategoriaService {
 
 	

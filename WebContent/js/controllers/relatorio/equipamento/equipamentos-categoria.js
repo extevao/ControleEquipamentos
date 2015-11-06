@@ -10,7 +10,7 @@ angular.module('moduloPrincipal').controller('EquipamentosCategoriaController', 
         console.log(erro);
     });
     
-    $http.get('api/v1/relatorio/equipamento-categoria').success(function(data){
+    $http.get('api/v1/relatorio/equipamento/categoria').success(function(data){
         $scope.equipamentocategoria = data;
     }).error(function(erro){
         console.log(erro);
@@ -23,7 +23,11 @@ angular.module('moduloPrincipal').controller('EquipamentosCategoriaController', 
     	$scope.teste = $scope.equipamentocategoria.filter(function (elemento){
 			  return elemento.idCategoria == categoria.id ;
 		});
-    	 return true;
+    	if($scope.teste.length	){
+    		return true;
+    	}else{
+    	return false;
+    	}
     };
     
     
