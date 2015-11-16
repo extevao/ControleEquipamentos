@@ -9,10 +9,8 @@
 			<ul class="nav navbar-nav">
 				<li role="presentation"><a href="#/categoria">Categoria</a></li>
 				<li role="presentation"><a href="#/equipamento">Equipamento</a></li>
-				<li role="presentation"><a href="#/estado">Estado do Equipamento</a></li>
 				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
 				<li role="presentation"><a href="#/manutencao">Manutenção</a></li>
-				<li role="presentation"><a href="#/marca">Marca</a></li>
 				<li role="presentation"><a href="#/requisito">Requisito</a></li>
 				<li role="presentation"><a href="#/setor">Setor</a></li>
 				<li role="presentation"><a href="#/status">Status</a></li>
@@ -22,39 +20,64 @@
 	</nav>
 </header>
 
-<hr />
-
-	<div class="row">
-		<div class="col-md-12">
-			<form>
-				<div class="input-group">
-					<span class="input-group-btn"> <a href="#/usuario/new" 	class="btn btn-primary">Novo usuário</a>
-					</span> <input ng-model="filtro" type="text" class="form-control" placeholder="Está procurando alguém ?" />
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li class="active"><a href="#/usuario">Visão geral</a></li>
+			</ul>
+		</div>
+		<div class="col-md-10 col-md-offset-2 main">
+			<h1 class="page-header">Usários</h1>
+			<div class="row placeholders">
+				<div class="cold-md-12 placeholder">
+					<p ng-show="mensagem.length" class="alert alert-success">{{mensagem}}</p>
+					<div class="input-group">
+						<span class="input-group-btn"> <a href="#/usuario/new" 	class="btn btn-primary">Novo usuário</a>
+						</span> <input ng-model="filtro" type="text" class="form-control" placeholder="Está procurando alguém ?" />
+					</div>
+			
 				</div>
-			</form>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h2>Lista de equipamentos</h2>
+				</div>
+				<div class="panel-body">
+					<table class="table table-striped">
+						<tr>
+							<th>Id</th>
+							<th>Nome</th>
+							<th>Sobrenome</th>
+							<th>E-mail</th>
+							<th>Ação</th>
+						</tr>
+						<tr ng-repeat="usuario in usuarios| filter:filtro">
+							<td>{{usuario.id}}</td>
+							<td>{{usuario.nome}}</td>
+							<td>{{usuario.sobrenome}}</td>
+							<td>{{usuario.email}}</td>
+							<td><a href="#/usuario/edit/{{usuario.id}}" class="btn btn-primary btn-block">Editar</a></td>
+						</tr>
+					</table>
+					
+				</div>
+			</div>
+			
+			
+			
+			
 		</div>
 	</div>
-	<hr />
-	<div class="row">
-		<div class="col-md-12">
-			<table class="table table-striped">
-				<tr>
-					<th>Id</th>
-					<th>Nome</th>
-					<th>Sobrenome</th>
-					<th>E-mail</th>
-					<th>Ação</th>
-				</tr>
-				<tr ng-repeat="usuario in usuarios| filter:filtro">
-					<td>{{usuario.id}}</td>
-					<td>{{usuario.nome}}</td>
-					<td>{{usuario.sobrenome}}</td>
-					<td>{{usuario.email}}</td>
-					<td><a href="#/usuario/edit/{{usuario.id}}" class="btn btn-primary btn-block">Editar</a></td>
-				</tr>
-			</table>
-		</div>
-	</div>
-<div class="page-header">
-  			<h1>Usuário <small>Lista de Usuários</small></h1>
-		</div>
+</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

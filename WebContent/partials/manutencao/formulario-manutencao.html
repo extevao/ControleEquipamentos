@@ -65,29 +65,11 @@
 				</div>
 				<div class="form-group">
 					<label>Equipamento</label>
-					<select  name="equipamento" class="form-control" ng-controller="EquipamentosController" ng-model="manutencao.idEquipamento" ng-options="equipamento.id as equipamento.modelo for equipamento in equipamentos" required>
+					<select  name="equipamentox" class="form-control" ng-model="manutencao.idEquipamento"  ng-change="teste()" ng-options="equipamento.id as equipamento.modelo for equipamento in equipamentos" required>
 						<option value="">Selecione um Equipamento</option>
 					</select>
 					<span ng-show="formulario.$submited && formulario.equipamento.$error.required" class="form-control alert-danger">
 						Equipamento obrigatório !!!
-					</span>
-				</div>
-				<div class="form-group">
-					<label>Setor</label>
-					<select  name="setor" class="form-control" ng-controller="SetoresController" ng-model="manutencao.idSetor" ng-options="setor.id as setor.nome for setor in setores" required>
-						<option value="">Selecione Setor</option>
-					</select>
-					<span ng-show="formulario.$submited && formulario.setor.$error.required" class="form-control alert-danger">
-						Setor obrigatório !!!
-					</span>
-				</div>
-				<div class="form-group">
-					<label>Funcionário</label>
-					<select  name="funcionario" class="form-control" ng-controller="FuncionariosController" ng-model="manutencao.idFuncionario" ng-options="funcionario.id as funcionario.nome for funcionario in funcionarios" required>
-						<option value="">Selecione o Funcionário</option>
-					</select>
-					<span ng-show="formulario.$submited && formulario.funcionario.$error.required" class="form-control alert-danger">
-						Funcionário obrigatório !!!
 					</span>
 				</div>
 				<div class="form-group">
@@ -99,16 +81,7 @@
 						Usuário obrigatório !!!
 					</span>
 				</div>
-				<div class="form-group">
-					<label>Estado do Equipamento</label>
-					<select  name="estado" class="form-control" ng-controller="EstadosController" ng-model="manutencao.idEstado" ng-options="estado.id as estado.nome for estado in estados" required>
-						<option value="">Selecione ou Altere o Estado do Equipamento</option>
-					</select>
-					<span ng-show="formulario.$submited && formulario.usuario.$error.required" class="form-control alert-danger">
-						Estado obrigatório !!!
-					</span>
-				</div>
-				
+					
 				<a href="#/manutencao" class="btn btn-primary">Voltar</a>
 				<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
 			</form>	

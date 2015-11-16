@@ -8,11 +8,9 @@
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li role="presentation"><a href="#/categoria">Categoria</a></li>
-				<li role="presentation" ><a href="#/equipamento">Equipamento</a></li>
-				<li role="presentation"><a href="#/estado">Estado do Equipamento</a></li>
+				<li role="presentation"><a href="#/equipamento">Equipamento</a></li>
 				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
 				<li role="presentation"><a href="#/manutencao">Manutenção</a></li>
-				<li role="presentation"><a href="#/marca">Marca</a></li>
 				<li role="presentation" class="active"><a href="#/requisito">Requisito</a></li>
 				<li role="presentation" ><a href="#/setor">Setor</a></li>
 				<li role="presentation" ><a href="#/status">Status</a></li>
@@ -21,45 +19,70 @@
 		</div>
 	</nav>
 </header>
+<div class="container-fluid">
+	<div class="row-fluid">
+		
+		<div class="col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li class="active"><a href="#/requisito">Visão geral</a></li>
+			</ul>
+		</div>
+		<div class="col-md-10 col-md-offset-2 main">
+			
+			<div class="row placeholders">
+				<div class="cold-md-12 placeholder">
+					<h1 class="page-header">Requisito</h1>
+					<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h2>Lista de requisitos</h2>
+				</div>
+				<div class="panel-body">
+					<form novalidate name="formulario" class="row" ng-submit="submeter()">
+						
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Processador</label>
+								<input ng-model="requisito.processador" name="processador" class="form-control" required />
+							</div>
+							<div class="form-group">
+								<label>Frequência</label>
+								<input ng-model="requisito.frequencia" name="frequencia" class="form-control" required />
+							</div>
+							<div class="form-group">
+								<label>N° Núcleos</label>
+								<input ng-model="requisito.numeroNucleos" name="numeroNucleos" class="form-control" required />
+							</div>
+							<div class="form-group">
+								<label>Memória RAM</label>
+								<input ng-model="requisito.memoria" name="memoriaram" class="form-control" required />
+							</div>
+							<div class="form-group">
+								<label>HD</label>
+								<input ng-model="requisito.hd" name="hd" class="form-control" required />
+							</div>
+							<div class="form-group">
+								<label>Vídeo</label>
+								<input ng-model="requisito.video" name="video" class="form-control" required />
+							</div>
+					
+							<a href="#/requisito" class="btn btn-primary">Voltar</a>
+							<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
+			
+						</div>
+					
+					</form>						
+				</div>
+			</div>
+						
+		</div>
 
-<div class="page-header text-center">	
-	<h1>Requisito</h1>
-</div>
-
-<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
-
-<form novalidate name="formulario" class="row" ng-submit="submeter()">
 	
-	<div class="col-md-6">
-		<div class="form-group">
-			<label>Processador</label>
-			<input ng-model="requisito.processador" name="processador" class="form-control" required />
-		</div>
-		<div class="form-group">
-			<label>Frequência</label>
-			<input ng-model="requisito.frequencia" name="frequencia" class="form-control" required />
-		</div>
-		<div class="form-group">
-			<label>N° Núcleos</label>
-			<input ng-model="requisito.numeroNucleos" name="numeroNucleos" class="form-control" required />
-		</div>
-		<div class="form-group">
-			<label>Memória RAM</label>
-			<input ng-model="requisito.memoria" name="memoriaram" class="form-control" required />
-		</div>
-		<div class="form-group">
-			<label>HD</label>
-			<input ng-model="requisito.hd" name="hd" class="form-control" required />
-		</div>
-		<div class="form-group">
-			<label>Vídeo</label>
-			<input ng-model="requisito.video" name="video" class="form-control" required />
-		</div>
-
-		<hr />
-		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
-		<a href="#/requisito" class="btn btn-primary">Voltar</a>
-		<hr/>
 	</div>
+</div>	
 
-</form>	
+
+
+

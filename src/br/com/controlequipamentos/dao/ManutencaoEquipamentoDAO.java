@@ -4,14 +4,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import br.com.controlequipamentos.ferramentas.ConversorData;
+import br.com.controlequipamentos.ferramentas.Media;
 import br.com.controlequipamentos.pojo.ManutencaoEquipamento;
+import br.com.controlequipamentos.pojo.Marca;
+import br.com.controlequipamentos.pojo.RelatorioGeralManutencaoMarca;
 
 public class ManutencaoEquipamentoDAO extends ConnectionFactory{
 
-	
-	
-	
-	
 	public ArrayList<ManutencaoEquipamento> selectManutencaoEquipamento(int id) {
 		ArrayList<ManutencaoEquipamento> listaManutencaoEquipamento = new ArrayList<>();
 		StringBuilder sbSelec = new StringBuilder();
@@ -66,6 +65,76 @@ public class ManutencaoEquipamentoDAO extends ConnectionFactory{
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public RelatorioGeralManutencaoMarca relatorioGeralManutencao(String idMarca) {
+		
+		StringBuilder sbSelec = new StringBuilder();
+		sbSelec.append("Select "
+				+ "mrc.id, "
+				+ "mrc.nome marca, "
+				+ "COUNT(mnt.titulo) qtdManutencao, "
+				+ "SUM(DATEDIFF(mnt.data_FIM, mnt.data_inicio))tempo_manutencao "
+				+ "From manutencao mnt "
+				+ "LEFT OUTER JOIN "
+				+ "equipamento eqp on eqp.id = mnt.idEquipamento "
+				+ "LEFT OUTER JOIN "
+				+ "marca mrc on mrc.id = eqp.idMarca "
+				+ "WHERE mrc.id = ?");
+		RelatorioGeralManutencaoMarca manutencao = new RelatorioGeralManutencaoMarca();
+		
+		try {
+			Media tMedia = new Media();
+			this.stmtp = this.getConnection().prepareStatement(sbSelec.toString());
+			this.stmtp.setString(1, idMarca);
+			this.rs = stmtp.executeQuery();
+			while (rs.next()) {
+				manutencao.setIdMarca(this.rs.getString("id"));
+				manutencao.setMarca(this.rs.getString("marca"));
+				manutencao.setQtdManutencao(this.rs.getString("qtdManutencao"));
+				manutencao.setTempoManutencao(this.rs.getString("tempo_manutencao"));
+				manutencao.setQtdEquipamento(selectQtdEquipamento(idMarca));
+				manutencao.setMediaManutencaoEquipamento(tMedia.media(manutencao.getQtdManutencao(),selectQtdEquipamento(idMarca)));
+				manutencao.setMediaTempoManutencao((tMedia.media(manutencao.getTempoManutencao(),manutencao.getQtdManutencao())));
+			}
+			
+			return manutencao;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	public ArrayList<RelatorioGeralManutencaoMarca> listaRelatorioGeralManutencaoMarca() {
+		
+		MarcaDAO marcaDAO = new MarcaDAO();
+		ArrayList<RelatorioGeralManutencaoMarca> listaManutencaoEquipamento = new ArrayList<>();
+		for(Marca obj : marcaDAO.verificaQtdMarca()){
+			
+			listaManutencaoEquipamento.add(relatorioGeralManutencao(obj.getId()));
+		}
+		
+		return listaManutencaoEquipamento;		
+		
+	}
+	public String selectQtdEquipamento(String idMarca) {
+		String qtdEquipamentos = null;
+		StringBuilder sbSelec = new StringBuilder();
+		sbSelec.append("Select "
+				+ "COUNT(eqp.modelo) qtdEquipamentos "						
+				+ "From equipamento eqp "
+				+ "WHERE eqp.idMarca = ?");
+		try {
+			this.stmtp = this.getConnection().prepareStatement(sbSelec.toString());
+			this.stmtp.setString(1, idMarca);
+			this.rs = stmtp.executeQuery();
+			while (rs.next()) {
+				qtdEquipamentos = this.rs.getString("qtdEquipamentos");
+			}
+			return qtdEquipamentos;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return qtdEquipamentos;
 	}
 	
 }

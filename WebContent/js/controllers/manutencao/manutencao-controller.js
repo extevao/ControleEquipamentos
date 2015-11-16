@@ -1,10 +1,41 @@
 angular.module('moduloPrincipal').controller('ManutencaoController', function($scope, $http, $routeParams) {
 
         $scope.manutencao = {};
+        $scope.equipamentos = {};
+        $scope.manutencoes = {};
         $scope.mensagem = '';
         
+        $http.get('api/v1/equipamento')
+        .success(function(data) {
+            $scope.equipamentos = data;
+        })
+        .error(function(erro) {
+            console.log(erro);
+            $scope.mensagem = 'Não foi possível obter o equipamento.';
+        });
+        
+        
+        $scope.teste = function (){
+        	 $http.get('api/v1/manutencoes/equipamento/' + $scope.manutencao.idEquipamento)
+             .success(function(data) {
+                 $scope.manutencoes = data;
+                 console.log($scope.manutencoes);
+             })
+             .error(function(erro) {
+                 console.log(erro);
+                 $scope.mensagem = 'Não foi possível obter o equipamento.';
+             });
+        	 existeManutencao();
+        	
+        };
+        
+        function existeManutencao(){
+        	console.log("chego aqui !!!!");
+
         
 
+        };
+        
         if($routeParams.manutencaoId) {
             $http.get('api/v1/manutencao/' + $routeParams.manutencaoId)
             .success(function(data) {
@@ -12,7 +43,7 @@ angular.module('moduloPrincipal').controller('ManutencaoController', function($s
             })
             .error(function(erro) {
                 console.log(erro);
-                $scope.mensagem = 'Não foi possível obter o equipamento.';
+                $scope.mensagem = 'Não foi possível obter a manutenção.';
             });
         }
     

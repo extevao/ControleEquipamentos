@@ -48,6 +48,24 @@ public class MarcaDAO extends ConnectionFactory {
 		}
 		return null;
 	}
+	public ArrayList<Marca> verificaQtdMarca() {
+		ArrayList<Marca> marcas = new ArrayList<>();
+		StringBuilder sbSelect = new StringBuilder();
+		sbSelect.append("SELECT * FROM Marca");
+		try {
+			this.stmtp = this.getConnection().prepareStatement(sbSelect.toString());
+			this.rs = stmtp.executeQuery();
+			while (this.rs.next()) {
+				Marca marca = new Marca();
+				marca.setId(rs.getString("id"));
+				marcas.add(marca);
+			}
+			return marcas;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	public void insert(Marca marca) {
 		StringBuilder sbInsert = new StringBuilder();

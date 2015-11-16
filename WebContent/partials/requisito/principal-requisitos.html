@@ -8,11 +8,9 @@
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li role="presentation"><a href="#/categoria">Categoria</a></li>
-				<li role="presentation" ><a href="#/equipamento">Equipamento</a></li>
-				<li role="presentation"><a href="#/estado">Estado do Equipamento</a></li>
+				<li role="presentation"><a href="#/equipamento">Equipamento</a></li>
 				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
 				<li role="presentation"><a href="#/manutencao">Manutenção</a></li>
-				<li role="presentation"><a href="#/marca">Marca</a></li>
 				<li role="presentation" class="active"><a href="#/requisito">Requisito</a></li>
 				<li role="presentation" ><a href="#/setor">Setor</a></li>
 				<li role="presentation" ><a href="#/status">Status</a></li>
@@ -21,46 +19,91 @@
 		</div>
 	</nav>
 </header>
-<hr />
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<form>
-				<div class="input-group">
-					<span class="input-group-btn"> <a href="#/requisito/new" class="btn btn-primary">Novo Requisito</a>
-					</span> <input ng-model="filtro" type="text" class="form-control" placeholder="Está procurando algum requisito ?" />
-				</div>
-			</form>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		
+		<div class="col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li class="active"><a href="#/requisito">Visão geral</a></li>
+			</ul>
 		</div>
-	</div>
-	<hr />
-	<div class="row">
-		<div class="col-md-12">
-			<table class="table table-striped">
-				<tr>
-					<th>Id</th>
-					<th>Processador</th>
-					<th>Frequência</th>
-					<th>N° Núcleos</th>
-					<th>Memória RAM</th>
-					<th>HD</th>
-					<th>Vídeo</th>
-					<th>Ação</th>
-				</tr>
-				<tr ng-repeat="requisito in requisitos | filter:filtro">
-					<td>{{requisito.id}}</td>
-					<td>{{requisito.processador}}</td>
-					<td>{{requisito.frequencia}}</td>
-					<td>{{requisito.numeroNucleos}}</td>
-					<td>{{requisito.memoria}}</td>
-					<td>{{requisito.hd}}</td>	
-					<td>{{requisito.video}}</td>		
-					<td><a href="#/requisito/edit/{{requisito.id}}" class="btn btn-primary btn-block">Editar</a></td>
-				</tr>
-			</table>
-		</div>
-		<div class="col-md-6">
+		
+		<div class="col-md-10 col-md-offset-2 main">
+			<h1 class="page-header">Requisito equipamento/setor</h1>
+		
+			<div class="row placeholders">
+				<div class="cold-md-12 placeholder">
+					<p ng-show="mensagem.length" class="alert alert-success">{{mensagem}}</p>
+					<div class="input-group">
+						<span class="input-group-btn"> <a href="#/requisito/new" class="btn btn-primary">Novo Requisito</a>
+						</span> <input ng-model="filtro" type="text" class="form-control" placeholder="Está procurando algum requisito ?" />
+					</div>
 			
-		</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h2>Lista de requisitos</h2>
+				</div>
+				<div class="panel-body">
+					<p></p>
+				</div>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<tr>
+							<th>Id</th>
+							<th>Processador</th>
+							<th>Frequência</th>
+							<th>N° Núcleos</th>
+							<th>Memória RAM</th>
+							<th>HD</th>
+							<th>Vídeo</th>
+							<th>Ação</th>
+						</tr>
+						<tr ng-repeat="requisito in requisitos | filter:filtro">
+							<td>{{requisito.id}}</td>
+							<td>{{requisito.processador}}</td>
+							<td>{{requisito.frequencia}}</td>
+							<td>{{requisito.numeroNucleos}}</td>
+							<td>{{requisito.memoria}}</td>
+							<td>{{requisito.hd}}</td>	
+							<td>{{requisito.video}}</td>		
+							<td><a href="#/requisito/edit/{{requisito.id}}" class="btn btn-primary btn-block">Editar</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		
+		
+		
+		</div>	
 	</div>
 </div>
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	

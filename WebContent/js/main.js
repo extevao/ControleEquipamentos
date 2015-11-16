@@ -83,6 +83,19 @@ angular.module('moduloPrincipal', ['ngRoute'])
 		templateUrl: 'partials/principal/principal.html',
 		controller: 'PrincipalController'
 	});
+	/* Relatório */
+	$routeProvider.when('/relatorio/geral/manutencao/marca', {
+		templateUrl: 'partials/relatorio/manutencao/geral-manutentao-marca.html',
+		controller: 'GeralManutencaoMarcaController'
+	});
+	$routeProvider.when('/relatorio/equipamentos/setor', {
+		templateUrl: 'partials/relatorio/equipamento/relatorio-equipamentos-setor.html',
+		controller: 'EquipamentosSetorController'
+	});	
+	$routeProvider.when('/relatorio/equipamentos/marca', {
+		templateUrl: 'partials/relatorio/equipamento/relatorio-equipamentos-marca.html',
+		controller: 'EquipamentosMarcaController'
+	});	
 	/* Requisito */
 	$routeProvider.when('/requisito', {
 		templateUrl: 'partials/requisito/principal-requisitos.html',

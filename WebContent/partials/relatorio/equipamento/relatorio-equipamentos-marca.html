@@ -3,7 +3,8 @@
 	<nav class="navbar navbar-fixed-top navbar-inverse">
 		<div class="navbar-header">
 			<a href="#/index" class="navbar-brand">Controle de Equipamentos</a>
-			<button type="button" class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">Menu</button>
+			<button type="button" class="navbar-toggle"
+				data-target=".navbar-collapse" data-toggle="collapse">Menu</button>
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
@@ -12,8 +13,8 @@
 				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
 				<li role="presentation"><a href="#/manutencao">Manutenção</a></li>
 				<li role="presentation"><a href="#/requisito">Requisito</a></li>
-				<li role="presentation" ><a href="#/setor">Setor</a></li>
-				<li role="presentation" ><a href="#/status">Status</a></li>
+				<li role="presentation"><a href="#/setor">Setor</a></li>
+				<li role="presentation"><a href="#/status">Status</a></li>
 				<li role="presentation"><a href="#/usuario">Usuário</a></li>
 			</ul>
 		</div>
@@ -25,40 +26,41 @@
 
 		<div class="col-md-2 sidebar">
 			<ul class="nav nav-sidebar">
-					<li><a href="#/equipamento">Visão geral</a></li>
-					<li><a href="#/equipamento/estado">Estado do Equipamento</a></li>
-					<li><a href="#/equipamento/marca">Marcas</a></li>
-					<li class="active"><a href="#/equipamento/relatorio/equipamento-categoria">Relatório equipamentos por categoria</a></li>
-					
-					<li><a href="#/relatorio/equipamentos/setor">Relatório equipamentos por setor</a></li>
-					<li><a href="#/relatorio/equipamentos/marca">Relatório equipamentos por marca</a></li>
+				<li ><a href="#/equipamento">Visão geral</a></li>
+				<li><a href="#/equipamento/estado">Estado do Equipamento</a></li>
+				<li><a href="#/equipamento/marca">Marcas</a></li>
+				<li><a href="#/equipamento/relatorio/equipamento-categoria">Relatório equipamentos por categoria</a></li>
+				<li ><a href="#/relatorio/equipamentos/setor">Relatório equipamentos por setor</a></li>
+				<li class="active"><a href="#/relatorio/equipamentos/marca">Relatório equipamentos por marca</a></li>
 			</ul>
 		</div>
 		
 		<div class="col-md-10 col-md-offset-2 main">
-			<h1 class="page-header">Equipamentos por categoria</h1>
-
-			<div class="panel panel-default"  ng-repeat="categoria in categorias">
+			<h1 class="page-header">Equipamentos por marca</h1>
+				
+			<div class="panel panel-default"  ng-repeat="marca in marcas">
 			
-				<table class="table"  ng-if="verificaId(categoria)">
-					<tr><th>{{categoria.nome}}</th></tr>
+				<table class="table table-striped" ng-if="verifica(marca)">
+					<tr><th>{{marca.nome}}</th></tr>
 					<tr>
-						<th>Nome</th>
+						<th>Eqp. Nome </th>
 						<th>Modelo</th>
 						<th>Servstag</th>
 						<th>Patrimônio</th>
-						<th>Marca</th>
 						<th>Setor</th>
-						<th>Estado</th>
+						<th>Categoria</th>
+						<th>Funcionário</th>
+						<th>Situação</th>
 					</tr>
 					<tr ng-repeat="equipamento in teste">
 						<td>{{equipamento.nome}}</td>
 						<td>{{equipamento.modelo}}</td>
 						<td>{{equipamento.servstag}}</td>
 						<td>{{equipamento.patrimonio}}</td>
-						<td>{{equipamento.idMarca}}</td>
-						<td>{{equipamento.idSetor}}</td>
-						<td>{{equipamento.idEstado}}</td>
+						<td>{{equipamento.setor}}</td>
+						<td>{{equipamento.categoria}}</td>
+						<td>{{equipamento.funcionario}}</td>
+						<td>{{equipamento.situacao}}</td>
 					</tr>
 				</table>
 			</div>

@@ -9,20 +9,24 @@ import java.sql.SQLException;
 import javax.naming.NamingException;
 
 import br.com.controlequipamentos.dao.EquipamentoDAO;
+import br.com.controlequipamentos.dao.ManutencaoEquipamentoDAO;
 import br.com.controlequipamentos.dao.UsuarioTesteDao;
 import br.com.controlequipamentos.pojo.Equipamento;
+import br.com.controlequipamentos.pojo.ManutencaoEquipamento;
+import br.com.controlequipamentos.pojo.RelatorioGeralManutencaoMarca;
 import br.com.controlequipamentos.pojo.UsuarioTeste;
 
 public class TesteConexaoBanco {
 
 	public static void main(String[] args) {
 
-
-		try {
+		ManutencaoEquipamentoDAO teste = new ManutencaoEquipamentoDAO();
 		
-			listar();
-		} catch (NamingException e) {
-			e.printStackTrace();
+		for(RelatorioGeralManutencaoMarca me : teste.listaRelatorioGeralManutencaoMarca()){
+			System.out.println(me.getMarca());
+			System.out.println(me.getMediaManutencaoEquipamento());
+			System.out.println(me.getQtdEquipamento());
+			System.out.println("==============================");
 		}
 		
 	}

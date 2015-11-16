@@ -14,6 +14,9 @@ public class ManutencaoEquipamento {
 	private String usuario;
 	private String funcionarioMaquina;
 	private String setor;
+	private int qtdManutencao;
+	private int qtdEquipamento;
+	private float mediaManutencaoEquipamento;
 	
 	public ManutencaoEquipamento() {
 		
@@ -107,5 +110,32 @@ public class ManutencaoEquipamento {
 		this.setor = setor;
 	}
 
+	public int getQtdManutencao() {
+		return qtdManutencao;
+	}
+
+	public void setQtdManutencao(int qtdManutencao) {
+		this.qtdManutencao = qtdManutencao;
+	}
+
+	public int getQtdEquipamento() {
+		return qtdEquipamento;
+	}
+
+	public void setQtdEquipamento(int qtdEquipamento) {
+		this.qtdEquipamento = qtdEquipamento;
+	}
+
+	public float getMediaManutencaoEquipamento() {
+		return mediaManutencaoEquipamento;
+	}
+
+	public void setMediaManutencaoEquipamento(float mediaManutencaoEquipamento) {
+		this.mediaManutencaoEquipamento = mediaManutencaoEquipamento;
+	}
+
+
+
+	
 
 }

@@ -74,8 +74,8 @@ public class ManutencaoDAO extends ConnectionFactory {
 			this.stmtp = this.getConnection().prepareStatement(sbInsert.toString());
 			this.stmtp.setString(1, manutencao.getTitulo());
 			this.stmtp.setString(2, manutencao.getDescricao());
-			this.stmtp.setString(3, conversorData.converteDataDoMYSQL(manutencao.getDataInicio()));
-			this.stmtp.setString(4, conversorData.converteDataDoMYSQL(manutencao.getDataFim()));
+			this.stmtp.setString(3, conversorData.converteDataParaMYSQL(manutencao.getDataInicio()));
+			this.stmtp.setString(4, conversorData.converteDataParaMYSQL(manutencao.getDataFim()));
 			this.stmtp.setString(5, manutencao.getIdEquipamento());
 			this.stmtp.setString(6, manutencao.getIdSetor());
 			this.stmtp.setString(7, manutencao.getIdFuncionario());
@@ -95,8 +95,8 @@ public class ManutencaoDAO extends ConnectionFactory {
 			this.stmtp = this.getConnection().prepareStatement(sbUpdate.toString());
 			this.stmtp.setString(1, manutencao.getTitulo());
 			this.stmtp.setString(2, manutencao.getDescricao());
-			this.stmtp.setString(3, conversorData.converteDataDoMYSQL(manutencao.getDataInicio()));
-			this.stmtp.setString(4, conversorData.converteDataDoMYSQL(manutencao.getDataFim()));
+			this.stmtp.setString(3, conversorData.converteDataParaMYSQL(manutencao.getDataInicio()));
+			this.stmtp.setString(4, conversorData.converteDataParaMYSQL(manutencao.getDataFim()));
 			this.stmtp.setString(5, manutencao.getIdEquipamento());
 			this.stmtp.setString(6, manutencao.getIdSetor());
 			this.stmtp.setString(7, manutencao.getIdFuncionario());

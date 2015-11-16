@@ -9,10 +9,8 @@
 			<ul class="nav navbar-nav">
 				<li role="presentation"><a href="#/categoria">Categoria</a></li>
 				<li role="presentation"><a href="#/equipamento">Equipamento</a></li>
-				<li role="presentation"><a href="#/estado">Estado do Equipamento</a></li>
 				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
 				<li role="presentation"><a href="#/manutencao">Manutenção</a></li>
-				<li role="presentation"><a href="#/marca">Marca</a></li>
 				<li role="presentation"><a href="#/requisito">Requisito</a></li>
 				<li role="presentation"><a href="#/setor">Setor</a></li>
 				<li role="presentation" class="active"><a href="#/status">Status</a></li>
@@ -21,64 +19,93 @@
 		</div>
 	</nav>
 </header>
-<hr />
-<p ng-show="mensagem.length" class="alert alert-success">{{mensagem}}</p>
+<div class="container-fluid">
+	<div class="row-fluid">
 
-	
-<div class="row">
-	<div class="col-md-12">
-		<input ng-model="filtro" type="text" class="form-control"  />
-	</div>
-</div>
-<hr />
-
-<div class="row">
-	<div class="col-md-4">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h1 class="panel-title">Lista de Status</h1>
-			</div>
-
-			<table class="table table-striped table-bordered">
-				<tr>
-					<th>Id</th>
-					<th>Nome</th>
-					<th>Ação</th>
-				</tr>
-				<tr ng-repeat="statuss in listaStatus| filter:filtro">
-					<td>{{statuss.id}}</td>
-					<td>{{statuss.nome}}</td>				
-					<td><button ng-click="editar(statuss)" class="btn"><span class="glyphicon glyphicon-edit"></span></button></td>
-				</tr>
-			</table>
-			
+		<div class="col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li class="active"><a href="#/status">Visão geral</a></li>
+			</ul>
 		</div>
-	</div>
-	<div class="col-md-8">
-		<form novalidate name="formulario" class="row" ng-submit="submeter()">	
-			<fieldset>
-				<legend>Informações do status</legend>
-				<div class="form-group">
-					<label for="nome">Status:</label>
-					<div class="input-group">
-						<span class="input-group-btn"><button ng-click="limpar()" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
-						</span> <input ng-model="statuss.nome" ng-maxlength="100" name="nome" id="nome" class="form-control" placeholder="Adicione um novo status ou altere os dados do status selecionada." required />
+		<div class="col-md-10 col-md-offset-2 main">
+			<h1 class="page-header">Status setor/funcionário</h1>
+			<div class="row placeholders">
+				<div class="cold-md-12 placeholder">
+					<p ng-show="mensagem.length" class="alert alert-success">{{mensagem}}</p>			
+				</div>
+			</div>
+		
+		
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h1 class="panel-title">Lista de Status</h1>
+				</div>
+				<div class="panel-body">
+					<div class="table-responsive">
+						<table class="table table-striped table-bordered">
+							<tr>
+								<th>Id</th>
+								<th>Nome</th>
+								<th>Ação</th>
+							</tr>
+							<tr ng-repeat="statuss in listaStatus| filter:filtro">
+								<td>{{statuss.id}}</td>
+								<td>{{statuss.nome}}</td>				
+								<td><button ng-click="editar(statuss)" class="btn"><span class="glyphicon glyphicon-edit"></span></button></td>
+							</tr>
+						</table>
 					</div>
 				</div>
-				<span ng-show="formulario.$submited && formulario.nome.$error.required" class="form-control alert-danger">
-					O nome do status é obrigatório !!!
-				</span>
-				<span ng-show="formulario.nome.$error.maxlength" class="form-control alert-danger">
-					O nome do status deve ter no máximo 100 caracteres !!!
-				</span>
-				<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
-					<span class="glyphicon glyphicon-floppy-disk"></span>
-					Salvar
-				</button>
-			</fieldset>
-		</form>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h1 class="panel-title">*</h1>
+				</div>
+				<div class="panel-body">
+					<form novalidate name="formulario" ng-submit="submeter()">	
+						<fieldset>
+							<legend>Informações do status</legend>
+							<div class="form-group">
+								<label for="nome">Status:</label>
+								<div class="input-group">
+									<span class="input-group-btn"><button ng-click="limpar()" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
+									</span> <input ng-model="statuss.nome" ng-maxlength="100" name="nome" id="nome" class="form-control" placeholder="Adicione um novo status ou altere os dados do status selecionada." required />
+								</div>
+							</div>
+							<span ng-show="formulario.$submited && formulario.nome.$error.required" class="form-control alert-danger">
+								O nome do status é obrigatório !!!
+							</span>
+							<span ng-show="formulario.nome.$error.maxlength" class="form-control alert-danger">
+								O nome do status deve ter no máximo 100 caracteres !!!
+							</span>
+							<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
+								<span class="glyphicon glyphicon-floppy-disk"></span>
+								Salvar
+							</button>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+									
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		</div>
+	
+		
 	</div>
 </div>
+
+
 	
-<hr />
+
+
+
+
 

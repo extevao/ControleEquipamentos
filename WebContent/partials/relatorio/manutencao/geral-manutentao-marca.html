@@ -1,0 +1,64 @@
+<meta charset="utf-8" />
+<header>
+	<nav class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-header">
+			<a href="#/index" class="navbar-brand">Controle de Equipamentos</a>
+			<button type="button" class="navbar-toggle"
+				data-target=".navbar-collapse" data-toggle="collapse">Menu</button>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li role="presentation"><a href="#/categoria">Categoria</a></li>
+				<li role="presentation"><a href="#/equipamento">Equipamento</a></li>
+				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
+				<li role="presentation" class="active"><a href="#/manutencao">Manutenção</a></li>
+				<li role="presentation"><a href="#/requisito">Requisito</a></li>
+				<li role="presentation"><a href="#/setor">Setor</a></li>
+				<li role="presentation"><a href="#/status">Status</a></li>
+				<li role="presentation"><a href="#/usuario">Usuário</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li><a href="#/manutencao">Visão geral</a></li>
+				<li class="active" ><a href="#/relatorio/geral/manutencao/marca">Relatório geral de manutencação por marca</a></li>
+			</ul>
+		</div>
+		
+		<div class="col-md-10 col-md-offset-2 main">
+			<h1 class="page-header">Relatório geral de manutencação por marca</h1>
+
+		
+			<div class="panel panel-default"  ng-repeat="marca in marcas">
+				<table class="table table-striped" ng-if="verifica(marca)" >
+					<tr><th>{{marca.nome}}</th></tr>
+					<tr>
+						<th>Qtd.Manutenções</th>
+						<th>Qtd. Equipamentos</th>
+						<th>Média Manutencão por Equipamento</th>
+						<th>Tempo Total Manutenção</th>
+						<th>Média de Duração Manutenção</th>
+					</tr>
+					<tr ng-repeat="estatistica in teste">
+						<td>{{estatistica.qtdManutencao}}</td>
+						<td>{{estatistica.qtdEquipamento}}</td>
+						<td>{{estatistica.mediaManutencaoEquipamento}}</td>
+						<td>{{estatistica.tempoManutencao}} dias</td>
+						<td>{{estatistica.mediaTempoManutencao}} dias</td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+
+		
+
+
+	</div>
+</div>
