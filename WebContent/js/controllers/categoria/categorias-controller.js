@@ -3,7 +3,7 @@ angular.module('moduloPrincipal').controller('CategoriasController', function($s
     $scope.categorias = [];
     $scope.categoria = {};
     $scope.mensagem = '';
-    $scope.existe= '';
+    $scope.eu = '';
     
     $http.get('api/v1/categoria').success(function(data){
         $scope.categorias = data;
@@ -23,29 +23,10 @@ angular.module('moduloPrincipal').controller('CategoriasController', function($s
     	 
 	};		
 	
-	$scope.existeCategoria = function (categoria){
-		delete $scope.existe;
-		delete $scope.mensagem;
-		
-		var existe = $scope.categorias.filter(function (elemento){
-			   return elemento.nome == categoria.nome;
-		});
-		
-		if(existe.length){
-			$scope.existe = "Já existe uma categoria cadastrada com esse nome";
-			
-			return true;
-		}else{
-			$scope.mensagem = "Cadastrado";
-			return false;
-		}
-		
-	};
-	
 	$scope.submeter = function (categoria){
 		
-		 if($scope.formulario.$valid){
-		     if($scope.categoria.id){
+		 if($scope.formulario.$valid & existeCategoria(categoria)){
+		     if(categoria.id){
 		        $http.put('api/v1/categoria', categoria)
 		        .success(function(){
 		        	delete $scope.categoria;
@@ -67,4 +48,22 @@ angular.module('moduloPrincipal').controller('CategoriasController', function($s
 		     
 		 }
 	};
+	
+	
+	 function existeCategoria(categoria){
+		delete $scope.eu;
+				
+		var existe = $scope.categorias.filter(function (elemento){
+			   return elemento.nome == categoria.nome;
+		});
+		
+		if(existe.length){
+			$scope.eu = "Já existe a categoria "+ categoria.nome +" cadastrada.";
+			return false;
+		}else{
+			return true;
+		}
+			
+	};
+		
 });

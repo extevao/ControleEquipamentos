@@ -33,8 +33,8 @@
 		<div class="col-md-10 col-md-offset-2 main">
 		
 			<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
-			
-			<form novalidate name="formulario" class="row" ng-submit="submeter()">
+			<p ng-show="alerta.length" class="alert alert-warning">{{alerta}}</p>
+			<form novalidate name="formulario" class="row" ng-submit="submeter(manutencao)">
 				<div class="form-group">
 					<label>Título</label>
 					<input ng-model="manutencao.titulo" ng-maxlength="100" name="titulo" class="form-control" required />
@@ -84,6 +84,7 @@
 					
 				<a href="#/manutencao" class="btn btn-primary">Voltar</a>
 				<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
+				
 			</form>	
 		</div>
 	</div>

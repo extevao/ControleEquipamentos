@@ -37,7 +37,7 @@
 			<div class="row placeholders">
 				<div class="cold-md-12 placeholder">
 					<p ng-show="mensagem.length" class="alert alert-success">{{mensagem}}</p>
-					<p ng-show="existe.length" class="alert alert-warning">{{existe}}</p>
+					<p ng-show="eu.length" class="alert alert-warning">{{eu}}</p>
 					<input ng-model="filtro" type="text" class="form-control" />
 					
 
@@ -86,7 +86,7 @@
 						<div class="panel-body">
 
 
-							<form novalidate name="formulario">
+							<form novalidate name="formulario" ng-submit="submeter(categoria)">
 								<fieldset>
 									<div class="form-group">
 										<label for="categoria">Categoria:</label>
@@ -106,12 +106,10 @@
 									<span ng-show="formulario.nome.$error.maxlength" class="form-control alert-danger">
 										O Nome da Categoria deve ter no máximo 100 caracteres !!! 
 										</span>
-									<button type="submit" class="btn btn-primary btn-block" ng-disabled="formulario.$invalid"  ng-submit="submeter(categoria)">
+									<button type="submit" class="btn btn-primary btn-block" ng-disabled="formulario.$invalid" >
 										<span class="glyphicon glyphicon-floppy-disk"></span> Salvar
 									</button>
-									<button class="btn btn-primary btn-block" ng-click="existeCategoria(categoria)">
-										Teste
-									</button>
+					
 								</fieldset>
 							</form>
 						</div>

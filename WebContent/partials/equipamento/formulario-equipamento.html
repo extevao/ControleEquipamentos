@@ -25,10 +25,10 @@
 
 		<div class="col-md-2 sidebar">
 			<ul class="nav nav-sidebar">
-				<li><a href="#/equipamento">Visão geral</a></li>
-				<li class="active"><a href="#/equipamento/estado">Estado do Equipamento</a></li>
+				<li class="active"><a href="#/equipamento">Visão geral</a></li>
+				<li ><a href="#/equipamento/estado">Situação do Equipamento</a></li>
 				<li><a href="#/equipamento/marca">Marcas</a></li>
-					<li><a href="#/equipamento/relatorio/equipamento-categoria">Relatório equipamentos por categoria</a></li>
+				<li><a href="#/equipamento/relatorio/equipamento-categoria">Relatório equipamentos por categoria</a></li>
 				<li><a href="#/relatorio/equipamentos/setor">Relatório equipamentos por setor</a></li>
 				<li><a href="#/relatorio/equipamentos/marca">Relatório equipamentos por marca</a></li>
 			</ul>
@@ -36,49 +36,48 @@
 
 		<div class="col-md-10 col-md-offset-2 main">
 				
-
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h1>{{usuario.login}}</h1>
+				</div>
+				<div class="panel-body">
+			
 			<form novalidate name="formulario" ng-submit="submeter()">
 
 				<div class="form-group">
 					<label>Nome</label> 
-					<input ng-model="equipamento.nome" ng-maxlength="100" name="nome" class="form-control" required />
+					<input ng-model="equipamento.nome" ng-maxlength="100" name="nome" class="form-control"  placeholder="Nome do equipamento."required />
 				</div>
 				<div class="form-group">
 					<label>Modelo</label> <input ng-model="equipamento.modelo"
-						ng-maxlength="100" name="modelo" class="form-control" required />
+						ng-maxlength="100" name="modelo" class="form-control" placeholder="Modelo do equipamento" required />
 				</div>
 				<div class="form-group">
-					<label>Data Início</label> <input ng-model="equipamento.dataInicio"
-						name="dataInicio" class="form-control" />
+					<label>Data Início</label> <input ng-model="equipamento.dataInicio"	name="dataInicio" class="form-control" placeholder="dd/MM/yyyy" />
 				</div>
 				<div class="form-group">
-					<label>Data Fim</label> <input ng-model="equipamento.dataFim"
-						name="dataFim" class="form-control" placeholder="dd/MM/yyyy" />
+					<label>Data Fim</label> <input ng-model="equipamento.dataFim" name="dataFim" class="form-control" placeholder="dd/MM/yyyy" />
 				</div>
 				<div class="form-group">
-					<label>Servstag</label> <input ng-model="equipamento.servstag"
-						name="servstag" class="form-control" />
+					<label>Servstag</label> 
+					<input ng-model="equipamento.servstag" name="servstag" class="form-control" placeholder="Servstag do equipamento" />
 				</div>
 				<div class="form-group">
-					<label>Patrimônio</label> <input ng-model="equipamento.patrimonio"
-						name="patrimonio" class="form-control" />
+					<label>Patrimônio</label> 
+					<input ng-model="equipamento.patrimonio" name="patrimonio" class="form-control" placeholder="Patrimônio"/>
 				</div>
 				<div class="form-group">
 					<label>Categoria</label> 
 					<select name="categoria"
-						class="form-control" ng-controller="CategoriasController"
-						ng-model="equipamento.idCategoria"
-						ng-options="categoria.id as categoria.nome for categoria in categorias">
-						<option>Selecione a Categoria</option>
+						class="form-control" ng-controller="CategoriasController" ng-model="equipamento.idCategoria" ng-options="categoria.id as categoria.nome for categoria in categorias">
+						<option value="">Selecione a Categoria</option>
 					</select>
 
 				</div>
 				<div class="form-group">
 					<label>Marca</label> 
-					<select name="marca" class="form-control"
-						ng-controller="MarcasController" ng-model="equipamento.idMarca"
-						ng-options="marca.id as marca.nome for marca in marcas" required>
-						<option>Selecione a Marca do Equipamento</option>
+					<select name="marca" class="form-control" ng-controller="MarcasController" ng-model="equipamento.idMarca" ng-options="marca.id as marca.nome for marca in marcas" required>
+						<option value="">Selecione a Marca do Equipamento</option>
 					</select> 
 					<span ng-show="formulario.$submited && formulario.marca.$error.required" class="form-control alert-danger">
 						Marca obrigatória !!!
@@ -121,14 +120,15 @@
 
 				</div>
 
-
+				<a href="#/equipamento" class="btn btn-primary">Voltar</a>
 				<button type="submit" class="btn btn-primary"
 					ng-disabled="formulario.$invalid">Salvar</button>
-				<a href="#/equipamento/view/{{equipamento.id}}" class="btn btn-primary">Voltar</a>
+				
 
 
 			</form>
-
+			</div>
+			</div>
 		</div>
 
 

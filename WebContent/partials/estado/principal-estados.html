@@ -27,7 +27,7 @@
 		<div class="col-md-2 sidebar">
 			<ul class="nav nav-sidebar">
 				<li  ><a href="#/equipamento">Visão geral</a></li>
-				<li class="active"><a href="#/equipamento/estado">Estado do	Equipamento</a></li>
+				<li class="active"><a href="#/equipamento/estado">Situação do Equipamento</a></li>
 				<li><a href="#/equipamento/marca">Marcas</a></li>
 				<li><a href="#/equipamento/relatorio/equipamento-categoria">Relatório equipamentos por categoria</a></li>
 				<li><a href="#/relatorio/equipamentos/setor">Relatório equipamentos por setor</a></li>
@@ -36,7 +36,7 @@
 		</div>
 
 		<div class="col-md-10 col-md-offset-2 main">
-			<h1 class="page-header">Cadastro de estados do equipamento</h1>
+			<h1 class="page-header">Cadastro de situações do equipamento</h1>
 
 			<div class="row placeholders">
 				<div class="cold-md-12 placeholder">
@@ -49,7 +49,7 @@
 				<div class="col-md-4">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h1 class="panel-title">Estados do Equipamento</h1>
+							<h1 class="panel-title">Situações do equipamento cadastrado no sistema.</h1>
 						</div>
 
 						<table class="table table-striped table-bordered">
@@ -75,26 +75,23 @@
 					<form novalidate name="formulario" class="row"
 						ng-submit="submeter(estado)">
 						<fieldset>
-							<legend>Informações do estado do equipamento</legend>
+							<legend>Situação do equipamento</legend>
 							<div class="form-group">
-								<label for="estado">Estado:</label>
+								<label for="estado">Situação:</label>
 								<div class="input-group">
-									<span class="input-group-btn"><button
-											ng-click="limpar()" class="btn btn-default">
+									<span class="input-group-btn">
+									<button	ng-click="limpar()" class="btn btn-default">
 											<span class="glyphicon glyphicon-remove"></span>
-										</button> </span> <input ng-model="estado.nome" ng-maxlength="100"
-										name="estado" id="estado" class="form-control"
-										placeholder="Adicione um novo estado do equipamento ou altere os dados do estado selecionado."
-										required />
+										</button> </span> 
+										<input ng-model="estado.nome" ng-maxlength="100" name="estado" id="estado" class="form-control"	
+										placeholder="Adicione uma nova situação do equipamento ou altere os dados da situação selecionada." required />
 								</div>
 							</div>
-							<span
-								ng-show="formulario.$submited && formulario.estado.$error.required"
-								class="form-control alert-danger"> Nome da estado do
-								equipamento obrigatÃ³rio !!! </span> <span
-								ng-show="formulario.estado.$error.maxlength"
-								class="form-control alert-danger"> O Nome da estado do
-								equipamento deve ter no mÃ¡ximo 100 caracteres !!! </span>
+							<span ng-show="formulario.$submited && formulario.estado.$error.required" class="form-control alert-danger"> 
+								Nome da situação do equipamento obrigatório !!! 
+							</span>
+							 <span ng-show="formulario.estado.$error.maxlength" class="form-control alert-danger"> 
+								 O Nome da situação do equipamento deve ter no máximo 100 caracteres !!! </span>
 							<button type="submit" class="btn btn-primary"
 								ng-disabled="formulario.$invalid">
 								<span class="glyphicon glyphicon-floppy-disk"></span> Salvar
