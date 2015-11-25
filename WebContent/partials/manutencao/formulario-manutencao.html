@@ -57,12 +57,15 @@
 				</div>
 				<div class="form-group">
 					<label>Data Início Manutencão</label>
-					<input ng-model="manutencao.dataInicio" ng-maxlength="50" name="datainicio" class="form-control" />
+					<input ng-model="manutencao.dataInicio" ng-maxlength="50" name="datainicio" class="form-control"  ng-pattern="/^((0[1-9]|[12]\d)\/(0[1-9]|1[0-2])|30\/(0[13-9]|1[0-2])|31\/(0[13578]|1[02]))\/\d{4}$/" required  />
+					 <span class="form-control alert-danger"  ng-show="formulario.datainicio.$error.pattern" >Data inválida</span>
 				</div>
 				<div class="form-group">
 					<label>Data Fim Manutenção</label>
-					<input ng-model="manutencao.dataFim" ng-maxlength="50" name="datafim" class="form-control" />
+					<input ng-model="manutencao.dataFim" ng-maxlength="50" name="datafim" class="form-control" ng-pattern="/^((0[1-9]|[12]\d)\/(0[1-9]|1[0-2])|30\/(0[13-9]|1[0-2])|31\/(0[13578]|1[02]))\/\d{4}$/" />
+					<span class="form-control alert-danger"  ng-show="formulario.datafim.$error.pattern" >Data inválida</span>
 				</div>
+				<button type="button" ng-click="teste(manutencao.dataInicio,manutencao.dataFim)">teste data</button>
 				<div class="form-group">
 					<label>Equipamento</label>
 					<select  name="equipamentox" class="form-control" ng-model="manutencao.idEquipamento"  ng-change="teste()" ng-options="equipamento.id as equipamento.modelo for equipamento in equipamentos" required>

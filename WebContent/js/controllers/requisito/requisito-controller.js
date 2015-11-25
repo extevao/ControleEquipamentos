@@ -21,10 +21,10 @@ angular.module('moduloPrincipal').controller('RequisitoController', function($sc
                    $http.put('api/v1/requisito', $scope.requisito)
                    .success(function(){
                         delete $scope.requisito;
-                        $scope.mensagem = "Dados alterados com Sucesso !!!";
+                        $scope.mensagem = "Dados do requisito alterados com sucesso !!!";
                    }).error(function(erro){
                 	   console.log(erro);
-                        $scope.mensagem = "Não foi possível alterar os dados !!!";
+                        $scope.mensagem = "Não foi possível alterar os dados do requisito!!!";
                    });
                 }else{
                     $http.post('api/v1/requisito', $scope.requisito).success(function(){

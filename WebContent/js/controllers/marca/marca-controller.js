@@ -21,10 +21,10 @@ angular.module('moduloPrincipal').controller('MarcaController', function($scope,
                 if($scope.marca.id){
                    $http.put('api/v1/marca', $scope.marca)
                    .success(function(){
-                        $scope.mensagem = "Dados alterados com Sucesso !!!";
+                        $scope.mensagem = "Marca alterada com sucesso !!!";
                    }).error(function(erro){
                 	   console.log(erro);
-                        $scope.mensagem = "Não foi possível alterar a Marca !!!";
+                        $scope.mensagem = "Não foi possível alterar a marca !!!";
                    });
                 }else{
                     $http.post('api/v1/marca', $scope.marca).success(function(){

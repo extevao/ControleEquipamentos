@@ -22,17 +22,17 @@ angular.module('moduloPrincipal').controller('FuncionarioController', function($
                    $http.put('api/v1/funcionario', $scope.funcionario)
                    .success(function(){
                 	   	delete $scope.funcionario;
-                        $scope.mensagem = "Dados alterados com Sucesso !!!";
+                        $scope.mensagem = "Dados do funcionário alterados com sucesso !!!";
                    }).error(function(erro){
                 	   console.log($scope.funcionario);
-                        $scope.mensagem = "Não foi possível alterar os dados !!!";
+                        $scope.mensagem = "Não foi possível alterar os dados do funcionário!!!";
                    });
                 }else{
                     $http.post('api/v1/funcionario', $scope.funcionario).success(function(){
                     	delete $scope.funcionario;
-                    	$scope.mensagem ="Sucesso !!!";
+                    	$scope.mensagem ="Funcionário cadastrado com sucesso !!!";
                      }).error(function(erro){
-                         $scope.mensagem = "Erro  post!!!";
+                         $scope.mensagem = "Erro no cadastro do funcionário !!!";
                     });
                 }
             }

@@ -35,10 +35,10 @@
 		</div>
 
 		<div class="col-md-10 col-md-offset-2 main">
-				
+			<p ng-show="mensagem.length" class="alert alert-success">{{mensagem}}</p>	
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h1>{{usuario.login}}</h1>
+				
 				</div>
 				<div class="panel-body">
 			
@@ -112,17 +112,16 @@
 				</div>
 
 				<div class="form-group">
-					<label>Estado</label> <select name="estado" class="form-control"
+					<label>Situação</label> <select name="estado" class="form-control"
 						ng-controller="EstadosController" ng-model="equipamento.idEstado"
 						ng-options="estado.id as estado.nome for estado in estados">
-						<option value="">Selecione o Estado</option>
+						<option value="">Selecione a Situação</option>
 					</select>
 
 				</div>
 
 				<a href="#/equipamento" class="btn btn-primary">Voltar</a>
-				<button type="submit" class="btn btn-primary"
-					ng-disabled="formulario.$invalid">Salvar</button>
+				<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
 				
 
 

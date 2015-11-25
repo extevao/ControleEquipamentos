@@ -6,7 +6,7 @@ import java.util.Date;
 public class ConversorData {
 
 	public String converteDataDoMYSQL(String data) {
-		if(data == null){
+		if(data == null | data == ""){
 			
 			return null;
 		}
@@ -22,7 +22,7 @@ public class ConversorData {
 	}
 
 	public String converteDataParaMYSQL(String data) {
-		if(data == null){
+		if(data == null | data == ""){
 	
 			return null;
 		}

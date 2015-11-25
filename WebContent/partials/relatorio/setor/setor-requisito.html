@@ -1,0 +1,58 @@
+<meta charset="utf-8" />
+<header>
+	<nav class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-header">
+			<a href="#/index" class="navbar-brand">Controle de Equipamentos</a>
+			<button type="button" class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">Menu</button>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li role="presentation"><a href="#/categoria">Categoria</a></li>
+				<li role="presentation"><a href="#/equipamento">Equipamento</a></li>
+				<li role="presentation"><a href="#/funcionario">Funcionário</a></li>
+				<li role="presentation"><a href="#/manutencao">Manutenção</a></li>
+				<li role="presentation"><a href="#/requisito">Requisito</a></li>
+				<li role="presentation"  class="active" ><a href="#/setor">Setor</a></li>
+				<li role="presentation"><a href="#/status">Status</a></li>
+				<li role="presentation"><a href="#/usuario">Usuário</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li ><a href="#/setor">Visão geral</a></li>
+				<li class="active"><a href="#/setor/requisito">Requisitos dos Setores</a></li>
+			</ul>
+		</div>
+		
+		<div class="col-md-10 col-md-offset-2 main">
+			<h1 class="page-header">Relatório geral de requisito por setor</h1>
+
+		
+			<div class="panel panel-default"  ng-repeat="setor in setores">
+				<table class="table table-striped" ng-if="verifica(setor)" >
+					<tr><th>{{setor.nome}}</th></tr>
+					<tr>
+						<th>Processador</th>
+						<th>Memória RAM</th>
+						<th>HD</th>
+					</tr>
+					<tr ng-repeat="requisito in teste">
+						<td>{{requisito.processador}}</td>
+						<td>{{requisito.memoria}}</td>
+						<td>{{requisito.hd}}</td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+
+		
+
+
+	</div>
+</div>

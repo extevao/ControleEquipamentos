@@ -48,17 +48,17 @@ angular.module('moduloPrincipal').controller('ManutencaoController', function($s
                $http.put('api/v1/manutencao', manutencao)
                .success(function(){
             	   delete $scope.manutencao;
-                   $scope.mensagem = "Dados alterados com Sucesso !!!";
+                   $scope.mensagem = "Dados da manutenção alterados com sucesso !!!";
                }).error(function(erro){
             	   console.log(erro);
-                    $scope.mensagem = "Não foi possível alterar os dados !!!";
+                    $scope.mensagem = "Não foi possível alterar os dados da manutenção!!!";
                });
             }else{
                 $http.post('api/v1/manutencao', manutencao).success(function(){
                     delete $scope.manutencao;
                 	$scope.mensagem ="Manutenção cadastrada com sucesso !!!";
                  }).error(function(erro){
-                     $scope.mensagem = "Erro ao tentar gravar a manutenção";
+                     $scope.mensagem = "Erro ao tentar cadastrar a manutenção";
                 });
             }
         }
@@ -67,15 +67,18 @@ angular.module('moduloPrincipal').controller('ManutencaoController', function($s
     
       
     function validaData(dataI, dataF){
-    	var exp = /^((0[1-9]|[12]\d)\/(0[1-9]|1[0-2])|30\/(0[13-9]|1[0-2])|31\/(0[13578]|1[02]))\/\d{4}$/;
     	delete $scope.alerta;
-    	if(exp.test(dataI) & exp.test(dataF)){
-			return dataMaior(dataI, dataF);
-			
-    	}else{
-    		 $scope.alerta ="Data inválida";
-    		 return false;
+
+    		
+    		
+    	if(dataFimExis(dataF)){
+    	        	
+    		return dataMaior(dataI, dataF);
+    			
+    
     	}
+    	return true;
+    	
 	};
     
     function dataMaior(dataI, dataF){
@@ -89,5 +92,17 @@ angular.module('moduloPrincipal').controller('ManutencaoController', function($s
     	}
     };
         
+   function dataInicioExis(dataI){
+	   if(dataI == "" | dataI == undefined | dataI == null){
+		 return false;
+	   }
+	   return true;
+   };
+   function dataFimExis(dataF){
+	   if(dataF == "" | dataF == undefined | dataF == null){
+		 return false;
+	   }
+	   return true;
+   };
 
 });

@@ -20,10 +20,10 @@ angular.module('moduloPrincipal').controller('SetorController', function($scope,
                 if($scope.setor.id){
                    $http.put('api/v1/setor', $scope.requisito)
                    .success(function(){
-                        $scope.mensagem = "Dados alterados com Sucesso !!!";
+                        $scope.mensagem = "Dados do setor alterados com sucesso !!!";
                    }).error(function(erro){
                 	   console.log(erro);
-                        $scope.mensagem = "Não foi possível alterar os dados !!!";
+                        $scope.mensagem = "Não foi possível alterar os dados do setor !!!";
                    });
                 }else{
                     $http.post('api/v1/setor', $scope.setor).success(function(){

@@ -33,7 +33,7 @@ angular.module('moduloPrincipal').controller('StatusController', function($scope
 		        });
 		     }else{
 		         $http.post('api/v1/status', $scope.statuss).success(function(){
-		             $scope.mensagem ="Status cadastrada com sucesso !!!";
+		             $scope.mensagem ="Status cadastrado com sucesso !!!";
 		              $scope.listaStatus.push(angular.copy($scope.statuss));
 		             delete $scope.statuss;
 		          }).error(function(erro){

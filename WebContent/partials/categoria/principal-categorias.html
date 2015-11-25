@@ -38,9 +38,7 @@
 				<div class="cold-md-12 placeholder">
 					<p ng-show="mensagem.length" class="alert alert-success">{{mensagem}}</p>
 					<p ng-show="eu.length" class="alert alert-warning">{{eu}}</p>
-					<input ng-model="filtro" type="text" class="form-control" />
-					
-
+					<input ng-model="filtro" type="text" class="form-control" placeholder="Pesquisar"/>
 				</div>
 			</div>
 
@@ -48,13 +46,10 @@
 				<div class="col-md-6">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h2>Lista de categorias</h2>
+							Lista de categorias
 						</div>
 						<div class="panel-body">
-							<p>Lista de categorias cadastradas no sistema.</p>
-						</div>
-						<div class="table-responsive">
-							<table class="table table-striped">
+							<table class="table table-striped table-bordered">
 								<thead>
 									<tr>
 										<th>#</th>
@@ -67,8 +62,8 @@
 										<td>{{categoria.id}}</td>
 										<td>{{categoria.nome}}</td>
 										<td>
-											<button ng-click="editar(categoria)" class="btn">
-												<span class="glyphicon glyphicon-edit"></span>
+											<button ng-click="editar(categoria)" class="btn btn-primary btn-block">
+												Editar <span class="glyphicon glyphicon-edit"></span>
 											</button>
 										</td>
 									</tr>

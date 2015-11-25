@@ -122,6 +122,10 @@ angular.module('moduloPrincipal', ['ngRoute'])
 		templateUrl: 'partials/setor/formulario-setor.html',
 		controller: 'SetorController'
 	});	
+	$routeProvider.when('/setor/requisito', {
+		templateUrl: 'partials/relatorio/setor/setor-requisito.html',
+		controller: 'SetorRequisitoController'
+	});	
 	/* Status */
 	$routeProvider.when('/status', {
 		templateUrl: 'partials/status/principal-status.html',

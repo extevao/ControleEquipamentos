@@ -18,23 +18,21 @@ angular.module('moduloPrincipal').controller('EquipamentoController', function($
         }
   
         $scope.submeter = function(){
+        	
             if($scope.formulario.$valid){
                 if($scope.equipamento.id){
-                   $http.put('api/v1/equipamento', $scope.equipamento)
-                   .success(function(){
-                		
-                        $scope.mensagem = "Dados alterados com Sucesso !!!";
-                        $location.path("/equipamento");
-
+                	$http.put('api/v1/equipamento', $scope.equipamento).success(function(){	
+                	   $scope.mensagem = "Dados do equipamento alterados com sucesso !!!";
+                     
                    }).error(function(erro){
                 	   console.log(erro);
-                        $scope.mensagem = "Não foi possível alterar os dados !!!";
+                        $scope.mensagem = "Não foi possível alterar os dados do equipamento!!!";
                    });
                 }else{
                     $http.post('api/v1/equipamento', $scope.equipamento).success(function(){
                     	
                     	$scope.mensagem ="Equipamento cadastrado com sucesso !!!";
-                        $location.path("/equipamento");
+                       
                      }).error(function(erro){
                          $scope.mensagem = "Erro ao tentar gravar o equipamento";
                     });
